@@ -11,6 +11,8 @@
 
     <title>Rental Service</title>
 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -161,7 +163,58 @@
                     </div>
                 </div>
             </div>
-
+            <div class="w3-display-middle" style="width:65% ; position : relative;">
+                <div class="w3-bar w3-black">
+                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Car');"><i class="fa fa-car w3-margin-right"></i>Rental</button>
+                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Flight');"><i class="fa fa-plane w3-margin-right"></i>Flight</button>
+                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Hotel');"><i class="fa fa-bed w3-margin-right"></i>Hotel</button>
+                </div>
+                <!-- Tabs -->
+                <div id="Car" class="w3-container w3-white w3-padding-16 myLink">
+                    <h3>Best car rental in the world!</h3>
+                    <p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>
+                    <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
+                    <p><button class="w3-button w3-dark-grey">Search Availability</button></p>
+                </div>
+                <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
+                    <h3>Travel the world with us</h3>
+                    <div class="w3-row-padding" style="margin:0 -16px;">
+                        <div class="w3-half">
+                            <label>From</label>
+                            <input class="w3-input w3-border" type="text" placeholder="Departing from">
+                        </div>
+                        <div class="w3-half">
+                            <label>To</label>
+                            <input class="w3-input w3-border" type="text" placeholder="Arriving at">
+                        </div>
+                    </div>
+                    <p><button class="w3-button w3-dark-grey">Search and find dates</button></p>
+                </div>
+                <div id="Hotel" class="w3-container w3-white w3-padding-16 myLink">
+                    <h3>Find the best hotels</h3>
+                    <p>Book a hotel with us and get the best fares and promotions.</p>
+                    <p>We know hotels - we know comfort.</p>
+                    <p><button class="w3-button w3-dark-grey">Search Hotels</button></p>
+                </div>
+            </div>
+            <script>
+                // Tabs
+                function openLink(evt, linkName) {
+                    var i, x, tablinks;
+                    x = document.getElementsByClassName("myLink");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablink");
+                    for (i = 0; i < x.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+                    }
+                    document.getElementById(linkName).style.display = "block";
+                    evt.currentTarget.className += " w3-red";
+                }
+                // Click on the first tablink on load
+                document.getElementsByClassName("tablink")[0].click();
+            </script>
         </div>
         <!-- /.container -->
 
@@ -290,10 +343,19 @@
             </div>
         </div>
     </footer>
+
+    <!--<div class="detail"></div>-->
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <!--<script>
+        $(function() {
+            $('.detail').load('detail.html');
+        })
+    </script>-->
 
 </body>
 

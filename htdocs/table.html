@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Rental Service</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/table.css"></link>
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+        <img class="w3-image" src="/img/london2.jpg" alt="London" width="1500" height="700">
+        <div class="w3-display-middle" style="width:65%">
+            <div class="w3-bar w3-black">
+                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Car');"><i class="fa fa-car w3-margin-right"></i>Rental</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Flight');"><i class="fa fa-plane w3-margin-right"></i>Flight</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Hotel');"><i class="fa fa-bed w3-margin-right"></i>Hotel</button>
+            </div>
+            <!-- Tabs -->
+            <div id="Car" class="w3-container w3-white w3-padding-16 myLink">
+                <h3>Best car rental in the world!</h3>
+                <p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>
+                <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
+                <p><button class="w3-button w3-dark-grey">Search Availability</button></p>
+            </div>
+            <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
+                <h3>Travel the world with us</h3>
+                <div class="w3-row-padding" style="margin:0 -16px;">
+                    <div class="w3-half">
+                        <label>From</label>
+                        <input class="w3-input w3-border" type="text" placeholder="Departing from">
+                    </div>
+                    <div class="w3-half">
+                        <label>To</label>
+                        <input class="w3-input w3-border" type="text" placeholder="Arriving at">
+                    </div>
+                </div>
+                <p><button class="w3-button w3-dark-grey">Search and find dates</button></p>
+            </div>
+
+            <div id="Hotel" class="w3-container w3-white w3-padding-16 myLink">
+                <h3>Find the best hotels</h3>
+                <p>Book a hotel with us and get the best fares and promotions.</p>
+                <p>We know hotels - we know comfort.</p>
+                <p><button class="w3-button w3-dark-grey">Search Hotels</button></p>
+            </div>
+        </div>
+    </header>
+    <script>
+        // Tabs
+        function openLink(evt, linkName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("myLink");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+            }
+            document.getElementById(linkName).style.display = "block";
+            evt.currentTarget.className += " w3-red";
+        }
+        // Click on the first tablink on load
+        document.getElementsByClassName("tablink")[0].click();
+    </script>
+    <section class="res-form">
+        <nav>
+            <table cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td id="gaq-tab" class="gaq-rmc-tabs selected">
+                            <h2>จองรถ</h2>
+                        </td>
+                        <td id="rmc-tab" class="gaq-rmc-tabs">
+                            <h2>ดู/แก้ไข/ยกเลิกการจอง</h2>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </nav>
+
+        <div id="error-list"></div>
+        <section id="gaq-section" class="section">
+            <form method="post" id="res-form" name="resForm">
+                <div class="location-dates-arrival">
+                    <div class="location clearfix">
+                        <figure class="icons-num1">&nbsp;</figure>
+                        <article>
+
+                            <div id="itn-location">
+
+                                <div>
+                                    <h3>สาขาที่รับรถ</h3>&nbsp;
+                                    <span>(รหัสเมือง รัฐ หรือสนามบิน)</span>
+                                </div>
+
+
+                                <div class="clearfix">
+                                    <div class="fts"><input type="text" class="ww-input" id="pickup-location" name="pickupLocation" autocorrect="off" autocomplete="off" value=""></div>
+                                    <div id="delivery-infolink" class="dnc-link hidden "><span class="icons-info_sm" onclick="">&nbsp;</span></div>
+                                    <div id="pickup-geo-loc" class="icons-location" onclick="">&nbsp;</div>
+                                </div>
+                                <a class="find-location" href="#">ช่วยฉันค้นหาสถานที่ตั้ง</a>
+
+                                <div class="one-way-cont clearfix">
+                                    <input id="one-way" name="returnAtDifferentLocationCheckbox" type="checkbox">
+                                    <label class="checkbox" for="one-way">
+			
+				คืนรถที่สาขาอื่นของเฮิรทซ์									
+			
+			<span id="one-way-info" class="icons-info_sm" onclick="">&nbsp;</span>
+		</label>
+                                </div>
+
+                                <div id="return-loc" class="hidden">
+
+                                    <div>
+                                        <h3>สาขาที่คืนรถ</h3>&nbsp;
+                                        <span>(รหัสเมือง รัฐ หรือสนามบิน)</span>
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="fts">
+                                            <input type="text" class="ww-input" id="dropoff-location" name="dropoffLocation" autocorrect="off" autocomplete="off" value="">
+                                        </div>
+                                        <div id="collection-infolink" class="dnc-link  hidden "><span class="icons-info_sm" onclick="">&nbsp;</span></div>
+                                        <div id="dropoff-geo-loc" class="icons-location" onclick="">&nbsp;</div>
+                                    </div>
+                                    <a class="find-location" href="#">ช่วยฉันค้นหาสถานที่ตั้ง</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="date-time clearfix">
+                        <figure class="icons-num2">&nbsp;</figure>
+                        <article id="itn-date-time">
+                            <div class="pickup-date">
+                                <div>
+                                    <h3>วันที่และเวลารับรถ:</h3>
+                                </div>
+                                <div id="pickup-container" class="clearfix">
+                                    <div id="pickup-date-box" class="date">
+                                        <div class="value">&nbsp;</div>
+                                        <div class="date-cal">
+                                            <div class="icons-calendar">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                    <div id="pickup-time" class="time-box"><select name="pickupTime"><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option selected="selected" value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option></select></div>
+                                </div>
+                            </div>
+                            <div class="dropoff-date">
+                                <div class="date-header">
+                                    <h3>วันที่และเวลาคืนรถ:</h3>
+                                </div>
+                                <div id="dropoff-container" class="clearfix">
+                                    <div id="dropoff-date-box" class="date">
+                                        <div class="value">&nbsp;</div>
+                                        <div class="date-cal">
+                                            <div class="icons-calendar">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                    <div id="dropoff-time" class="time-box"><select name="dropoffTime"><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option selected="selected" value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option></select></div>
+                                </div>
+                            </div>
+
+                            <input id="pickup-date" name="pickupDay" value="" type="hidden">
+                            <input id="dropoff-date" name="dropoffDay" value="" type="hidden">
+                        </article>
+                    </div>
+                    <div id="itn-age">
+                        <br>
+                        <div class="clearfix">
+                            <figure class="icons-num3">&nbsp;</figure>
+                            <article id="itn-age-info">
+                                <div><strong>อายุของคุณในช่วงเวลาของการรับรถ * </strong><span id="age-info-link" class="icons-info_sm" onclick="">&nbsp;</span></div>
+                                <div id="age-dropdown">
+                                    <select id="ageSelector" name="ageSelector">
+			<option value="">อายุของคุณในช่วงเวลาของการรับรถ * </option>
+			
+				
+					<option value="70">
+						70+ **
+					</option>
+				
+					<option value="30">
+						30-69
+					</option>
+				
+					<option value="29">
+						29
+					</option>
+				
+					<option value="28">
+						28
+					</option>
+				
+					<option value="27">
+						27
+					</option>
+				
+					<option value="26">
+						26
+					</option>
+				
+					<option value="25">
+						25
+					</option>
+				
+					<option value="24">
+						24
+					</option>
+				
+					<option value="23">
+						23
+					</option>
+				
+					<option value="22">
+						22
+					</option>
+				
+					<option value="21">
+						21
+					</option>
+				
+					<option value="20">
+						20
+					</option>
+				
+					<option value="19">
+						19
+					</option>
+				
+					<option value="18">
+						18
+					</option>
+				
+			
+		</select>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+                <div id="itn-vehicle-type">
+                    <div class="row">
+                        <div><strong>ประเภทรถที่เช่า:</strong><span id="fleet-info" class="icons-info_sm" onclick="">&nbsp;</span></div>
+
+                        <div id="car-type-display" class="clearfix">
+                            <span class="value">แสดงทั้งหมด</span>
+                            <span class="icon icons-ft_arrow_down"></span>
+                        </div>
+
+                        <select id="car-type" name="selectedCarType">
+			
+				
+					<option value="ACAR" selected="selected">
+						แสดงทั้งหมด
+					</option>
+				
+					<option value="AGRN">
+						Green Traveler Collection
+					</option>
+				
+					<option value="AHPC">
+						Prestige Collection
+					</option>
+				
+					<option value="AFUN">
+						Fun Collection
+					</option>
+				
+					<option value="AFMY">
+						Family Collection
+					</option>
+				
+			
+		</select>
+                    </div>
+                </div>
+
+
+                <div id="itn-discounts">
+                    <div id="discount-slideout" class="click-indicator" onclick="">
+                        <div class="link-indicator">
+                            <span id="expand_collapse_discounts" class="icons-expand_icon">&nbsp;</span>
+                            <span>ฉันมีรหัสส่วนลดที่ (CDP, PC, ฯลฯ )</span>
+                        </div>
+                    </div>
+
+                    <div id="discounts-section">
+                        <div class="row ">
+                            <div class="discount-cont">
+                                <div class="discount clearfix">
+                                    <input id="discounts" name="checkDiscount" type="checkbox">
+                                    <label class="checkbox" for="discounts">
+						ฉันมีรหัสส่วนลดที่ (CDP, PC, ฯลฯ )
+						<span id="discount-info" class="icons-info_sm" onclick="">&nbsp;</span>
+					</label>
+                                </div>
+                            </div>
+                            <div id="affiliations" class="hidden" style="display: none;">
+
+                                <div id="cdp" class="discount-row clearfix ">
+
+
+                                    <label class="clearfix">
+								<span>ส่วนลด/CDP/รหัสคลับ:</span>
+								<input type="text" class="stretch" id="cdp-textfield" name="cdpField" value="">
+							</label>
+
+
+                                </div>
+                                <div id="cdp-options-business" class="hidden">
+                                    <p>ฉันจองการเดินทางนี้เพื่อ</p>
+                                    <div class="cdp-options-indent">
+                                        <div class="cdp-options-field-container">
+                                            <label class="radio">
+								<input type="radio" name="trip-type" id="business-cdp-indicator" value="business">
+								ติดต่อธุรกิจ
+							</label>
+                                        </div>
+                                        <div class="cdp-options-field-container">
+                                            <label class="radio">
+								<input type="radio" name="trip-type" id="leisure-cdp-indicator" value="leisure">
+								ท่องเที่ยว
+							</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="hidden">
+
+                                    <div class="corp-gov"> ฉันเป็นลูกค้าองค์กร/ราชการ...</div>
+                                    <label class="checkbox">
+							<input type="checkbox" id="corp-rate" name="corporateRate">
+							ให้ราคาตามโปรแกรมที่บริษัทของฉันเจรจาไว้
+						</label>
+                                    <label class="checkbox">
+							<input type="checkbox" id="official-travel" name="officialTravel">
+							
+								ลูกค้าของฉันกำลังเดินทางเพื่อติดต่อธุรกิจอย่างเป็นทางการ
+						   	
+						</label>
+                                    <div><span>ลูกค้าองค์กร: โปรดติดต่อแผนกการเดินทางของคุณเพื่อดูเงื่อนไขการให้บริการสำหรับการเดินทางส่วนตัว</span></div>
+
+                                </div>
+                                <div id="non-cdp-discounts">
+                                    <div id="pc" class="discount-row    ">
+                                        <label class="clearfix">
+							<span>คูปองโปรโมชั่น (PC):</span>
+							<input type="text" name="pcNumber" class="stretch" value="">
+						</label>
+                                    </div>
+
+                                    <div id="rq-cv-it" class="">
+                                        <div class="discount-row  ">
+                                            <label class="clearfix">
+								<span>รหัสราคา (RQ):</span>
+								<input type="text" class="stretch" id="type-in-rq" name="typeInRateQuote" value="" maxlength="6">
+							</label>
+                                        </div>
+
+                                        <div class="discount-row  ">
+                                            <label class="clearfix">
+									<span>
+										
+											หมายเลขการประชุม (CV):
+										
+									</span>
+									<input type="text" name="cvNumber" value="" class="stretch">
+								</label>
+                                        </div>
+
+                                        <div class="discount-row   ">
+                                            <label class="clearfix">
+								<span>หมายเลขบัตรกำนัล (IT):</span>
+								<input type="text" name="itNumber" value="" class="stretch">
+							</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="res-submit-btns">
+                    <div class="clearfix">
+                        <div class="home-btn-group prepend-top">
+
+                            <div class="button"><button type="button" class="login-submit primary append-bottom">จองโดยสมาชิก</button></div>
+                            <div class="button"><button type="button" class="res-submit secondary">จองโดยลูกค้า  </button></div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div id="hp-overlays" class="hidden"></div>
+        </section>
+        <section id="rmc-section" class="section hidden">
+            <div>
+
+                <div id="modify-error" class="error hidden"></div>
+                <div>
+                    <label>หมายเลขการยืนยัน:<span class="required">*</span></label>
+                    <input type="text" id="conf-num" name="confirmationNumber" value="">
+                    <div class="add">และ!</div>
+                    <label>นามสกุล:<span class="required">*</span></label>
+                    <input type="text" id="conf-last-name" name="lastName" value="">
+                </div>
+                <hr>
+                <div id="nonmember-res-search" class="button"><button type="button" class="res-search primary" disabled=""><span>ดำเนินการต่อ</span></button></div>
+
+            </div>
+        </section>
+    </section>
+
+
+</body>
+
+</html>
