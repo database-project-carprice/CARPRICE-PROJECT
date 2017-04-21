@@ -1,6 +1,11 @@
 <?php
 
     session_start();
+    if(@$_GET['action'] == 'logout') {
+        session_destroy();
+        header('Location: ?success');
+        die();
+    }
     if($_POST) {
         include "dbcon.php";
         $username = $_POST['username'];
@@ -13,13 +18,20 @@
 
         if($num_row == 1) {
             echo 'success';
+            $_SESSION['login'] = $username;
         }
 
         else {
             echo 'failed';
         }
         die();
+        
+
     }
+    if(!empty($_SESSION['login'])) {
+            echo 'login as '.$_SESSION['login'].'<a href="?action=logout">[logout]</a>';
+            die();
+        }
 ?>
     <!doctype html>
     <html>
