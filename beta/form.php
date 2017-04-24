@@ -1,80 +1,5 @@
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Workshop 10-2</title>
-<style>
-	*:not(h3) {
-		font: 14px tahoma;
-	}
-	body {
-		background: url(bg.jpg);
-		text-align: center;
-		min-width: 500px;
-	}
-	fieldset {
-		width: 360px;
-		margin: auto;
-		background: #def;
-		border-radius: 4px
-	}
-	legend {
-		text-align: left;
-		font-size: 18px;
-		color: navy;
-	}
-	form {
-		text-align: left;
-	}	
-	label {
-		display: inline-block;
-		width: 60px;
-		text-align: right;
-	}
-	label.float {
-		float: left;
-		margin-right: 4px !important;
-	}
-	input, select {
-		width: 250px;
-	}
-	textarea {
-		float: left;
-		width: 250px;
-		height: 40px;
-		resize: none;
-		overflow: auto;
-	}
-	input, textarea, select {
-		background: #ffc;
-		border: solid 1px gray;
-		margin: 3px;
-		padding: 3px;
-		border-radius: 2px;	
-	}
-	button {
-		background: steelblue;
-		color: white;
-		border:solid 1px orange;
-		border-radius: 3px;
-		padding: 3px 20px;
-		margin-left: 10px;
-	}
-	[readonly] {
-		width: 100px;
-		background: #ccc;
-		border-color: #999;
-		color: gray;
-	}
-	br.clear {
-		clear: left;
-	}
-	h3, p {
-		text-align: center;
-	}
-</style>
-</head>
-
 <body>
 <?php
 $link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
@@ -136,28 +61,32 @@ function back() {
 }
 mysqli_close($link);
 ?>
-<fieldset><legend><?php echo $h; ?></legend>
+<h3><?php echo $h; ?></h3>
 <form method="post">
 		
 		<label>id</label>
-		<input type="text" name="id" value="<?php echo $data['id']; ?>" placeholder="ไม่ต้องระบุ" readonly><br>
+		<input type="text" name="id" value="<?php echo @$data['id']; ?>" placeholder="auto" ><br>
         
 		<label>name</label>
-       <input type="text" name="name" value="<?php echo $data['name']; ?>"><br>
+       <input type="text" name="name" value="<?php echo @$data['name']; ?>"><br>
 	
-    	<label class="float">address</label>
-       	<textarea name="address"><?php echo $data['address']; ?></textarea><br class="clear">
+    	<!--<label class="float">address</label>
+       	<textarea name="address"><?php echo @$data['address']; ?></textarea><br class="clear">-->
         
- 		<label>email</label>
-      	<input type="email" name="email" value="<?php echo $data['email']; ?>"><br>
+ 		<!--<label>email</label>
+      	<input type="email" name="email" value="<?php echo @$data['email']; ?>"><br>-->
         
-		<label>birthday</label>
-       	<input type="date" name="birthday" value="<?php echo $data['birthday']; ?>"> <br><br>
+		<!--<label>birthday</label>
+       	<input type="date" name="birthday" value="<?php echo @$data['birthday']; ?>"> <br><br>-->
+
+		<label>password</label>
+		<input type="password" name="password" value="<?php echo @$data['password']; ?>"><br>
+
         
        <label>&nbsp;</label><button>ส่งข้อมูล</button>
        
        &nbsp;&nbsp;<a href="index.php">ย้อนกลับ</a>
 </form>
-</fieldset>
+
 </body>
 </html>

@@ -36,7 +36,7 @@ echo "</tr>";
 
 while($data = mysqli_fetch_array($result)) {
 	echo  "<tr>";
-	// echo '<td><input type="checkbox" name="id[]" value="'.$data['id'].'"></td>';
+	echo '<td><input type="checkbox" name="id[]" value="'.$data['id'].'"></td>';
 	echo "<td>
 				<a href=\"form.php?action=update&id={$data['id']}\">แก้ไข</a> |
 				<a href=\"form.php?action=delete&id={$data['id']}\">ลบ</a>
