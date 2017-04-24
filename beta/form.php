@@ -77,7 +77,7 @@
 
 <body>
 <?php
-$link = @mysqli_connect("localhost", "root", "abc456", "pmj")
+$link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
  			or die(mysqli_connect_error()."</body></html>");
 
 //ถ้าเป็นการ Postback เพื่อส่งข้อมูลจากฟอร์มกลับเข้ามา
@@ -89,7 +89,7 @@ if(isset($_POST['id'])) {
 	$values = "'" . $values . "'";
 	
 	//นำข้อมูลนั้นมาสร้างเป็น SQL ในแบบคำสั่ง REPALCE
-	$sql = "REPLACE INTO people VALUES($values)";
+	$sql = "REPLACE INTO customer VALUES($values)";
 	$replace = mysqli_query($link, $sql);
 	if(!$replace) {
 		echo mysqli_error($link);
@@ -112,7 +112,7 @@ if(isset($_GET['action'])) {
 	//ถ้าเป็นการลบ ก็นำค่า id ไปกำหนดเป็นเงื่อนไขการลบ
 	else if($action == "delete") {
 		$id = $_GET['id'];
-		$delete = mysqli_query($link, "DELETE FROM people WHERE id = $id");
+		$delete = mysqli_query($link, "DELETE FROM customer WHERE id = $id");
 		if(!$delete) {
 			echo mysqli_error($link);
 		}
@@ -125,7 +125,7 @@ if(isset($_GET['action'])) {
 	else if($action == "update") {		
 		$id = $_GET['id'];
 		$h = "แก้ไขข้อมูล";
-		$result = mysqli_query($link, "SELECT * FROM people WHERE id = $id");
+		$result = mysqli_query($link, "SELECT * FROM customer WHERE id = $id");
 		$data = mysqli_fetch_array($result);
 	}
 }
