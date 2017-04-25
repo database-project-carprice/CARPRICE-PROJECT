@@ -64,8 +64,8 @@ mysqli_close($link);
 <h3><?php echo $h; ?></h3>
 <form method="post">
 		
-		<label>id</label>
-		<input type="text" name="id" value="<?php echo @$data['id']; ?>" placeholder="auto" ><br>
+		<label hidden>id</label>
+		<input type="text" name="id" value="<?php echo @$data['id']; ?>" placeholder="auto" readonly hidden><br>
         
 		<label>name</label>
        <input type="text" name="name" value="<?php echo @$data['name']; ?>"><br>
