@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="css/landing-page.css"></link>
@@ -49,7 +49,7 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="/selectcar.html">Select Car</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -151,7 +151,7 @@
                                 <a href="#" class="btn btn-default btn-lg"><i class="fa fa-map-marker"></i> <span class="network-name">Picking up point</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-thumbs-up"></i> <span class="network-name">Select your rides</span></a>
+                                <a href="../selectcar/index.html" class="btn btn-default btn-lg"><i class="fa fa-thumbs-up"></i> <span class="network-name">Select your rides</span></a>
                             </li>
                             <li>
                                 <a href="#" class="btn btn-default btn-lg"><i class="fa fa-calendar"></i> <span class="network-name">Pick up date</span></a>
@@ -165,18 +165,17 @@
             </div>
             <div class="w3-display-middle" style="width:65% ; position : relative;">
                 <div class="w3-bar w3-black">
-                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Car');"><i class="fa fa-car w3-margin-right"></i>Rental</button>
-                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Flight');"><i class="fa fa-plane w3-margin-right"></i>Flight</button>
-                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Hotel');"><i class="fa fa-bed w3-margin-right"></i>Hotel</button>
+                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Car');"><i class="fa fa-map-marker w3-margin-right"></i>Pickup Point</button>
+                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Date');"><i class="fa fa-calendar w3-margin-right"></i>Date</button>
                 </div>
                 <!-- Tabs -->
                 <div id="Car" class="w3-container w3-white w3-padding-16 myLink">
-                    <h3>Best car rental in the world!</h3>
-                    <p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>
+                    <h3>Best car rental service!</h3>
+                    <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
                     <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
                     <p><button class="w3-button w3-dark-grey">Search Availability</button></p>
                 </div>
-                <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
+                <div id="Date" class="w3-container w3-white w3-padding-16 myLink">
                     <h3>Travel the world with us</h3>
                     <div class="w3-row-padding" style="margin:0 -16px;">
                         <div class="w3-half">
@@ -189,12 +188,6 @@
                         </div>
                     </div>
                     <p><button class="w3-button w3-dark-grey">Search and find dates</button></p>
-                </div>
-                <div id="Hotel" class="w3-container w3-white w3-padding-16 myLink">
-                    <h3>Find the best hotels</h3>
-                    <p>Book a hotel with us and get the best fares and promotions.</p>
-                    <p>We know hotels - we know comfort.</p>
-                    <p><button class="w3-button w3-dark-grey">Search Hotels</button></p>
                 </div>
             </div>
             <script>
@@ -278,7 +271,7 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Our service support any country<br>in the world</br>
                     </h2>
-                    <p class="lead">We have local company in most of country<br>In some country we contact local rental company to support service and not include charge</br>
+                    <p class="lead">We have local companies in most of every country,<br>In some country we contact local rental company to support service and not include charge</br>
                     </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
