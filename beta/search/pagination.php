@@ -1,5 +1,5 @@
 <?php
-/* pagination.php - Banchar Paseelatesang - banchar_pa@yahoo.com - All rights reserved */
+
 $_previous_text = "หน้าที่แล้ว";
 $_next_text = "หน้าถัดไป";
 $_first_text = "หน้าแรก";
@@ -19,7 +19,7 @@ $_rand=0;
 $_qrystr = "";
 parse_str($_SERVER['QUERY_STRING'], $_qrystr);
 	
-if($_GET['page'] && is_numeric($_GET['page'])) {
+if(@$_GET['page'] && is_numeric(@$_GET['page'])) {
 	$_current_page = intval($_GET['page']);
 	if($_current_page == 0) {
 		$_current_page = 1;

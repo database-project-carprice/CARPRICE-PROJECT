@@ -2,86 +2,14 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Workshop 12-1</title>
-<style>
-	*:not(h3) {
-		font: 14px tahoma;
-	}
-	body {
-		background: url(bg.jpg);
-		text-align: center;
-		margin-top: 20px;
-		min-width: 600px;
-	}
-	form {
-		width: 550px;
-		text-align: left;
-		margin: auto;
-		background: #cdc;
-	}
-	div {
-		background: #dd9;
-		padding: 3px 0px;
-	}
-	div#top {
-		border-bottom: solid 1px #999;
-		font-size: 16px;
-		color: green;
-		margin-bottom: 10px;
-		padding: 5px;
-		border-radius: 4px 4px 0px 0px;
-	}
-	div#bottom {
-		display: inline-block;
-		border-top: solid 1px #999;
-		margin-top: 10px;
-		width: 100%;
-		border-radius: 0px 0px 4px 4px;
-		padding: 5px 0px;
-	}
-	img {
-		margin: 3px 3px 3px 20px;
-	}
-	input, textarea {
-		background: #ffd;
-		border: solid 1px gray;
-		border-radius: 3px;
-		padding: 3px;
-		margin: 3px 3px 3px 20px;
-	}
-	input {
-		width: 500px;
-	}
-	textarea {
-		width: 500px;
-		height: 80px;
-		resize: none;
-		overflow: auto;
-	}
-	button {
-		background: steelblue;
-		color: white;
-		border:solid 1px orange;
-		border-radius: 3px;
-		padding: 1px 10px;
-	}
-	button#back {
-		margin-left: 5px;
-	}
-	button#submit {
-		float: right;
-		margin-right: 5px;
-	}
-	br.clear {
-		clear: right;
-	}
-</style>
+
+
 </head>
 
 <body>
 <?php
 if($_POST) {
- 	$link = @mysqli_connect("localhost", "root", "abc456", "pmj")
+ 	$link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
  				or die(mysqli_connect_error()."</body></html>");
 				
 	$title = $_POST['title'];

@@ -99,20 +99,20 @@
 <body>
 <header>
 <div id="top">
-	<h3>DeveloperThai.com</h3>
+	<h3>Tarvelogo.com</h3>
     <form method="get">
-		<input type="text" name="q" maxlength="30" value="<?php echo stripslashes($_GET['q']); ?>" required>
-        <button>ค้นหา</button>
+		<input type="text" name="q" maxlength="30" value="<?php echo stripslashes(@$_GET['q']); ?>" required>
+        <button>Search</button>
  	</form>
 </div>
 </header>
 <article>
 <div id="content">
 <?php
-if($_GET['q']) {
+if(@$_GET['q']) {
 	include "pagination.php";
 	
-	$link = @mysqli_connect("localhost", "root", "abc456", "pmj")
+	$link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
  				or die(mysqli_connect_error()."</body></html>");
 	
 	$q =  trim($_GET['q']);
