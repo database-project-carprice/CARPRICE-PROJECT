@@ -1,17 +1,18 @@
 <?php
 
     session_start();
-    if(@$_GET['action'] == 'logout') {
+     if(@$_GET['action'] == 'logout') {
         session_destroy();
-        header('Location: ?success');
+        header('Location: login.php');
         die();
     }
+    
     if($_POST) {
         include "dbcon.php";
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT id, name FROM customer WHERE name = '$username' AND password = '$password'";
+        $sql = "SELECT id, name ,lastname FROM customer WHERE name = '$username' AND password = '$password'";
 
         $results = mysqli_query($link,$sql);
         $num_row = mysqli_num_rows($results);
@@ -27,31 +28,27 @@
         // die();
 
         if($num_row == 1) {
-            $_SESSION['login'] = $username;
-            header('Location: index.php');
             while ($data = mysqli_fetch_array($results)) {
-                echo $data['name'];
+                $_SESSION['name'] = $data['name'];
+                $_SESSION['lastname'] = $data['lastname'];
             }
+            header("Location: index.php");
             die();
         }
-        
-        
-        
-
     }
     if(!empty($_SESSION['login'])) {
             echo 'login as '.$_SESSION['login'].'<a href="?action=logout">[logout]</a>';
             die();
-        }
+    }
 ?>
     <!doctype html>
     <html>
     <body>
         
-        <form action method="post">
+        <form href="?action=login" action method="post">
             <input type="text" name="username" placeholder="Username" />
             <input type="password" name="password" placeholder="Password" />
-            <input type="submit" name="login" value="login" />
+            <input type="submit" name="login" value="Login!"  />
         </form>
     </body>
 </html>
