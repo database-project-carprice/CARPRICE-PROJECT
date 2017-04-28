@@ -25,7 +25,7 @@
         <link href="../css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" type="text/css" href="../css/landing-page.css"></link>
+        <link rel="stylesheet" type="text/css" href="../css/landing-page.css">
 
         <!-- Custom Fonts -->
         <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -42,7 +42,6 @@
     </head>
 
     <body>
-        <html>
         <!--Nav-->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
@@ -85,7 +84,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="intro-message">
+                        <div class="intro-message" style = "vertical-align: middle;">
                             <h1 style="font-weight: 500;">Welcome to our page</h1>
                             <h3 style="font-weight: 500;">Bring freedom and your smile from my service</h3>
                             <hr class="intro-divider">
