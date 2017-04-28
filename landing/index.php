@@ -62,7 +62,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="" class="dropdown-toggle" id="profile" data-toggle="dropdown"><?php echo $_SESSION['name']."   " ?> <?php echo $_SESSION['lastname']."   " ?><span class="caret"></span></a>
+                    <a href="" class="dropdown-toggle" id="profile" data-toggle="dropdown"><?php echo $_SESSION['name']."  "; ?>  <?php echo $_SESSION['lastname']."   "; ?><span class="caret"></span></a>
                     <ul class="dropdown-menu dropdown-lr animated fadein" role="menu">
                         <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
                         <li role="presentation"><a role="menuitem" href="#">History</a></li>
