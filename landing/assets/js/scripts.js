@@ -10,6 +10,7 @@ jQuery(document).ready(function() {
     */
     $('.login-form input[type="text"], .login-form input[type="password"], .login-form textarea').on('focus', function() {
         $(this).removeClass('input-error');
+        console.log("first");
     });
 
     $('.login-form').on('submit', function(e) {
@@ -18,8 +19,10 @@ jQuery(document).ready(function() {
             if ($(this).val() == "") {
                 e.preventDefault();
                 $(this).addClass('input-error');
+                console.log('up');
             } else {
                 $(this).removeClass('input-error');
+                console.log('down');
             }
         });
 
