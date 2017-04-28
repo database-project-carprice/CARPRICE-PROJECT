@@ -1,4 +1,4 @@
-<?php
+ <?php
     session_start();
    if(@$_GET['action'] == 'logout') {
         session_destroy();
@@ -87,7 +87,7 @@
                         <h1>Welcome to our page</h1>
                         <h3>Bring freedom and your smile from my service</h3>
                         <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
+                        <!--<ul class="list-inline intro-social-buttons">
                             <li>
                                 <a href="#" class="btn btn-default btn-lg"><i class="fa fa-map-marker"></i> <span class="network-name">Picking up point</span></a>
                             </li>
@@ -100,55 +100,47 @@
                             <li>
                                 <a href="#" class="btn btn-default btn-lg"><i class="fa fa-user-plus"></i> <span class="network-name">Sign up</span></a>
                             </li>
-                        </ul>
+                        </ul>-->
+                        <div style="width:65% ; position : relative; margin-left: auto;margin-right: auto;">
+                            <div class="w3-bar w3-black">
+                                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Car');"><i class="fa fa-map-marker w3-margin-right"></i>Pickup Point</button>
+                                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Date');"><i class="fa fa-calendar w3-margin-right"></i>Date</button>
+                            </div>
+                        <!-- Tabs -->
+                            <div id="Car" class="w3-container w3-white w3-padding-16 myLink tab-size">
+                                <div class "content-center">
+                                    <h3>Best car rental service!</h3>
+                                    <h2>1.) City , Place , hotel </h2>
+                                    <div class="form-group">
+                                        <label>Languages</label>
+                                        <input class="form-control autocomplete" placeholder="Enter A" />
+                                    </div>
+
+                                    <h2>2.) Date </h2>
+                                    <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
+
+                                    <p><button class="w3-button w3-dark-grey">Search Availability</button></p>
+                                </div>
+                            </div>
+                            <div id="Date" class="w3-container w3-white w3-padding-16 myLink tab-size">
+                                <h3>Travel the world with us</h3>
+                                <div class="w3-row-padding" style="margin:0 -16px;">
+                                    <div class="w3-half">
+                                        <label>From</label>
+                                        <input class="w3-input w3-border" type="text" placeholder="Departing from">
+                                    </div>
+                                    <div class="w3-half">
+                                        <label>To</label>
+                                        <input class="w3-input w3-border" type="text" placeholder="Arriving at">
+                                    </div>
+                                </div>
+                                <p><button class="w3-button w3-dark-grey">Search and find dates</button></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="w3-display-middle" style="width:65% ; position : relative;">
-                <div class="w3-bar w3-black">
-                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Car');"><i class="fa fa-map-marker w3-margin-right"></i>Pickup Point</button>
-                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Date');"><i class="fa fa-calendar w3-margin-right"></i>Date</button>
-                </div>
-                <!-- Tabs -->
-                <div id="Car" class="w3-container w3-white w3-padding-16 myLink">
-                    <h3>Best car rental service!</h3>
-                    <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
-                    <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
-                    <p><button class="w3-button w3-dark-grey">Search Availability</button></p>
-                </div>
-                <div id="Date" class="w3-container w3-white w3-padding-16 myLink">
-                    <h3>Travel the world with us</h3>
-                    <div class="w3-row-padding" style="margin:0 -16px;">
-                        <div class="w3-half">
-                            <label>From</label>
-                            <input class="w3-input w3-border" type="text" placeholder="Departing from">
-                        </div>
-                        <div class="w3-half">
-                            <label>To</label>
-                            <input class="w3-input w3-border" type="text" placeholder="Arriving at">
-                        </div>
-                    </div>
-                    <p><button class="w3-button w3-dark-grey">Search and find dates</button></p>
-                </div>
-            </div>
-            <script>
-                // Tabs
-                function openLink(evt, linkName) {
-                    var i, x, tablinks;
-                    x = document.getElementsByClassName("myLink");
-                    for (i = 0; i < x.length; i++) {
-                        x[i].style.display = "none";
-                    }
-                    tablinks = document.getElementsByClassName("tablink");
-                    for (i = 0; i < x.length; i++) {
-                        tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-                    }
-                    document.getElementById(linkName).style.display = "block";
-                    evt.currentTarget.className += " w3-red";
-                }
-                // Click on the first tablink on load
-                document.getElementsByClassName("tablink")[0].click();
-            </script>
+            
         </div>
         <!-- /.container -->
 
@@ -290,6 +282,24 @@
             $('.detail').load('detail.html');
         })
     </script>-->
+     <script>
+        // Tabs
+        function openLink(evt, linkName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("myLink");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+            }
+            document.getElementById(linkName).style.display = "block";
+            evt.currentTarget.className += " w3-red";
+        }
+        // Click on the first tablink on load
+        document.getElementsByClassName("tablink")[0].click();
+    </script>
 
 </body>
 
