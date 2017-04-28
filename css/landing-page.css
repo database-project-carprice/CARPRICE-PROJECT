@@ -18,7 +18,7 @@ h4,
 h5,
 h6 {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 700;
+    font-weight: 300;
 }
 
 .topnav {
@@ -44,7 +44,7 @@ h6 {
 
 .intro-message {
     position: relative;
-    padding-top: 17%;
+    padding-top: 9%;
     padding-bottom: 17%;
     height: 60%
 }
