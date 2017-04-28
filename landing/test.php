@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Register</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -40,8 +39,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 text" style="color :black;">
-                        <div style="font-size:3em;"><i class="fa fa-car"></i><br></div>
-                        <h1 style="color :black; font-size:3em;"><strong> Rental Service</strong></h1>
+
+                        <h1 style="color :black; font-size:3em;"><strong>Register</strong></h1>
                         <div class=" description ">
                             <!--<p>
                                 This is a free responsive login form made with Bootstrap. Download it on <a href="http://azmind.com "><strong>AZMIND</strong></a>, customize and use it as you like!
@@ -51,38 +50,19 @@
                 </div>
                 <div class="row ">
                     <div class="col-sm-6 col-sm-offset-3 form-box ">
-                        <div class="form-top ">
-                            <div class="form-top-left ">
-                                <h3>Login to our site</h3>
-                                <p>Enter your username and password</p>
-                                <?php if(@$_GET["login"] == "fail") echo '<font color="red">Invalid username or password.</font>'; ?>
-                            </div>
-                            <div class="form-top-right ">
-                                <i class="fa fa-lock "></i>
-                            </div>
-                        </div>
+
+                        <h3>Sucess!</h3>
+
                         <div class="form-bottom ">
-                            <form role="form " action="loginprocess.php" method="post" class="login-form">
-                                <div class="form-group ">
-                                    <label class="sr-only " for="form-username ">Username</label>
-                                    <input type="text" autocomplete="off" name="username" placeholder="Username" class="form-username form-control " id="form-username ">
-                                </div>
-                                <div class="form-group ">
-                                    <label class="sr-only " for="form-password ">Password</label>
-                                    <input type="password" name="password" placeholder="Password" class="form-password form-control " id="form-password ">
-                                </div>
-                                <button type="submit " class="btn ">Sign in!</button>
-                                <div align="center">
-                                <a href="regis.html">
-                                    <u>Register</u></a>
+                            <div align="center">
+                                <a href="login.php"><u>Try to login.</u></a>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="row ">
+                <!--<div class="row ">
                     <div class="col-sm-6 col-sm-offset-3 social-login ">
-                        
+                        <h3>...or login with:</h3>
                         <div class="social-login-buttons ">
                             <a class="btn btn-link-2 " href="# ">
                                 <i class="fa fa-facebook "></i> Facebook
@@ -95,7 +75,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
 
@@ -107,7 +87,6 @@
     <script src="assets/bootstrap/js/bootstrap.min.js "></script>
     <script src="assets/js/jquery.backstretch.min.js "></script>
     <script src="assets/js/scripts.js "></script>
-    
 
     <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js "></script>
