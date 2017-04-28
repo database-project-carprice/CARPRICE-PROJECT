@@ -124,7 +124,7 @@
                                         <button class="w3-button w3-dark-grey" style="margin-top : 2%">Search Date</button>
                                     </div>
                                 </div>
-                                <div id="Date" class="w3-container w3-white w3-padding-16 myLink tab-size">
+                                <div id="Date" class="w3-container w3-white w3-padding-16 myLink tab-size" >
                                     <div class="w3-row-padding" style="margin:0 -16px;">
                                         <h3>Travel the world with us</h3>
                                         <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
@@ -145,10 +145,10 @@
                                         <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
                                         <div style="margin-top :3%">
                                             <div class="col-md-6 offset-md-2">
-                                                <input class="w3-input w3-border" type="text" placeholder="Start time">
+                                                <input class="w3-input w3-border" type="text" name="stime" placeholder="Start time">
                                             </div>
                                             <div class="col-md-6 offset-md-2">
-                                                <input class="w3-input w3-border" type="text" placeholder="End time">
+                                                <input class="w3-input w3-border" type="text" name="etime" placeholder="End time">
                                             </div>
                                         </div>
                                         <button class="w3-button w3-dark-grey" style="margin-top : 2%">Search for car</button>
@@ -303,6 +303,7 @@
         <script>
             // Tabs
             function openLink(evt, linkName) {
+                
                 var i, x, tablinks;
                 x = document.getElementsByClassName("myLink");
                 for (i = 0; i < x.length; i++) {

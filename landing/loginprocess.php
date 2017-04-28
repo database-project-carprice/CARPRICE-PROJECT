@@ -4,7 +4,9 @@
      
     
     if($_POST) {
-        include "dbcon.php";
+        $link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
+ 				or die(mysqli_connect_error()."</body></html>");
+
         $username = $_POST['username'];
         $password = $_POST['password'];
 
@@ -26,6 +28,7 @@
             session_destroy();
         }
     }
+    mysqli_close();
     // if(!empty($_SESSION['login'])) {
     //         echo 'login as '.$_SESSION['login'].'<a href="?action=logout">[logout]</a>';
     //         die();
