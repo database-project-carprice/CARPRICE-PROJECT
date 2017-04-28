@@ -2,273 +2,109 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>Bootstrap Login Form Template</title>
 
-    <title>Rental Service</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/landing-page.css"></link>
-
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/form-elements.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <!-- Favicon and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
 </head>
 
 <body>
-    <div class="login"></div>
 
-    <!-- Header -->
-    <a name="about"></a>
-    <div class="intro-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>Welcome to our page</h1>
-                        <h3>Bring freedom and your smile from my service</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-map-marker"></i> <span class="network-name">Picking up point</span></a>
-                            </li>
-                            <li>
-                                <a href="../selectcar/index.html" class="btn btn-default btn-lg"><i class="fa fa-thumbs-up"></i> <span class="network-name">Select your rides</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-calendar"></i> <span class="network-name">Pick up date</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-user-plus"></i> <span class="network-name">Sign up</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-display-middle" style="width:65% ; position : relative;">
-                <div class="w3-bar w3-black">
-                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Car');"><i class="fa fa-map-marker w3-margin-right"></i>Pickup Point</button>
-                    <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Date');"><i class="fa fa-calendar w3-margin-right"></i>Date</button>
-                </div>
-                <!-- Tabs -->
-                <div id="Car" class="w3-container w3-white w3-padding-16 myLink">
-                    <h3>Best car rental service!</h3>
-                    <h2>1.) City , Place , hotel </h2>
-                    <div class="form-group">
-                        <label>Languages</label>
-                        <input class="form-control autocomplete" placeholder="Enter A" />
-                        <script>
-                            $(function() {
-                                var availableTags = [
-                                    "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
-                                    "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran",
-                                    "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl",
-                                    "PHP", "Python", "Ruby", "Scala", "Scheme"
-                                ];
+    <!-- Top content -->
+    <div class="top-content">
 
-                                $(".autocomplete").autocomplete({
-                                    source: availableTags
-                                });
-                            });
-                        </script>
-                    </div>
-
-                    <h2>2.) Date </h2>
-                    <input class="w3-input w3-border" type="text" placeholder="Pick-up point">
-
-                    <p><button class="w3-button w3-dark-grey">Search Availability</button></p>
-                </div>
-                <div id="Date" class="w3-container w3-white w3-padding-16 myLink">
-                    <h3>Travel the world with us</h3>
-                    <div class="w3-row-padding" style="margin:0 -16px;">
-                        <div class="w3-half">
-                            <label>From</label>
-                            <input class="w3-input w3-border" type="text" placeholder="Departing from">
-                        </div>
-                        <div class="w3-half">
-                            <label>To</label>
-                            <input class="w3-input w3-border" type="text" placeholder="Arriving at">
+        <div class="inner-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text" style="color :black;">
+                        <div style="font-size:3em;"><i class="fa fa-car"></i><br></div>
+                        <h1 style="color :black; font-size:3em;"><strong> Rental Service</strong></h1>
+                        <div class=" description ">
+                            <!--<p>
+                                This is a free responsive login form made with Bootstrap. Download it on <a href="http://azmind.com "><strong>AZMIND</strong></a>, customize and use it as you like!
+                            </p>-->
                         </div>
                     </div>
-                    <p><button class="w3-button w3-dark-grey">Search and find dates</button></p>
                 </div>
+                <div class="row ">
+                    <div class="col-sm-6 col-sm-offset-3 form-box ">
+                        <div class="form-top ">
+                            <div class="form-top-left ">
+                                <h3>Login to our site</h3>
+                                <p>Enter your username and password to log on:</p>
+                            </div>
+                            <div class="form-top-right ">
+                                <i class="fa fa-lock "></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom ">
+                            <form role="form " action=" " method="post " class="login-form ">
+                                <div class="form-group ">
+                                    <label class="sr-only " for="form-username ">Username</label>
+                                    <input type="text " name="form-username " placeholder="Username... " class="form-username form-control " id="form-username ">
+                                </div>
+                                <div class="form-group ">
+                                    <label class="sr-only " for="form-password ">Password</label>
+                                    <input type="password " name="form-password " placeholder="Password... " class="form-password form-control " id="form-password ">
+                                </div>
+                                <button type="submit " class="btn ">Sign in!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="row ">
+                    <div class="col-sm-6 col-sm-offset-3 social-login ">
+                        <h3>...or login with:</h3>
+                        <div class="social-login-buttons ">
+                            <a class="btn btn-link-2 " href="# ">
+                                <i class="fa fa-facebook "></i> Facebook
+                            </a>
+                            <a class="btn btn-link-2 " href="# ">
+                                <i class="fa fa-twitter "></i> Twitter
+                            </a>
+                            <a class="btn btn-link-2 " href="# ">
+                                <i class="fa fa-google-plus "></i> Google Plus
+                            </a>
+                        </div>
+                    </div>
+                </div>-->
             </div>
-            <script>
-                // Tabs
-                function openLink(evt, linkName) {
-                    var i, x, tablinks;
-                    x = document.getElementsByClassName("myLink");
-                    for (i = 0; i < x.length; i++) {
-                        x[i].style.display = "none";
-                    }
-                    tablinks = document.getElementsByClassName("tablink");
-                    for (i = 0; i < x.length; i++) {
-                        tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-                    }
-                    document.getElementById(linkName).style.display = "block";
-                    evt.currentTarget.className += " w3-red";
-                }
-                // Click on the first tablink on load
-                document.getElementsByClassName("tablink")[0].click();
-            </script>
         </div>
-        <!-- /.container -->
 
     </div>
-    <!-- /.intro-header -->
 
-    <!-- Page Content -->
 
-    <a name="services"></a>
-    <div class="content-section-b">
+    <!-- Javascript -->
+    <script src="assets/js/jquery-1.11.1.min.js "></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+    <script src="assets/js/jquery.backstretch.min.js "></script>
+    <script src="assets/js/scripts.js "></script>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <br></br><br></br>
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">New car from every brands</h2>
-                    <h1 class="lead">for every one. </h1>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/civic_01.png" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
-    <div class="content-section-a">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <br></br><br></br>
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Since ECO car<br>to SUPER car</h2>
-                    <p class="lead">Support all of your requirements.</p>
-                </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="img/mazda2_01.png" alt="" style="width:60%">
-                    <img class="img-responsive" src="img/aventador_01.png" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-b -->
-
-    <div class="content-section-b">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Our service support any country<br>in the world</br>
-                    </h2>
-                    <p class="lead">We have local companies in most of every country,<br>In some country we contact local rental company to support service and not include charge</br>
-                    </p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/map_world.jpg" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
-    <a name="contact"></a>
-    <div class="banner">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2>If these not enough for you</h2>
-                </div>
-                <div class="col-lg-6">
-                    <ul class="list-inline banner-social-buttons">
-                        <li>
-                            <a href="../selectcar/index.html" class="btn btn-default btn-lg"><i class="fa fa-caret-square-o-right "></i> <span class="network-name">More details</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.banner -->
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#about">About</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#services">Services</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="../js/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script>
-        $(function() {
-            $('.detail').load('../detail.html');
-            $('.notlogin').load('../nav_notlogin.html');
-            $('.login').load('../nav_login.html');
-        })
-    </script>
-
+    <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js "></script>
+        <![endif]-->
 
 </body>
 
