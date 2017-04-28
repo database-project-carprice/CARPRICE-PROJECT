@@ -8,7 +8,7 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT id, name ,lastname FROM customer WHERE name = '$username' AND password = '$password'";
+        $sql = "SELECT username ,lastname FROM customer WHERE username = '$username' AND password = '$password'";
 
         $results = mysqli_query($link,$sql);
         $num_row = mysqli_num_rows($results);

@@ -73,7 +73,7 @@
                                 </div>
                                 <button type="submit " class="btn ">Sign in!</button>
                                 <div align="center">
-                                <a href="regis.html">
+                                <a href="regis.php">
                                     <u>Register</u></a>
                             </div>
                             </form>
