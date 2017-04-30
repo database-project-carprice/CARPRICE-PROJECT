@@ -14,7 +14,8 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
+    <!-- iCheck -->
+    <link href="../css/green.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="../css/adminpage.css" rel="stylesheet">
 </head>
@@ -259,9 +260,12 @@
     <script src="../js/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="../js/bootstrap.min.js"></script>
-
+    <!-- iCheck -->
+    <script src="../js/icheck.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../js/adminpage.min.js"></script>
+
+
 
 </body>
 

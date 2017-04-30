@@ -7,11 +7,12 @@ $link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
  			or die(mysqli_connect_error()."</body></html>");
 
 //กรณีเลือก checkbox แล้วโพสต์กลับขึ้นมา
-if($_POST) {
+
+if(@$_POST) {
 	$id = implode(", ", $_POST['id']);
 	$sql  = "DELETE FROM customer WHERE id IN($id)";
-	mysqli_query($link, $sql);
-}
+	    @mysqli_query($link, $sql);
+    }
 
 $sql = "SELECT * FROM customer";
 $result = mysqli_query($link, $sql);
@@ -45,12 +46,16 @@ while($data = mysqli_fetch_array($result)) {
 	//คอลัมน์ต่อๆไปเป็นข้อมูล
 	echo '<tr class="even pointer">
             <td class="a-center ">
-                <input type="checkbox" class="flat" name="table_records">
-            </td>';
+                <input type="checkbox" class="flat"  name="id[]" value="'.$data['id'].'">
+            ';
+			
 	for($i = 0; $i < $num_fields; $i++) {
 		echo "<td>".$data[$i]."</td>";
 	}
-	echo '	</td>
+	echo '
+				
+			</td>
+			
         </tr>';
 	// echo "</tr>";
 }
