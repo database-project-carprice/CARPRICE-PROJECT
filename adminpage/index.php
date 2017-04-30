@@ -25,7 +25,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-car"></i> <span>Rental Service</span></a>
+                        <a href="index.php" class="site_title"><i class="fa fa-car"></i> <span>Rental Service</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -51,12 +51,12 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Main <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="index.html">Overview</a></li>
+                                        <li><a href="index.php?content=dashboard">Overview</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-user"></i> User <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="listuser.html">List user</a></li>
+                                        <li><a href="index.php?content=list-user">List user</a></li>
                                         <li><a href="index2.html">Activate Driver License</a></li>
                                     </ul>
                                 </li>
@@ -231,42 +231,18 @@
             <!-- /top navigation -->
 
             <!-- page content -->
-            <div class="right_col" role="main">
-                <div class="row top_tiles">
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-user-circle-o"></i></div>
-                            <div class="count">179</div>
-                            <h3>New Sign ups</h3>
-                            <p>Number of user today.</p>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-calendar-check-o"></i></div>
-                            <div class="count">2015</div>
-                            <h3>New rent today.</h3>
-                            <p>Many of process</p>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
-                            <div class="count">47</div>
-                            <h3>New request </h3>
-                            <p>activate driver license</p>
-                        </div>
-                    </div>
-                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-car"></i></div>
-                            <div class="count">132</div>
-                            <h3>Car in stock</h3>
-                            <p>Manage stock</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php 
+            switch (@$_GET['content']) {
+                case 'list-user':
+                    include 'listuser.php';
+                    break;
+                
+                default:
+                    include 'dashboard.html';
+                    break;
+            }
+            
+            ?>
 
             <!-- footer content -->
             <footer>
