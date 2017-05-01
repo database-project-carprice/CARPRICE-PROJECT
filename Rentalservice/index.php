@@ -1,18 +1,19 @@
 <?php
-
     session_start();
-    $slocated = $_POST['slocated'];
-    $elocated = $_POST['elocated'];
-    $sdate = $_POST['sdate'];
-    $edate = $_POST['edate'];
-    $stime = $_POST['stime'];
-    $etime = $_POST['etime'];
+   if(@$_GET['action'] == 'logout') {
+        session_destroy();
+        header('Location: login.php');
+        die();
     
-    
-    echo "slocated = ".$slocated."elocated = ".$elocated."sdate = ".$sdate."edate = ".$edate."stime = ".$stime."etime = ".$etime;
+    }
+    else if(!$_SESSION['name']){
+        session_destroy();
+        header('Location: login.php');
+        die();
+    }
 ?>
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="en">
 
     <head>

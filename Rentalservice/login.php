@@ -4,7 +4,7 @@ if(@$_GET["login"] == "fail") {
 	
 }
 if(@$_GET["loginas"] == "admin") {
-	header("Location: admin.php");
+	header("Location: ../adminpage/index.html");
 }
 
 ?>
@@ -63,7 +63,7 @@ if(@$_GET["loginas"] == "admin") {
                             </div>
                         </div>
                         <div class="form-bottom ">
-                            <form role="form " action="loginprocess.php" method="post" class="login-form">
+                            <form role="form " action="loginprocess.php?login=success" method="post" class="login-form">
                                 <div class="form-group ">
                                     <label class="sr-only " for="form-username ">Username</label>
                                     <input type="text" autocomplete="off" name="username" placeholder="Username" class="form-username form-control " id="form-username ">
