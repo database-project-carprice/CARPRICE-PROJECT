@@ -38,6 +38,13 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
 
+
+
+
+        <!--<link rel="stylesheet" href="../Rentalservice/js/jquery-ui.min.css">-->
+        <!--<script> src="/js/jquery-2.1.1.min.js" </script>-->
+        <!--<script> src="../js/jquery-ui.min.js" </script>-->
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -123,10 +130,12 @@
                                             <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
                                             <div style="margin-top :3%">
                                                 <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" name="slocated" placeholder="Pick-up point">
+                                                    <div id="the-basics ">
+                                                        <input class="w3-input w3-border typeahead" type="text" id="slo" name="slocated" placeholder="Pick-up point" autocomplete="off">
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" name="elocated" placeholder="Drop point">
+                                                    <input class="w3-input w3-border" type="text" id="elo" name="elocated" placeholder="Drop point">
                                                 </div>
                                             </div>
                                             <button class="w3-button w3-dark-grey" style="margin-top : 2%">Search Date</button>
@@ -299,18 +308,16 @@
             </div>
         </footer>
 
-        <!--<div class="detail"></div>-->
+
 
         <!-- jQuery -->
         <script src="../js/jquery.js"></script>
         <!-- Bootstrap Core JavaScript -->
         <script src="../js/bootstrap.min.js"></script>
+        <!-- Bootstrap-typeahead -->
+        <script src="../js/bootstrap3-typeahead.js"></script>
 
-        <!--<script>
-        $(function() {
-            $('.detail').load('detail.html');
-        })
-    </script>-->
+
         <script>
             // Tabs
             function openLink(evt, linkName) {
@@ -330,19 +337,25 @@
             }
             // Click on the first tablink on load
             document.getElementsByClassName("tablink")[0].click();
-
-            //ajax
-            // $(function() {
-            //     $('#tsearch').click(function() {
-            //         var data = $('form').serializeArray();
-            //         $.ajax({
-            //             url: 'process.php',
-            //             type: 'post',
-            //         });
-            //     })
-            // })
         </script>
 
+
+
+        <script>
+            var typeaheadSource = [{
+                id: 1,
+                name: 'ara'
+            }, {
+                id: 2,
+                name: 'Alex'
+            }, {
+                id: 3,
+                name: 'arrr'
+            }];
+            $('input.typeahead').typeahead({
+                source: typeaheadSource
+            });
+        </script>
 
     </body>
 
