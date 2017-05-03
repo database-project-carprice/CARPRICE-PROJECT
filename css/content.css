@@ -206,9 +206,10 @@ p {
     position: relative;
 }
 
-.product-img:hover .product-img-overlay {
+
+/*.product-img:hover .product-img-overlay {
     opacity: 1;
-}
+}*/
 
 .product-img-src {
     display: block;
