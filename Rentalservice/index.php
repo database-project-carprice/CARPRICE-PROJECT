@@ -29,6 +29,9 @@
 
         <!-- Bootstrap Core CSS -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
+        
+        
+        
 
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="../css/landing-page.css"></link>
@@ -77,7 +80,9 @@
                         <li class="dropdown">
                             <a href="" class="dropdown-toggle" id="profile" data-toggle="dropdown">
                                 <?php echo $_SESSION['name']."   " ?>
-                                <?php echo $_SESSION['lastname']."   " ?><span class="caret"></span></a>
+                                <?php echo $_SESSION['lastname']."   " ?>
+                                <span class="caret"></span>
+                                </a>
                             <ul class="dropdown-menu dropdown-lr animated fadein" role="menu">
                                 <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
                                 <li role="presentation"><a role="menuitem" href="#">History</a></li>
@@ -130,12 +135,10 @@
                                             <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
                                             <div style="margin-top :3%">
                                                 <div class="col-md-6 offset-md-2">
-                                                    <div id="the-basics ">
-                                                        <input class="w3-input w3-border typeahead" type="text" id="slo" name="slocated" placeholder="Pick-up point" autocomplete="off">
-                                                    </div>
+                                                    <input class="w3-input w3-border" type="text" id="slo" name="slocated" placeholder="Pick-up point" autocomplete="off">
                                                 </div>
                                                 <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" id="elo" name="elocated" placeholder="Drop point">
+                                                    <input class="w3-input w3-border" type="text" id="elo" name="elocated" placeholder="Drop point" autocomplete="off">
                                                 </div>
                                             </div>
                                             <button class="w3-button w3-dark-grey" style="margin-top : 2%">Search Date</button>
@@ -146,12 +149,13 @@
                                             <h3>Travel the world with us</h3>
                                             <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
                                             <div style="margin-top :3%">
-                                                <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" name="sdate" placeholder="Start date">
+                                                <div class="col-md-6 offset-md-2 ">
+                                                    <input class="w3-input w3-border" type="text" id="sdate" name="sdate" placeholder="Start date" data-format="yyyy-MM-dd">
                                                 </div>
                                                 <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" name="edate" placeholder="End date">
+                                                    <input class="w3-input w3-border" type="text" id="edate" name="edate" placeholder="End date" data-format="yyyy-MM-dd">
                                                 </div>
+                                                
                                             </div>
                                             <button class="w3-button w3-dark-grey" style="margin-top : 2%">Search and find dates</button>
                                         </div>
@@ -181,6 +185,7 @@
 
             </div>
             <!-- /.container -->
+            
 
         </div>
         <!-- /.intro-header -->
@@ -316,6 +321,10 @@
         <script src="../js/bootstrap.min.js"></script>
         <!-- Bootstrap-typeahead -->
         <script src="../js/bootstrap3-typeahead.js"></script>
+        <!-- Bootstrap-datetimepicker -->
+        <script src="../js/bootstrap-datetimepicker.min.js" ></script>
+
+        
 
 
         <script>
@@ -339,21 +348,23 @@
             document.getElementsByClassName("tablink")[0].click();
         </script>
 
-
+        
 
         <script>
-            var typeaheadSource = [{
-                id: 1,
-                name: 'ara'
-            }, {
-                id: 2,
-                name: 'Alex'
-            }, {
-                id: 3,
-                name: 'arrr'
-            }];
-            $('input.typeahead').typeahead({
-                source: typeaheadSource
+            var x = <?php include "autocomplete/city.php" ?>;
+            $('#slo').typeahead({
+                source: x
+            });
+            $('#elo').typeahead({
+                source: x
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(function() {
+                $('#datetimepicker4').datetimepicker({
+                    
+                });
             });
         </script>
 

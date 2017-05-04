@@ -4,7 +4,7 @@ if(@$_GET["login"] == "fail") {
 	
 }
 if(@$_GET["loginas"] == "admin") {
-	header("Location: ../adminpage/index.html");
+	header("Location: ../adminpage/index.php");
 }
 
 ?>

@@ -63,8 +63,14 @@
                                 </li>
                                 <li><a><i class="fa fa-car"></i> Car <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="form.html">Brand</a></li>
-                                        <li><a href="form.html">Model</a></li>
+                                        <li><a href="index.php?content=list-car">Brand</a></li>
+                                        <li><a href="form.h">Model</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-map-marker"></i> Location <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="index.php?content=list-location">Thailand</a></li>
+                                        
                                     </ul>
                                 </li>
                             </ul>
@@ -236,6 +242,12 @@
             switch (@$_GET['content']) {
                 case 'list-user':
                     include 'listuser.php';
+                    break;
+                case 'list-user':
+                    include 'listuser.php';
+                    break;
+                case 'list-location':
+                    include 'listlocation.php';
                     break;
                 
                 default:

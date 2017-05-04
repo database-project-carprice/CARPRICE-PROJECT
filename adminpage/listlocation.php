@@ -6,7 +6,7 @@
 
             <div class="clearfix"></div>
             <!---->
-            <h1>User</h1>
+            <h1>Location</h1>
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
@@ -42,35 +42,24 @@
                                         <th>
                                             <input type="checkbox" id="check-all" class="flat">
                                         </th>
-                                        <th class="column-title">ID </th>
-                                        <th class="column-title">Username </th>
-                                        <th class="column-title">Password </th>
-                                        <th class="column-title">Name </th>
-                                        <th class="column-title">Lastname </th>
-                                        <th class="column-title">     Driving License Number </th>
-                                        
+                                        <th class="column-title">ID</th>
+                                        <th class="column-title">Brand</th>
+                                        <th class="column-title">Model</th>
+                                        <th class="column-title">Year</th>
+                                        <th class="column-title">Mileage</th>
+                                        <!--<th class="column-title">Color </th>-->
+                                        </th>
                                         <th class="bulk-actions" colspan="7">
                                             <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
                                         </th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
-                                    
                                         
-                                    
-                                    
-                                        <?php 
-                                            include 'table-list.php';
-                                        ?>
-                                       
-                                    
                                 </tbody>
                             </table>
                             </form>
                         </div>
-
-
                     </div>
                 </div>
             </div>
