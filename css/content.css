@@ -189,9 +189,13 @@ p {
     }
 }
 
-.search-details {
-    width: 100%;
+.form-sub {}
+
+.sub-content {
+    margin-bottom: 40px;
 }
+
+.detail-data {}
 
 .checkbox-position {
     width: 100%;

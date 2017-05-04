@@ -73,7 +73,7 @@
                             <li role="presentation" class="disabled">
                                 <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
                                     <span class="round-tab">
-                                <i class="glyphicon glyphicon-pencil"></i>
+                                <i class="fa fa-id-card-o"></i>
                             </span>
                                 </a>
                             </li>
@@ -100,8 +100,27 @@
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <div class="search-details">
-                                            <h3>Search Details</h3>
+                                        <div class="sub-content">
+                                            <h3>Search details</h3>
+                                            <div>
+                                                <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
+                                                <h4 style="margin-top:0px">Pick-up</h4>
+                                                <div>
+                                                    <p>Bangkok - Suvarnabhumi Airport - International 4 Jun 2017 10:00
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
+                                                <h4 style="margin-top:0px">Drop-point</h4>
+                                                <div>
+                                                    <p>Bangkok - Suvarnabhumi Airport - International 4 Jun 2017 10:00
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sub-content">
+                                            <h3>Filter</h3>
                                             <div class="panel-group" id="accordion">
                                                 <div class="panel panel-default">
                                                     <div class="panel-heading">
@@ -206,6 +225,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!---->
                                         <ul class="list-inline pull-right">
                                             <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
                                         </ul>
@@ -213,51 +233,46 @@
                                 </div>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step2">
-                                <div class="panel-group" id="accordion2">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse1">1.Pickup point</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse1" class="panel-collapse collapse in">
-                                            <div class="panel-body">
-                                                <div class="checkbox-position">
-                                                    <label class="checkbox-inline"><input type="checkbox" value="">Honda</label>
+                                <div>
+                                    <div class="thumbnail">
+                                        <div class="clearfix card-detail">
+                                            <div class="col-md-7 ">
+                                                <div class="product-img">
+                                                    <a href="#">
+                                                        <img class="product-img-src" src="https://getuikit.com/v2/docs/images/placeholder_480x260.svg" alt="Avatar" class="image">
+                                                    </a>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse2">2. Type</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse2" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <div class="checkbox-position">
-                                                    <label class="checkbox-inline"><input type="checkbox" value="">Sedan</label>
+                                            <div class="col-md-5">
+                                                <h4>Product Tittle</h4>
+                                                <div class="ratings">
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="glyphicon glyphicon-star"></span>
+                                                    <span class="glyphicon glyphicon-star-empty"></span>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion2" href="#collapse3">3.Transmission</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse3" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <div class="checkbox-position">
-                                                    <label class="checkbox-inline"><input type="checkbox" value="">Auto</label>
-                                                </div>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                                                <hr class="line">
+                                                <p class="price">$29,90</p>
+                                                <button class="btn btn-success right"> BUY ITEM</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn btn-success right"> Find</button>
+                                <div class="container">
+                                    <h2>Driver Details</h2>
+                                    <form>
+                                        <div class="row form-sub">
+                                            <div class="col col-md-4">
+                                                <p>First Name*</p>
+                                            </div>
+                                            <div class="col col-md-8">
+                                                <input type="text" class="form-control" placeholder=".col-4">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                                 <!-- END PRODUCTS -->
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
