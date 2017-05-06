@@ -193,7 +193,16 @@ p {
     }
 }
 
-.form-sub {}
+.form-sub {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: 300px;
+    padding-left: 100px;
+}
+
+.form-sub-text {
+    text-align: right;
+}
 
 .sub-content {
     margin-bottom: 40px;

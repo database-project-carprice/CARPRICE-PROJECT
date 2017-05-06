@@ -60,214 +60,233 @@
   
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Admin page</title>
+        <title>Admin page</title>
 
-    <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Custom Theme Style -->
-    <link href="../css/content.css" rel="stylesheet">
-</head>
+        <!-- Bootstrap -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Custom Theme Style -->
+        <link href="../css/content.css" rel="stylesheet">
+    </head>
 
-<body>
-    <!--Nav-->
-    <!--Nav-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <body>
+        <!--Nav-->
+        <!--Nav-->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href=""><i class="fa fa-car w3-margin-right"></i>  Rental Service</a>
+                    <a class="navbar-brand" href=""><i class="fa fa-car w3-margin-right"></i>  Rental Service</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="">Home</a></li>
+                        <li><a href="/selectcar/index.html">Select Car</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" id="profile" data-toggle="dropdown">
+                                <?php echo $_SESSION['name']."   " ?>
+                                <?php echo $_SESSION['lastname']."   " ?><span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-lr animated fadein" role="menu">
+                                <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
+                                <li role="presentation"><a role="menuitem" href="#">History</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" href="?action=logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="">Home</a></li>
-                    <li><a href="/selectcar/index.html">Select Car</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" id="profile" data-toggle="dropdown">
-                            <?php echo $_SESSION['name']."   " ?>
-                            <?php echo $_SESSION['lastname']."   " ?><span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-lr animated fadein" role="menu">
-                            <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
-                            <li role="presentation"><a role="menuitem" href="#">History</a></li>
-                            <li role="presentation" class="divider"></li>
-                            <li role="presentation"><a role="menuitem" href="?action=logout">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!--Content-->
-    <div class="container">
-        <div class="row">
-            <section>
-                <div class="wizard">
-                    <div class="wizard-inner">
-                        <div class="connecting-line"></div>
-                        <ul class="nav nav-tabs" role="tablist">
+        </nav>
+        <!--Content-->
+        <div class="container">
+            <div class="row">
+                <section>
+                    <div class="wizard">
+                        <div class="wizard-inner">
+                            <div class="connecting-line"></div>
+                            <ul class="nav nav-tabs" role="tablist">
 
-                            <li role="presentation" class="active">
-                                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
-                                    <span class="round-tab">
+                                <li role="presentation" class="active">
+                                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                                        <span class="round-tab">
                                 <i class="fa fa-search"></i>
                             </span>
-                                </a>
-                            </li>
+                                    </a>
+                                </li>
 
-                            <li role="presentation" class="disabled">
-                                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
-                                    <span class="round-tab">
+                                <li role="presentation" class="disabled">
+                                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                                        <span class="round-tab">
                                 <i class="fa fa-id-card-o"></i>
                             </span>
-                                </a>
-                            </li>
-                            <li role="presentation" class="disabled">
-                                <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
-                                    <span class="round-tab">
+                                    </a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                                        <span class="round-tab">
                                 <i class="glyphicon glyphicon-picture"></i>
                             </span>
-                                </a>
-                            </li>
+                                    </a>
+                                </li>
 
-                            <li role="presentation" class="disabled">
-                                <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
-                                    <span class="round-tab">
+                                <li role="presentation" class="disabled">
+                                    <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                                        <span class="round-tab">
                                 <i class="glyphicon glyphicon-ok"></i>
                             </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-                    <form role="form">
-                        <div class="tab-content">
-                            <div class="tab-pane active" role="tabpanel" id="step1">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="sub-content">
-                                            <h3>Search details</h3>
-                                            <div>
-                                                <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
-                                                <h4 style="margin-top:0px;padding-left: 15px;">Pick-up</h4>
+                        <form role="form">
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="step1">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="sub-content">
+                                                <h3>Search details</h3>
                                                 <div>
-                                                    <p> <?php echo $slocated ?> </p>
-                                                    <p> <?php echo $sdate." ".$stime ?> </p>
-                                                    <!--<p>Bangkok - Suvarnabhumi Airport - International 4 Jun 2017 10:00</p>-->
+                                                    <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
+                                                    <h4 style="margin-top:0px;padding-left: 15px;">Pick-up</h4>
+                                                    <div>
+                                                        <p>
+                                                            <?php echo $slocated ?> </p>
+                                                        <p>
+                                                            <?php echo $sdate." ".$stime ?> </p>
+                                                        <!--<p>Bangkok - Suvarnabhumi Airport - International 4 Jun 2017 10:00</p>-->
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
+                                                    <h4 style="margin-top:0px;padding-left: 15px;">Drop-point</h4>
+                                                    <div>
+                                                        <p>
+                                                            <?php echo $elocated ?> </p>
+                                                        <p>
+                                                            <?php echo $edate." ".$etime ?> </p>
+                                                        <!--<p>Bangkok - Suvarnabhumi Airport - International 4 Jun 2017 10:00</p>-->
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
-                                                <h4 style="margin-top:0px;padding-left: 15px;">Drop-point</h4>
-                                                <div>
-                                                    <p> <?php echo $elocated ?> </p>
-                                                    <p> <?php echo $edate." ".$etime ?> </p>
-                                                    <!--<p>Bangkok - Suvarnabhumi Airport - International 4 Jun 2017 10:00</p>-->
+
+                                            <div class="sub-content">
+                                                <h3>Sort by</h3>
+                                                <form>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optradio">Price
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optradio">Brands
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optradio">Engine
+                                                    </label>
+                                                </form>
+                                            </div>
+
+                                            <div class="sub-content">
+                                                <h3>Filter</h3>
+                                                <div class="panel-group" id="accordion">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Brands</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseOne" class="panel-collapse collapse in">
+                                                            <div class="panel-body">
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Honda">Honda</label>
+                                                                </div>
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Toyota">Toyota</label>
+                                                                </div>
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Nissan">Nissan</label>
+                                                                </div>
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Ford">Ford</label>
+                                                                </div>
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Bmw">BMW</label>
+                                                                </div>
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Benz">Benz</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Type</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseTwo" class="panel-collapse collapse">
+                                                            <div class="panel-body">
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Sedan">Sedan</label>
+                                                                </div>
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Hatchback">Hatchback</label>
+                                                                </div>
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Crossover">Crossover</label>
+                                                                </div>
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="type[]" value="MVP">MVP</label>
+                                                                </div>
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="type[]" value="SUV">SUV</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Transmission</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseThree" class="panel-collapse collapse">
+                                                            <div class="panel-body">
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="Tran[]" value="Auto">Auto</label>
+                                                                </div>
+                                                                <div class="checkbox-position">
+                                                                    <label class="checkbox-inline"><input type="checkbox" name="Tran[]" value="Manual">Manual</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
+                                                <button class="btn btn-success right"> Find</button>
                                             </div>
                                         </div>
-                                        
-                                        <div class="sub-content">
-                                            <h3>Filter</h3>
-                                            <div class="panel-group" id="accordion">
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Brands</a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapseOne" class="panel-collapse collapse in">
-                                                        <div class="panel-body">
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Honda">Honda</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Toyota">Toyota</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Nissan">Nissan</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Ford">Ford</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Bmw">BMW</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Benz">Benz</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Type</a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Sedan">Sedan</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Hatchback">Hatchback</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Crossover">Crossover</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="MVP">MVP</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="SUV">SUV</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Transmission</a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapseThree" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="Tran[]" value="Auto">Auto</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="Tran[]" value="Manual">Manual</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <button class="btn btn-success right"> Find</button>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-9">
-                                        <!-- BEGIN PRODUCTS -->
-                                        <?php 
+
+                                        <div class="col-md-9">
+                                            <!-- BEGIN PRODUCTS -->
+                                            <?php 
                                             for($i = 0 ; $i < $rows ; $i++){
                                                 echo '<div class="thumbnail">
                                             <div class="clearfix card-detail">
@@ -303,92 +322,148 @@
                                         </div>';
                                             }
                                         ?>
-                                        <!---->
+                                            <!---->
 
 
 
-                                        <ul class="list-inline pull-right">
-                                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" role="tabpanel" id="step2">
-                                <div>
-                                    <div class="thumbnail">
-                                        <div class="clearfix card-detail">
-                                            <div class="col-md-7 ">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img class="product-img-src" src="pic/civic_01.png" alt="Avatar" class="image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <h4>Product Tittle</h4>
-                                                <div class="ratings">
-                                                    <span class="glyphicon glyphicon-star"></span>
-                                                    <span class="glyphicon glyphicon-star"></span>
-                                                    <span class="glyphicon glyphicon-star"></span>
-                                                    <span class="glyphicon glyphicon-star"></span>
-                                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                                </div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                                                <hr class="line">
-                                                <p class="price">$29,90</p>
-                                                <button class="btn btn-success right"> BUY ITEM</button>
-                                            </div>
+                                            <ul class="list-inline pull-right">
+                                                <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="container">
-                                    <h2>Driver Details</h2>
+                                <div class="tab-pane" role="tabpanel" id="step2">
+                                    <h1>Details</h1>
+                                    <div>
+                                        <div class="thumbnail">
+                                            <div class="clearfix card-detail">
+                                                <div class="col-md-7 ">
+                                                    <div class="product-img">
+                                                        <a href="#">
+                                                            <img class="product-img-src" src="pic/civic_01.png" alt="Avatar" class="image">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <h4>Product Tittle</h4>
+                                                    <div class="ratings">
+                                                        <span class="glyphicon glyphicon-star"></span>
+                                                        <span class="glyphicon glyphicon-star"></span>
+                                                        <span class="glyphicon glyphicon-star"></span>
+                                                        <span class="glyphicon glyphicon-star"></span>
+                                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                                    </div>
+                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                                                    <hr class="line">
+                                                    <p class="price">$29,90</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <h2>Driver Details</h2>
+                                        <form>
+                                            <div class="row form-sub">
+                                                <div class="col col-md-4 form-sub-text">
+                                                    <p>First Name*</p>
+                                                </div>
+                                                <div class="col col-md-8 col-offset-2">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="row form-sub ">
+                                                <div class="col col-md-4 form-sub-text">
+                                                    <p>Last Name*</p>
+                                                </div>
+                                                <div class="col col-md-8">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="row form-sub">
+                                                <div class="col col-md-4 form-sub-text">
+                                                    <p>Birthday*</p>
+                                                </div>
+                                                <div class="col col-md-8">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="row form-sub">
+                                                <div class="col col-md-4 form-sub-text">
+                                                    <p>Email*</p>
+                                                </div>
+                                                <div class="col col-md-8">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="row form-sub">
+                                                <div class="col col-md-4 form-sub-text">
+                                                    <p>Phone number*</p>
+                                                </div>
+                                                <div class="col col-md-8">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="row form-sub">
+                                                <div class="col col-md-4 form-sub-text">
+                                                    <p>Driver License*</p>
+                                                </div>
+                                                <div class="col col-md-8">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- END PRODUCTS -->
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step3">
+                                    <h1>Payment</h1>
                                     <form>
                                         <div class="row form-sub">
-                                            <div class="col col-md-4">
-                                                <p>First Name*</p>
+                                            <div class="col col-md-4 form-sub-text">
+                                                <p>Card type*</p>
                                             </div>
-                                            <div class="col col-md-8">
-                                                <input type="text" class="form-control" placeholder=".col-4">
+                                            <div class="col col-md-8 col-offset-2">
+                                                <input type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="row form-sub">
+                                            <div class="col col-md-4 form-sub-text">
+                                                <p>Credit Card Number*</p>
+                                            </div>
+                                            <div class="col col-md-8 col-offset-2">
+                                                <input type="text" class="form-control" placeholder="">
                                             </div>
                                         </div>
                                     </form>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                        <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                                        <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                                    </ul>
                                 </div>
-                                <!-- END PRODUCTS -->
-                                <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                                </ul>
+                                <div class="tab-pane" role="tabpanel" id="complete">
+                                    <h3>Complete</h3>
+                                    <p>You have successfully completed all steps.</p>
+                                </div>
                             </div>
-                            <div class="tab-pane" role="tabpanel" id="step3">
-                                <h3>Step 3</h3>
-                                <p>This is step 3</p>
-                                <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                    <li><button type="button" class="btn btn-default next-step">Skip</button></li>
-                                    <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
-                                </ul>
-                            </div>
-                            <div class="tab-pane" role="tabpanel" id="complete">
-                                <h3>Complete</h3>
-                                <p>You have successfully completed all steps.</p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </section>
+                        </form>
+                    </div>
+                </section>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 
-<!-- jQuery -->
-<script src="../js/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="../js/bootstrap.min.js"></script>
-<!-- Custom Theme Scripts -->
-<script src="../js/content.js"></script>
+    <!-- jQuery -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="../js/content.js"></script>
 
-</body>
+    </body>
 
 
-</html>
-
+    </html>
