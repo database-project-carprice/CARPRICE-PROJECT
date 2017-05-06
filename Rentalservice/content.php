@@ -1,5 +1,28 @@
 <?php
 
+    if(@$_GET['brand']){
+        $select = '( brand = \'';
+        $select = $select.implode('\') AND ( brand = \'',$_GET['brand']);
+        $select = $select.'\')';
+        
+        $sql = "SELECT *  FROM car 
+                    WHERE ".$select;
+        
+    }
+    else if(@$_GET['type']){
+        $select = '( name = \'';
+        $select = $select.implode('\') AND ( name = \'',$_GET['type']);
+        $select = $select.'\')';
+        
+        $sql = "SELECT *  FROM car 
+                    WHERE category_id = (
+                            SELECT id FROM category
+                            WHERE ".$select.")";
+                        
+    }
+    else $sql = "SELECT *  FROM car ";
+
+
     session_start();
     if(@$_POST['slocated'] != NULL ) $slocated = $_POST['slocated'];
     else $slocated = "Defult Location";
@@ -15,24 +38,23 @@
     else $etime = "Defult Time";
 
     
+    
     $link = mysqli_connect("localhost", "root", "", "Car_Rental_System");
-	$sql = "SELECT *  FROM car 
-				WHERE id = '8' ";
 	
+	$rows = 0;
 	$result = mysqli_query($link, $sql);
-	if(mysqli_num_rows($result) > 0) {
-		while($data = mysqli_fetch_array($result)) {
-			$cBrand = $data[2];
-            $cModel = $data[3];
-            $cYear = $data[4];
-            $cEngine = $data[5];
-            $cType = $data[6];
-            $cFuel = $data[7];
-            $cMile = $data[8];
-            $cColor = $data[9];
-            $cPic = explode('-',$data[10]);
-		}
-	}	
+	while($data = mysqli_fetch_array($result)) {
+        $cBrand[$rows] = $data['brand'];
+        $cModel[$rows] = $data['model'];
+        $cYear[$rows] = $data['production_year'];
+        $cEngine[$rows] = $data['engine'];
+        $cType[$rows] = $data['engine type'];
+        $cFuel[$rows] = $data['fuel'];
+        $cMile[$rows] = $data['mileage'];
+        $cColor[$rows] = $data['color'];
+        $cPic[$rows] = explode('-',$data['pic']);
+        $rows++;
+	}
 	mysqli_close($link);
     
   
@@ -161,34 +183,35 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <div class="sub-content">
                                             <h3>Filter</h3>
                                             <div class="panel-group" id="accordion">
                                                 <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1.Brands</a>
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Brands</a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapseOne" class="panel-collapse collapse in">
                                                         <div class="panel-body">
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">Honda</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Honda">Honda</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">Toyota</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Toyota">Toyota</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">Nissan</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Nissan">Nissan</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">Ford</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Ford">Ford</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">BMW</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Bmw">BMW</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">Benz</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Benz">Benz</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -196,25 +219,25 @@
                                                 <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. Type</a>
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Type</a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapseTwo" class="panel-collapse collapse">
                                                         <div class="panel-body">
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">Sedan</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Sedan">Sedan</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">Hatchback</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Hatchback">Hatchback</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">Crossover</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Crossover">Crossover</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">MVP</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="MVP">MVP</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">SUV</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="SUV">SUV</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -222,64 +245,65 @@
                                                 <div class="panel panel-default">
                                                     <div class="panel-heading">
                                                         <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3.Transmission</a>
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Transmission</a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapseThree" class="panel-collapse collapse">
                                                         <div class="panel-body">
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">Auto</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="Tran[]" value="Auto">Auto</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" value="">Manual</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="Tran[]" value="Manual">Manual</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                             <button class="btn btn-success right"> Find</button>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-9">
                                         <!-- BEGIN PRODUCTS -->
-                                        <div class="thumbnail">
+                                        <?php 
+                                            for($i = 0 ; $i < $rows ; $i++){
+                                                echo '<div class="thumbnail">
                                             <div class="clearfix card-detail">
                                                 <div class="col-md-7 ">
                                                     <div class="product-img">
                                                         <a href="#">
-                                                            <img class="product-img-src" src="pic/<?php echo $cPic[0] ?>.png" alt="Avatar" class="image">
+                                                            <img class="product-img-src" src="pic/'.$cPic[$i][0].'.png" alt="Avatar" class="image">
                                                         </a>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <h4><?php echo $cBrand." ".$cModel ?></h4>
-                                                    <div class="ratings">
+                                                    <h4> '.$cBrand[$i].' '.$cModel[$i];
+                                                    if($cType[$i] == 'n/a') echo ' '.$cEngine[$i].'</h4>';
+                                                    else echo ' '.$cType[$i].'</h4>';
+                                                   echo '<div class="ratings">
                                                         <span class="glyphicon glyphicon-star"></span>
                                                         <span class="glyphicon glyphicon-star"></span>
                                                         <span class="glyphicon glyphicon-star"></span>
                                                         <span class="glyphicon glyphicon-star"></span>
                                                         <span class="glyphicon glyphicon-star-empty"></span>
                                                     </div>
-                                                    <li> Production in year <?php echo $cYear ?> </li>
-                                                    <li> Engine(L) : <?php echo $cEngine ?> </li>
-                                                    <li> EngineType : <?php echo $cType ?> </li>
-                                                    <li> Fuel : <?php echo $cFuel ?> </li>
-                                                    <li> Mileage : <?php echo $cMile ?> </li>
-                                                    <li> Color : <?php echo $cColor ?> </li>
+                                                    <li> Production in year '.$cYear[$i].' </li>
+                                                    <li> Engine(L) : '.$cEngine[$i].'  </li>
+                                                    <li> EngineType : '.$cType[$i].'  </li>
+                                                    <li> Fuel : '.$cFuel[$i].'  </li>
+                                                    <li> Mileage : '.$cMile[$i].'  </li>
+                                                    <li> Color : '.$cColor[$i].'  </li>
                                                     <hr class="line">
                                                     <p class="price">$29,90</p>
                                                     <button class="btn btn-success right"> BUY ITEM</button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>';
+                                            }
+                                        ?>
                                         <!---->
-
-
-
-
-
-
-
 
 
 
@@ -296,7 +320,7 @@
                                             <div class="col-md-7 ">
                                                 <div class="product-img">
                                                     <a href="#">
-                                                        <img class="product-img-src" src="../pic/civic_01.png" alt="Avatar" class="image">
+                                                        <img class="product-img-src" src="pic/civic_01.png" alt="Avatar" class="image">
                                                     </a>
                                                 </div>
                                             </div>
@@ -365,4 +389,6 @@
 
 </body>
 
+
 </html>
+
