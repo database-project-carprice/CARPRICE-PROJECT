@@ -97,7 +97,9 @@
 
         </html>
 
-        <!-- Header -->
+       
+
+<!-- Header -->
         <a name="about"></a>
         <div class="intro-header">
             <div class="container">
@@ -161,7 +163,7 @@
                                         </div>
                                     </div>
                                     <div id="Time" class="w3-container w3-white w3-padding-16 myLink tab-size">
-                                        <form action method="post">
+                                        
                                             <div class="w3-row-padding" style="margin:0 -16px;">
                                                 <h3>Select the best times!</h3>
                                                 <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
@@ -173,9 +175,10 @@
                                                         <input class="w3-input w3-border" type="text" name="etime" id="etime" placeholder="End time">
                                                     </div>
                                                 </div>
-                                                <button class="w3-button w3-dark-grey" style="margin-top : 2%" id="tsearch">Search for car</button>
+                                                <button class="w3-button w3-dark-grey" style="margin-top : 2%" herf=index.php?action=content id="tsearch">Search for car </button>
+                                                
                                             </div>
-                                        </form>
+                                       
                                     </div>
                                 </form>
                             </div>
@@ -313,6 +316,7 @@
             </div>
         </footer>
 
+        
 
 
         <!-- jQuery -->
