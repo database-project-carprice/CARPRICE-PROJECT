@@ -166,7 +166,7 @@
                                             <h3>Search details</h3>
                                             <div>
                                                 <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
-                                                <h4 style="margin-top:0px">Pick-up</h4>
+                                                <h4 style="margin-top:0px;padding-left: 15px;">Pick-up</h4>
                                                 <div>
                                                     <p> <?php echo $slocated ?> </p>
                                                     <p> <?php echo $sdate." ".$stime ?> </p>
@@ -175,7 +175,7 @@
                                             </div>
                                             <div>
                                                 <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
-                                                <h4 style="margin-top:0px">Drop-point</h4>
+                                                <h4 style="margin-top:0px;padding-left: 15px;">Drop-point</h4>
                                                 <div>
                                                     <p> <?php echo $elocated ?> </p>
                                                     <p> <?php echo $edate." ".$etime ?> </p>

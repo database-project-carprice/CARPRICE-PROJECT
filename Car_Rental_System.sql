@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 06, 2017 at 12:34 PM
+-- Generation Time: May 06, 2017 at 05:24 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -32,7 +32,7 @@ CREATE TABLE `car` (
   `brand` varchar(255) NOT NULL,
   `model` varchar(255) NOT NULL,
   `production_year` int(11) NOT NULL,
-  `engine` float NOT NULL,
+  `engine` varchar(255) NOT NULL,
   `engine type` varchar(255) NOT NULL,
   `fuel` varchar(255) NOT NULL,
   `mileage` int(11) NOT NULL,
@@ -45,17 +45,17 @@ CREATE TABLE `car` (
 --
 
 INSERT INTO `car` (`id`, `category_id`, `brand`, `model`, `production_year`, `engine`, `engine type`, `fuel`, `mileage`, `color`, `pic`) VALUES
-(4, 1, 'Honda', 'Accoard', 2016, 2, 'Hybrid', 'Petrol', 0, 'Black', NULL),
-(5, 1, 'Honda', 'Accoard', 2016, 2, 'n/a', 'Petrol', 0, 'Black', NULL),
-(6, 1, 'Honda', 'Accoard', 2016, 2.4, 'n/a', 'Petrol', 0, 'Black', NULL),
-(7, 1, 'Honda', 'City', 2017, 1.5, 'n/a', 'Petrol', 0, 'Blue', NULL),
-(8, 1, 'Honda', 'Civic', 2017, 1.8, 'n/a', 'Petrol', 0, 'Blue', 'civic_01-civic_02-civic_03'),
-(9, 1, 'Honda', 'Civic', 2017, 1.5, 'Turbo', 'Petrol', 0, 'Blue', NULL),
-(10, 2, 'Honda', 'Civic', 2017, 1.5, 'Turbo', 'Petrol', 0, 'Brown', NULL),
-(11, 3, 'Honda', 'C-RV', 2017, 1.6, 'Turbo', 'Diesel', 0, 'White', NULL),
-(12, 3, 'Honda', 'C-RV', 2017, 2.4, 'n/a', 'Petrol', 0, 'White', NULL),
-(13, 4, 'Honda', 'H-RV', 2016, 1.8, 'n/a', 'Petrol', 0, 'Black', NULL),
-(14, 2, 'Honda', 'Jazz', 2016, 1.5, 'n/a', 'Petrol', 0, 'Yello', NULL);
+(4, 1, 'Honda', 'Accoard', 2016, '2.0', 'Hybrid', 'Petrol', 0, 'Black', 'Accoard_01-Accoard_02-Accoard_03'),
+(5, 1, 'Honda', 'Accoard', 2016, '2.0', 'n/a', 'Petrol', 0, 'Black', 'Accoard_01-Accoard_02-Accoard_03'),
+(6, 1, 'Honda', 'Accoard', 2016, '2.4', 'n/a', 'Petrol', 0, 'Black', 'Accoard_01-Accoard_02-Accoard_03'),
+(7, 1, 'Honda', 'City', 2017, '1.5', 'n/a', 'Petrol', 0, 'Blue', 'city_01-city_02-city_03'),
+(8, 1, 'Honda', 'Civic', 2017, '1.8', 'n/a', 'Petrol', 0, 'Blue', 'civic_sedan_01-civic_sedan_02-civic_sedan_03'),
+(9, 1, 'Honda', 'Civic', 2017, '1.5', 'Turbo', 'Petrol', 0, 'Blue', 'civic_sedan_01-civic_sedan_02-civic_sedan_03'),
+(10, 2, 'Honda', 'Civic', 2017, '1.5', 'Turbo', 'Petrol', 0, 'Brown', 'civic_Hatchback_01-civic_Hatchback_02-civic_Hatchback_03'),
+(11, 3, 'Honda', 'C-RV', 2017, '1.6', 'Turbo', 'Diesel', 0, 'White', 'crv_01-crv_02-crv_03'),
+(12, 3, 'Honda', 'C-RV', 2017, '2.4', 'n/a', 'Petrol', 0, 'White', 'crv_01-crv_02-crv_03'),
+(13, 4, 'Honda', 'H-RV', 2016, '1.8', 'n/a', 'Petrol', 0, 'Black', 'hrv_01-hrv_02-hrv_03'),
+(14, 2, 'Honda', 'Jazz', 2016, '1.5', 'n/a', 'Petrol', 0, 'Yello', 'jazz_01-jazz_02-jazz_03');
 
 -- --------------------------------------------------------
 
