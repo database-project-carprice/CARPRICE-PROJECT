@@ -1,4 +1,11 @@
 <?php
+    $selectidcar = 1;
+
+    if(@$_GET['select']) {
+        $selectidcar = $_GET['select'];
+    } 
+
+    
 
     if(@$_GET['brand']){
         $select = '( brand = \'';
@@ -41,9 +48,10 @@
     
     $link = mysqli_connect("localhost", "root", "", "Car_Rental_System");
 	
-	$rows = 0;
+	$rows = 1;
 	$result = mysqli_query($link, $sql);
 	while($data = mysqli_fetch_array($result)) {
+        $cId[$rows] = $data['id'];
         $cBrand[$rows] = $data['brand'];
         $cModel[$rows] = $data['model'];
         $cYear[$rows] = $data['production_year'];
@@ -60,8 +68,8 @@
   
 ?>
 
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -87,11 +95,11 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand" href=""><i class="fa fa-car w3-margin-right"></i>  Rental Service</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
@@ -103,7 +111,9 @@
                         <li class="dropdown">
                             <a href="" class="dropdown-toggle" id="profile" data-toggle="dropdown">
                                 <?php echo $_SESSION['name']."   " ?>
-                                <?php echo $_SESSION['lastname']."   " ?><span class="caret"></span></a>
+                                <?php echo $_SESSION['lastname']."   " ?>
+                                <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu dropdown-lr animated fadein" role="menu">
                                 <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
                                 <li role="presentation"><a role="menuitem" href="#">History</a></li>
@@ -123,35 +133,34 @@
                         <div class="wizard-inner">
                             <div class="connecting-line"></div>
                             <ul class="nav nav-tabs" role="tablist">
-
-                                <li role="presentation" class="active">
+                                <li role="presentation" id="tab1" class="active">
                                     <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
                                         <span class="round-tab">
-                                <i class="fa fa-search"></i>
-                            </span>
+                                            <i class="fa fa-search"></i>
+                                        </span>
                                     </a>
                                 </li>
 
-                                <li role="presentation" class="disabled">
+                                <li role="presentation" id="tab2" class="disabled">
                                     <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
                                         <span class="round-tab">
-                                <i class="fa fa-id-card-o"></i>
-                            </span>
+                                            <i class="fa fa-id-card-o"></i>
+                                        </span>
                                     </a>
                                 </li>
                                 <li role="presentation" class="disabled">
                                     <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
                                         <span class="round-tab">
-                                <i class="fa fa-credit-card"></i>
-                            </span>
+                                            <i class="fa fa-credit-card"></i>
+                                        </span>
                                     </a>
                                 </li>
 
                                 <li role="presentation" class="disabled">
                                     <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
                                         <span class="round-tab">
-                                <i class="glyphicon glyphicon-ok"></i>
-                            </span>
+                                            <i class="glyphicon glyphicon-ok"></i>
+                                        </span>
                                     </a>
                                 </li>
                             </ul>
@@ -168,10 +177,8 @@
                                                     <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
                                                     <h4 style="margin-top:0px;padding-left: 15px;">Pick-up</h4>
                                                     <div>
-                                                        <p>
-                                                            <?php echo $slocated ?> </p>
-                                                        <p>
-                                                            <?php echo $sdate." ".$stime ?> </p>
+                                                        <p><?php echo $slocated ?> </p>
+                                                        <p><?php echo $sdate." ".$stime ?> </p>
                                                         <!--<p>Bangkok - Suvarnabhumi Airport - International 4 Jun 2017 10:00</p>-->
                                                     </div>
                                                 </div>
@@ -179,10 +186,8 @@
                                                     <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
                                                     <h4 style="margin-top:0px;padding-left: 15px;">Drop-point</h4>
                                                     <div>
-                                                        <p>
-                                                            <?php echo $elocated ?> </p>
-                                                        <p>
-                                                            <?php echo $edate." ".$etime ?> </p>
+                                                        <p><?php echo $elocated ?> </p>
+                                                        <p><?php echo $edate." ".$etime ?> </p>
                                                         <!--<p>Bangkok - Suvarnabhumi Airport - International 4 Jun 2017 10:00</p>-->
                                                     </div>
                                                 </div>
@@ -279,73 +284,70 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <button class="btn btn-success right"> Find</button>
                                             </div>
                                         </div>
-
                                         <div class="col-md-9">
                                             <!-- BEGIN PRODUCTS -->
                                             <?php 
-                                            for($i = 0 ; $i < $rows ; $i++){
-                                                echo '<div class="thumbnail">
-                                            <div class="clearfix card-detail">
-                                                <div class="col-md-7 ">
-                                                    <div class="product-img">
-                                                        <a href="#">
-                                                            <img class="product-img-src" src="pic/'.$cPic[$i][0].'.png" alt="Avatar" class="image">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <h4> '.$cBrand[$i].' '.$cModel[$i];
-                                                    if($cType[$i] == 'n/a') echo ' '.$cEngine[$i].'</h4>';
-                                                    else echo ' '.$cType[$i].'</h4>';
-                                                   echo '<div class="ratings">
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star-empty"></span>
-                                                    </div>
-                                                    <li> Production in year '.$cYear[$i].' </li>
-                                                    <li> Engine(L) : '.$cEngine[$i].'  </li>
-                                                    <li> EngineType : '.$cType[$i].'  </li>
-                                                    <li> Fuel : '.$cFuel[$i].'  </li>
-                                                    <li> Mileage : '.$cMile[$i].'  </li>
-                                                    <li> Color : '.$cColor[$i].'  </li>
-                                                    <hr class="line">
-                                                    <p class="price">$29,90</p>
-                                                    <button class="btn btn-success right"> BUY ITEM</button>
-                                                </div>
-                                            </div>
-                                        </div>';
-                                            }
-                                        ?>
-                                            <!---->
-
-
-
-                                            <ul class="list-inline pull-right">
-                                                <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                                            </ul>
+                                                for($i = 1 ; $i < $rows ; $i++){
+                                                    echo '<div class="thumbnail">
+                                                            <div class="clearfix card-detail">
+                                                                <div class="col-md-7 ">
+                                                                    <div class="product-img">
+                                                                        <a href="#">
+                                                                            <img class="product-img-src" src="pic/'.$cPic[$i][0].'.png" alt="Avatar" class="image">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <h4> '.$cBrand[$i].' '.$cModel[$i];
+                                                                    if($cType[$i] == 'n/a') echo ' '.$cEngine[$i].'</h4>';
+                                                                    else echo ' '.$cType[$i].'</h4>';
+                                                                echo '<div class="ratings">
+                                                                        <span class="glyphicon glyphicon-star"></span>
+                                                                        <span class="glyphicon glyphicon-star"></span>
+                                                                        <span class="glyphicon glyphicon-star"></span>
+                                                                        <span class="glyphicon glyphicon-star"></span>
+                                                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                                                    </div>
+                                                                    <li> Production in year '.$cYear[$i].' </li>
+                                                                    <li> Engine(L) : '.$cEngine[$i].'  </li>
+                                                                    <li> EngineType : '.$cType[$i].'  </li>
+                                                                    <li> Fuel : '.$cFuel[$i].'  </li>
+                                                                    <li> Mileage : '.$cMile[$i].'  </li>
+                                                                    <li> Color : '.$cColor[$i].'  </li>
+                                                                    <hr class="line">
+                                                                    <p class="price">$29,90</p>
+                                                                    <ul class="list-inline pull-right">
+                                                                        <li><button type="button" class="btn btn-primary  next-step" onClick="document.location.href=\'content.php?select='.$i.'\'" >CHOOSE THIS CAR</button></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>';
+                                                }
+                                            ?>
+                                                <!---->
                                         </div>
-                                    </div>
+                                    </div>    
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step2">
-                                    <h1>Details</h1>
                                     <div>
                                         <div class="thumbnail">
                                             <div class="clearfix card-detail">
                                                 <div class="col-md-7 ">
                                                     <div class="product-img">
                                                         <a href="#">
-                                                            <img class="product-img-src" src="pic/civic_01.png" alt="Avatar" class="image">
+                                                            <img class="product-img-src" src="pic/<?php echo @$cPic[$selectidcar][0] ?>.png" alt="Avatar" class="image">
                                                         </a>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <h4>Product Tittle</h4>
+                                                    <?php
+                                                    echo '<h4> '.@$cBrand[$selectidcar].' '.@$cModel[$selectidcar];
+                                                        if(@$cType[$selectidcar] == 'n/a') echo ' '.@$cEngine[$selectidcar].'</h4>';
+                                                        else echo ' '.@$cType[$selectidcar].'</h4>';
+                                                        ?>
                                                     <div class="ratings">
                                                         <span class="glyphicon glyphicon-star"></span>
                                                         <span class="glyphicon glyphicon-star"></span>
@@ -353,70 +355,78 @@
                                                         <span class="glyphicon glyphicon-star"></span>
                                                         <span class="glyphicon glyphicon-star-empty"></span>
                                                     </div>
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                                                    <?php echo
+                                                    '<li> Production in year '.$cYear[$selectidcar].' </li>
+                                                        <li> Engine(L) : '.$cEngine[$selectidcar].'  </li>
+                                                        <li> EngineType : '.$cType[$selectidcar].'  </li>
+                                                        <li> Fuel : '.$cFuel[$selectidcar].'  </li>
+                                                        <li> Mileage : '.$cMile[$selectidcar].'  </li>
+                                                        <li> Color : '.$cColor[$selectidcar].'  </li>';
+                                                        ?>
                                                     <hr class="line">
                                                     <p class="price">$29,90</p>
+                                                    <button class="btn btn-success right"> BUY ITEM</button>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="container">
+                                            <h2>Driver Details</h2>
+                                            <form>
+                                                <div class="row form-sub">
+                                                    <div class="col col-md-4 form-sub-text">
+                                                        <p>First Name*</p>
+                                                    </div>
+                                                    <div class="col col-md-8 col-offset-2">
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-sub ">
+                                                    <div class="col col-md-4 form-sub-text">
+                                                        <p>Last Name*</p>
+                                                    </div>
+                                                    <div class="col col-md-8">
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-sub">
+                                                    <div class="col col-md-4 form-sub-text">
+                                                        <p>Birthday*</p>
+                                                    </div>
+                                                    <div class="col col-md-8">
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-sub">
+                                                    <div class="col col-md-4 form-sub-text">
+                                                        <p>Email*</p>
+                                                    </div>
+                                                    <div class="col col-md-8">
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-sub">
+                                                    <div class="col col-md-4 form-sub-text">
+                                                        <p>Phone number*</p>
+                                                    </div>
+                                                    <div class="col col-md-8">
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-sub">
+                                                    <div class="col col-md-4 form-sub-text">
+                                                        <p>Driver License*</p>
+                                                    </div>
+                                                    <div class="col col-md-8">
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- END PRODUCTS -->
+                                        <ul class="list-inline pull-right">
+                                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                        </ul>
                                     </div>
-                                    <div class="container">
-                                        <h2>Driver Details</h2>
-                                        <form>
-                                            <div class="row form-sub">
-                                                <div class="col col-md-4 form-sub-text">
-                                                    <p>First Name*</p>
-                                                </div>
-                                                <div class="col col-md-8 col-offset-2">
-                                                    <input type="text" class="form-control" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="row form-sub ">
-                                                <div class="col col-md-4 form-sub-text">
-                                                    <p>Last Name*</p>
-                                                </div>
-                                                <div class="col col-md-8">
-                                                    <input type="text" class="form-control" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="row form-sub">
-                                                <div class="col col-md-4 form-sub-text">
-                                                    <p>Birthday*</p>
-                                                </div>
-                                                <div class="col col-md-8">
-                                                    <input type="text" class="form-control" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="row form-sub">
-                                                <div class="col col-md-4 form-sub-text">
-                                                    <p>Email*</p>
-                                                </div>
-                                                <div class="col col-md-8">
-                                                    <input type="text" class="form-control" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="row form-sub">
-                                                <div class="col col-md-4 form-sub-text">
-                                                    <p>Phone number*</p>
-                                                </div>
-                                                <div class="col col-md-8">
-                                                    <input type="text" class="form-control" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="row form-sub">
-                                                <div class="col col-md-4 form-sub-text">
-                                                    <p>Driver License*</p>
-                                                </div>
-                                                <div class="col col-md-8">
-                                                    <input type="text" class="form-control" placeholder="">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!-- END PRODUCTS -->
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                                    </ul>
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step3">
                                     <h1>Payment</h1>
@@ -448,6 +458,7 @@
                                     <h3>Complete</h3>
                                     <p>You have successfully completed all steps.</p>
                                 </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -463,7 +474,15 @@
     <!-- Custom Theme Scripts -->
     <script src="../js/content.js"></script>
 
-    </body>
-
-
-    </html>
+    <?php
+        if(@$_GET['select']){
+            echo '<script>
+                    var $active = $(\'.wizard .nav-tabs li.active\');
+                    $active.next().removeClass(\'disabled\');
+                    nextTab($active);
+                </script>';
+        }
+        
+    ?>
+</body>
+</html>
