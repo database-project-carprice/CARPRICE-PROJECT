@@ -142,7 +142,7 @@
                                 <li role="presentation" class="disabled">
                                     <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
                                         <span class="round-tab">
-                                <i class="glyphicon glyphicon-picture"></i>
+                                <i class="fa fa-credit-card"></i>
                             </span>
                                     </a>
                                 </li>
