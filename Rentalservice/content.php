@@ -1,4 +1,11 @@
 <?php
+    $selectidcar = 1;
+
+    if(@$_GET['select']) {
+        $selectidcar = $_GET['select'];
+    } 
+
+    
 
     if(@$_GET['brand']){
         $select = '( brand = \'';
@@ -41,9 +48,10 @@
     
     $link = mysqli_connect("localhost", "root", "", "Car_Rental_System");
 	
-	$rows = 0;
+	$rows = 1;
 	$result = mysqli_query($link, $sql);
 	while($data = mysqli_fetch_array($result)) {
+        $cId[$rows] = $data['id'];
         $cBrand[$rows] = $data['brand'];
         $cModel[$rows] = $data['model'];
         $cYear[$rows] = $data['production_year'];
@@ -124,7 +132,7 @@
                         <div class="connecting-line"></div>
                         <ul class="nav nav-tabs" role="tablist">
 
-                            <li role="presentation" class="active">
+                            <li role="presentation" id="tab1" class="active">
                                 <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
                                     <span class="round-tab">
                                 <i class="fa fa-search"></i>
@@ -132,7 +140,7 @@
                                 </a>
                             </li>
 
-                            <li role="presentation" class="disabled">
+                            <li role="presentation" id="tab2" class="disabled">
                                 <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
                                     <span class="round-tab">
                                 <i class="fa fa-id-card-o"></i>
@@ -268,8 +276,10 @@
                                     <div class="col-md-9">
                                         <!-- BEGIN PRODUCTS -->
                                         <?php 
-                                            for($i = 0 ; $i < $rows ; $i++){
-                                                echo '<div class="thumbnail">
+                                            for($i = 1 ; $i < $rows ; $i++){
+                                                echo 
+                                    
+                                        '<div class="thumbnail">
                                             <div class="clearfix card-detail">
                                                 <div class="col-md-7 ">
                                                     <div class="product-img">
@@ -297,7 +307,9 @@
                                                     <li> Color : '.$cColor[$i].'  </li>
                                                     <hr class="line">
                                                     <p class="price">$29,90</p>
-                                                    <button class="btn btn-success right"> BUY ITEM</button>
+                                                    <ul class="list-inline pull-right">
+                                                        <li><button type="button" class="btn btn-primary  next-step" onClick="document.location.href=\'content.php?select='.$i.'\'" >CHOOSE THIS CAR</button></li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>';
@@ -307,9 +319,7 @@
 
 
 
-                                        <ul class="list-inline pull-right">
-                                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                                        </ul>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -320,12 +330,16 @@
                                             <div class="col-md-7 ">
                                                 <div class="product-img">
                                                     <a href="#">
-                                                        <img class="product-img-src" src="pic/civic_01.png" alt="Avatar" class="image">
+                                                        <img class="product-img-src" src="pic/<?php echo @$cPic[$selectidcar][0] ?>.png" alt="Avatar" class="image">
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="col-md-5">
-                                                <h4>Product Tittle</h4>
+                                                <?php
+                                                echo '<h4> '.@$cBrand[$selectidcar].' '.@$cModel[$selectidcar];
+                                                    if(@$cType[$selectidcar] == 'n/a') echo ' '.@$cEngine[$selectidcar].'</h4>';
+                                                    else echo ' '.@$cType[$selectidcar].'</h4>';
+                                                    ?>
                                                 <div class="ratings">
                                                     <span class="glyphicon glyphicon-star"></span>
                                                     <span class="glyphicon glyphicon-star"></span>
@@ -333,7 +347,14 @@
                                                     <span class="glyphicon glyphicon-star"></span>
                                                     <span class="glyphicon glyphicon-star-empty"></span>
                                                 </div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                                                <?php echo
+                                                '<li> Production in year '.$cYear[$selectidcar].' </li>
+                                                    <li> Engine(L) : '.$cEngine[$selectidcar].'  </li>
+                                                    <li> EngineType : '.$cType[$selectidcar].'  </li>
+                                                    <li> Fuel : '.$cFuel[$selectidcar].'  </li>
+                                                    <li> Mileage : '.$cMile[$selectidcar].'  </li>
+                                                    <li> Color : '.$cColor[$selectidcar].'  </li>';
+                                                    ?>
                                                 <hr class="line">
                                                 <p class="price">$29,90</p>
                                                 <button class="btn btn-success right"> BUY ITEM</button>
@@ -356,7 +377,7 @@
                                 </div>
                                 <!-- END PRODUCTS -->
                                 <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                    <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
                                 </ul>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step3">
@@ -387,7 +408,20 @@
 <!-- Custom Theme Scripts -->
 <script src="../js/content.js"></script>
 
+
+<?php
+    if(@$_GET['select']){
+        echo '<script>
+                var $active = $(\'.wizard .nav-tabs li.active\');
+                $active.next().removeClass(\'disabled\');
+                nextTab($active);
+            </script>';
+    }
+    
+?>
+
 </body>
+
 
 
 </html>
