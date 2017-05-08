@@ -319,7 +319,6 @@
                                             </div>
                                         </div>
                                         <div class="col-md-9">
-                                            
                                             <div class = "row-search align-self-end">
                                                 <h4 style= "float: left ; margin-right: 10px">Search</h4>
                                                 <input type="text" class="form-control" id="usr" style= "float: left ; width:200px ; margin-right: 10px" > 
@@ -404,7 +403,6 @@
                                                         ?>
                                                         <hr class="line">
                                                         <p class="price">$29,90</p>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -469,7 +467,7 @@
 
                                     </div>
                                 </div>
-                                 <div class="tab-pane" role="tabpanel" id="step3">
+                                <div class="tab-pane" role="tabpanel" id="step3">
                                     <h1>Payment</h1>
                                     <form action method="get">
                                         <br>
@@ -499,42 +497,42 @@
                                     </form>
                                     
                                 </div>
-                                <form action="dbFunction.php" >
-                                    <div class="tab-pane" role="tabpanel" id="step4">
-                                        <h4>Confirm</h4>
-                                        <br>
-                                        <?php 
-                                        echo '<p> Car : '.@$cBrand[1].' '.@$cModel[1];
-                                                    if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
-                                                    else echo ' '.@$cType[1].'</p>';
-                                        ?>
-                                        <p>Pick-up Location : <?php echo $_SESSION['pick_up'] ?></p>
-                                        <p>Drop-off Location : <?php echo $_SESSION['drop_off'] ?></p>
-                                        <p>Start Date : <?php echo $_SESSION['start_date'] ?></p>
-                                        <p>End Date : <?php echo $_SESSION['end_date'] ?></p>
-                                        <p>Start Time : <?php echo $_SESSION['start_time'] ?></p>
-                                        <p>End Time : <?php echo $_SESSION['end_time'] ?></p>
-                                        <br>
-                                        <h4>Drivaer detail</h4>
-                                        <br>
-                                        <p>Name : <?php echo $_SESSION['name'] ?></p>
-                                        <p>Last Name : <?php echo $_SESSION['lastname'] ?></p>
-                                        <p>Birth Day : <?php echo $_SESSION['birthday'] ?></p>
-                                        <p>Email : <?php echo $_SESSION['email'] ?></p>
-                                        <p>Phone number : <?php echo $_SESSION['phone'] ?></p>
-                                        <p>Driver License Number : <?php echo $_SESSION['dln'] ?></p>
-                                        <ul class="list-inline pull-right">
-                                            <li><button type"submit" class="btn btn-primary "> Submit </button></li>
-                                        </ul>
-                                    </div>
-                                </form>
+                                <div class="tab-pane" role="tabpanel" id="step3">
+                                    <form action="dbFunction.php" >
+                                        <div class="tab-pane" role="tabpanel" id="step4">
+                                            <h4>Confirm</h4>
+                                            <br>
+                                            <?php 
+                                            echo '<p> Car : '.@$cBrand[1].' '.@$cModel[1];
+                                                        if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
+                                                        else echo ' '.@$cType[1].'</p>';
+                                            ?>
+                                            <p>Pick-up Location : <?php echo $_SESSION['pick_up'] ?></p>
+                                            <p>Drop-off Location : <?php echo $_SESSION['drop_off'] ?></p>
+                                            <p>Start Date : <?php echo $_SESSION['start_date'] ?></p>
+                                            <p>End Date : <?php echo $_SESSION['end_date'] ?></p>
+                                            <p>Start Time : <?php echo $_SESSION['start_time'] ?></p>
+                                            <p>End Time : <?php echo $_SESSION['end_time'] ?></p>
+                                            <br>
+                                            <h4>Drivaer detail</h4>
+                                            <br>
+                                            <p>Name : <?php echo $_SESSION['name'] ?></p>
+                                            <p>Last Name : <?php echo $_SESSION['lastname'] ?></p>
+                                            <p>Birth Day : <?php echo $_SESSION['birthday'] ?></p>
+                                            <p>Email : <?php echo $_SESSION['email'] ?></p>
+                                            <p>Phone number : <?php echo $_SESSION['phone'] ?></p>
+                                            <p>Driver License Number : <?php echo $_SESSION['dln'] ?></p>
+                                            <ul class="list-inline pull-right">
+                                                <li><button type"submit" class="btn btn-primary "> Submit </button></li>
+                                            </ul>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
+                        </form>
                     </div>
-
-                    </form>
+                </section>
             </div>
-            </section>
-        </div>
         </div>
     </body>
 
@@ -545,7 +543,6 @@
     <!-- Custom Theme Scripts -->
     <script src="../js/content.js"></script>
 
-   
     <?php
     if($secPage){
         echo
