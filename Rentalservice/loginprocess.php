@@ -10,15 +10,20 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT username , name ,lastname FROM customer WHERE username = '$username' AND password = '$password'";
+        $sql = "SELECT * FROM customer WHERE username = '$username' AND password = '$password'";
 
         $results = mysqli_query($link,$sql);
         $num_row = mysqli_num_rows($results);
 
         if($num_row == 1) {
             while ($data = mysqli_fetch_array($results)) {
+                $_SESSION['id'] = $data['id'];
                 $_SESSION['name'] = $data['name'];
                 $_SESSION['lastname'] = $data['lastname'];
+                $_SESSION['birthday'] = $data['birthday'];
+                $_SESSION['email'] = $data['email'];
+                $_SESSION['phone'] = $data['phone'];
+                $_SESSION['dln'] = $data['dln'];
             }
             header("Location: index.php");
             die();

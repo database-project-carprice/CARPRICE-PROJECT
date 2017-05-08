@@ -11,6 +11,7 @@
         header('Location: login.php');
         die();
     }
+    
 ?>
 
     <!DOCTYPE html>
@@ -126,17 +127,17 @@
                                     <button class="w3-bar-item w3-button tablink " onclick="openLink(event, 'Time');" style="width:33%"><i class="fa fa-clock-o w3-margin-right"></i>Time</button>
                                 </div>
                                 <!-- Tabs -->
-                                <form id="tab" action="content.php" method="post">
+                                <form id="tab" action="content.php" method="get">
                                     <div id="Car" class="w3-container w3-white w3-padding-16 myLink tab-size">
                                         <div class="w3-row-padding" style="margin:0 -16px;">
                                             <h3>Best car rental service!</h3>
                                             <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
                                             <div style="margin-top :3%">
                                                 <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" id="slo" name="slocated" placeholder="Pick-up point" autocomplete="off">
+                                                    <input class="w3-input w3-border" type="text" id="slo" name="slocated" value="<?php echo @$_SESSION['pick_up'] ?>" placeholder="Pick-up point" autocomplete="off">
                                                 </div>
                                                 <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" id="elo" name="elocated" placeholder="Drop point" autocomplete="off">
+                                                    <input class="w3-input w3-border" type="text" id="elo" name="elocated" value="<?php echo @$_SESSION['drop_off'] ?>" placeholder="Drop point" autocomplete="off">
                                                 </div>
                                             </div>
                                             <button class="w3-button w3-dark-grey" style="margin-top : 2%">Search Date</button>
@@ -148,10 +149,10 @@
                                             <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
                                             <div style="margin-top :3%">
                                                 <div class="col-md-6 offset-md-2 ">
-                                                    <input class="w3-input w3-border" type="text" id="sdate" name="sdate" placeholder="Start date" data-format="yyyy-MM-dd">
+                                                    <input class="w3-input w3-border" type="text" id="sdate" name="sdate" value="<?php echo @$_SESSION['start_date'] ?>" placeholder="Start date" data-format="yyyy-MM-dd" autocomplete="off">
                                                 </div>
                                                 <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" id="edate" name="edate" placeholder="End date" data-format="yyyy-MM-dd">
+                                                    <input class="w3-input w3-border" type="text" id="edate" name="edate" value="<?php echo @$_SESSION['end_date'] ?>" placeholder="End date" data-format="yyyy-MM-dd" autocomplete="off">
                                                 </div>
                                                 
                                             </div>
@@ -165,13 +166,13 @@
                                                 <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
                                                 <div style="margin-top :3%">
                                                     <div class="col-md-6 offset-md-2">
-                                                        <input class="w3-input w3-border" type="text" name="stime" id="stime" placeholder="Start time">
+                                                        <input class="w3-input w3-border" type="text" name="stime" id="stime" value="<?php echo @$_SESSION['start_time'] ?>" placeholder="Start time" autocomplete="off">
                                                     </div>
                                                     <div class="col-md-6 offset-md-2">
-                                                        <input class="w3-input w3-border" type="text" name="etime" id="etime" placeholder="End time">
+                                                        <input class="w3-input w3-border" type="text" name="etime" id="etime" value="<?php echo @$_SESSION['end_time'] ?>" placeholder="End time" autocomplete="off">
                                                     </div>
                                                 </div>
-                                                <button class="w3-button w3-dark-grey" style="margin-top : 2%" herf=index.php?action=content id="tsearch">Search for car </button>
+                                                <button class="w3-button w3-dark-grey" style="margin-top : 2%"  id="tsearch">Search for car </button>
                                                 
                                             </div>
                                        
