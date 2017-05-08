@@ -36,7 +36,7 @@
     <!-- Top content -->
     <div class="top-content">
 
-        <div class="inner-bg">
+        <div class="inner-bg"  >
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 text" style="color :black;">
@@ -78,6 +78,15 @@
                                 </div>
                                 <div class="form-group ">
                                     <input autocomplete="off" type="text" name="lastname" placeholder="Last name" class="form-username form-control " id="form-username ">
+                                </div>
+                                <div class="form-group ">
+                                    <input autocomplete="off" type="text" name="birthday" placeholder="Brithday" class="form-username form-control " id="form-username ">
+                                </div>
+                                <div class="form-group ">
+                                    <input autocomplete="off" type="text" name="email" placeholder="Email" class="form-username form-control " id="form-username ">
+                                </div>
+                                <div class="form-group ">
+                                    <input autocomplete="off" type="text" name="phone" placeholder="Phone number" class="form-username form-control " id="form-username ">
                                 </div>
                                 <div class="form-group ">
                                     <input autocomplete="off" type="text" name="drl" placeholder="Driving licence number" class="form-username form-control " id="form-username ">

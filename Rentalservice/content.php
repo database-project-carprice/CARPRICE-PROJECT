@@ -1,20 +1,57 @@
 <?php
+    
+    session_start();
+    if(@$_GET['action'] == 'logout') {
+        session_destroy();
+        header('Location: login.php');
+        die();
+    
+    }
     $selectidcar = 1;
+    $firstPage = true;
+    $secPage = false;
+    $thirdPage = false;
+    $fouthPage = false;
 
-    if(@$_GET['select']) {
-        $selectidcar = $_GET['select'];
-    } 
+   
+    if(@$_GET['slocated'] && @$_GET['elocated'] && @$_GET['sdate'] && @$_GET['edate'] && @$_GET['stime'] && @$_GET['etime']){
+        $_SESSION['pick_up'] = $_GET['slocated'];
+        $_SESSION['drop_off'] = $_GET['elocated'];
+        $_SESSION['start_date'] = $_GET['sdate'];
+        $_SESSION['end_date'] = $_GET['edate'];
+        $_SESSION['start_time'] = $_GET['stime'];
+        $_SESSION['end_time'] = $_GET['etime'];
+    }
 
+    if(@$_GET['name'] && @$_GET['lastname'] && @$_GET['birth_day'] && @$_GET['email'] && @$_GET['phone_number'] && @$_GET['driver_license']){
+        $thirdPage = true;
+        $_SESSION['name'] = $_GET['name'];
+        $_SESSION['lastname'] = $_GET['lastname'];
+        $_SESSION['birthday'] = $_GET['birth_day'];
+        $_SESSION['email'] = $_GET['email'];
+        $_SESSION['phone'] = $_GET['phone_number'];
+        $_SESSION['dln'] = $_GET['driver_license'];
+    }
+    if(@$_GET['card_type'] && @$_GET['card_id']){
+        $fouthPage = true;
+    }
     
 
-    if(@$_GET['brand']){
+    if(@$_GET['select']) {
+        // include 'showDetailCustomer.php';
+        $secPage = true;
+        $_SESSION['car_id'] = $_GET['select'];
+        $selectidcar = $_GET['select'];
+        $sql = "SELECT * FROM car
+                    WHERE id = '".$selectidcar."'";
+    } 
+    else if(@$_GET['brand']){
         $select = '( brand = \'';
         $select = $select.implode('\') AND ( brand = \'',$_GET['brand']);
         $select = $select.'\')';
         
         $sql = "SELECT *  FROM car 
                     WHERE ".$select;
-        
     }
     else if(@$_GET['type']){
         $select = '( name = \'';
@@ -24,26 +61,15 @@
         $sql = "SELECT *  FROM car 
                     WHERE category_id = (
                             SELECT id FROM category
-                            WHERE ".$select.")";
-                        
+                            WHERE ".$select.")";     
     }
-    else $sql = "SELECT *  FROM car ";
+    else {
+        $sql = "SELECT *  FROM car ";
+    }
+    
 
-
-    session_start();
-    if(@$_POST['slocated'] != NULL ) $slocated = $_POST['slocated'];
-    else $slocated = "Defult Location";
-    if(@$_POST['elocated'] != NULL ) $elocated = $_POST['elocated'];
-    else $elocated = "Defult Location";
-    if(@$_POST['sdate'] != NULL ) $sdate = $_POST['sdate'];
-    else $sdate = "Defult Date";
-    if(@$_POST['edate'] != NULL ) $edate = $_POST['edate'];
-    else $edate = "Defult Date";
-    if(@$_POST['stime'] != NULL ) $stime = $_POST['stime'];
-    else $stime = "Defult Time";
-    if(@$_POST['etime'] != NULL ) $etime = $_POST['etime'];
-    else $etime = "Defult Time";
-
+   
+    
     
     
     $link = mysqli_connect("localhost", "root", "", "Car_Rental_System");
@@ -68,8 +94,8 @@
   
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -148,7 +174,7 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li role="presentation" class="disabled">
+                                <li role="presentation" id="tab3" class="disabled">
                                     <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
                                         <span class="round-tab">
                                             <i class="fa fa-credit-card"></i>
@@ -156,7 +182,7 @@
                                     </a>
                                 </li>
 
-                                <li role="presentation" class="disabled">
+                                <li role="presentation" id="tab4" class="disabled">
                                     <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
                                         <span class="round-tab">
                                             <i class="glyphicon glyphicon-ok"></i>
@@ -167,7 +193,8 @@
                         </div>
 
                         <form role="form">
-                            <div class="tab-content">
+                            <div class="tab-content ">
+                                
                                 <div class="tab-pane active" role="tabpanel" id="step1">
                                     <div class="row">
                                         <div class="col-md-3">
@@ -177,8 +204,10 @@
                                                     <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
                                                     <h4 style="margin-top:0px;padding-left: 15px;">Pick-up</h4>
                                                     <div>
-                                                        <p><?php echo $slocated ?> </p>
-                                                        <p><?php echo $sdate." ".$stime ?> </p>
+                                                        <p>
+                                                            <?php echo @$_SESSION['pick_up'] ?> </p>
+                                                        <p>
+                                                            <?php echo @$_SESSION['start_date']." ".@$_SESSION['end_time'] ?> </p>
                                                         <!--<p>Bangkok - Suvarnabhumi Airport - International 4 Jun 2017 10:00</p>-->
                                                     </div>
                                                 </div>
@@ -186,8 +215,10 @@
                                                     <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
                                                     <h4 style="margin-top:0px;padding-left: 15px;">Drop-point</h4>
                                                     <div>
-                                                        <p><?php echo $elocated ?> </p>
-                                                        <p><?php echo $edate." ".$etime ?> </p>
+                                                        <p>
+                                                            <?php echo @$_SESSION['drop_off'] ?> </p>
+                                                        <p>
+                                                            <?php echo @$_SESSION['end_date']." ".@$_SESSION['end_time'] ?> </p>
                                                         <!--<p>Bangkok - Suvarnabhumi Airport - International 4 Jun 2017 10:00</p>-->
                                                     </div>
                                                 </div>
@@ -307,6 +338,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-5">
+                                                                
                                                                     <h4> '.$cBrand[$i].' '.$cModel[$i];
                                                                     if($cType[$i] == 'n/a') echo ' '.$cEngine[$i].'</h4>';
                                                                     else echo ' '.$cType[$i].'</h4>';
@@ -326,17 +358,18 @@
                                                                     <hr class="line">
                                                                     <p class="price">$29,90</p>
                                                                     <ul class="list-inline pull-right">
-                                                                        <li><button type="button" class="btn btn-primary  next-step" onClick="document.location.href=\'content.php?select='.$i.'\'" >CHOOSE THIS CAR</button></li>
+                                                                        <li><a class="btn btn-primary " href="content.php?content=step2&select='.$cId[$i].'" >CHOOSE THIS CAR</a></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
                                                         </div>';
                                                 }
                                             ?>
-                                                <!---->
+                                            <!---->
                                         </div>
-                                    </div>    
+                                    </div>
                                 </div>
+
                                 <div class="tab-pane" role="tabpanel" id="step2">
                                     <div>
                                         <div class="thumbnail">
@@ -344,132 +377,164 @@
                                                 <div class="col-md-7 ">
                                                     <div class="product-img">
                                                         <a href="#">
-                                                            <img class="product-img-src" src="pic/<?php echo @$cPic[$selectidcar][0] ?>.png" alt="Avatar" class="image">
+                                                            <img class="product-img-src" src="pic/<?php echo @$cPic[1][0] ?>.png" alt="Avatar" class="image">
                                                         </a>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
                                                     <?php
-                                                    echo '<h4> '.@$cBrand[$selectidcar].' '.@$cModel[$selectidcar];
-                                                        if(@$cType[$selectidcar] == 'n/a') echo ' '.@$cEngine[$selectidcar].'</h4>';
-                                                        else echo ' '.@$cType[$selectidcar].'</h4>';
+                                                    echo '<h4> '.@$cBrand[1].' '.@$cModel[1];
+                                                        if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
+                                                        else echo ' '.@$cType[1].'</h4>';
                                                         ?>
-                                                    <div class="ratings">
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star-empty"></span>
-                                                    </div>
-                                                    <?php echo
-                                                    '<li> Production in year '.$cYear[$selectidcar].' </li>
-                                                        <li> Engine(L) : '.$cEngine[$selectidcar].'  </li>
-                                                        <li> EngineType : '.$cType[$selectidcar].'  </li>
-                                                        <li> Fuel : '.$cFuel[$selectidcar].'  </li>
-                                                        <li> Mileage : '.$cMile[$selectidcar].'  </li>
-                                                        <li> Color : '.$cColor[$selectidcar].'  </li>';
+                                                        <div class="ratings">
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star-empty"></span>
+                                                        </div>
+                                                        <?php echo
+                                                    '<li> Production in year '.$cYear[1].' </li>
+                                                        <li> Engine(L) : '.$cEngine[1].'  </li>
+                                                        <li> EngineType : '.$cType[1].'  </li>
+                                                        <li> Fuel : '.$cFuel[1].'  </li>
+                                                        <li> Mileage : '.$cMile[1].'  </li>
+                                                        <li> Color : '.$cColor[1].'  </li>';
                                                         ?>
-                                                    <hr class="line">
-                                                    <p class="price">$29,90</p>
-                                                    <button class="btn btn-success right"> BUY ITEM</button>
+                                                        <hr class="line">
+                                                        <p class="price">$29,90</p>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="container">
                                             <h2>Driver Details</h2>
-                                            <form>
-                                                <div class="row form-sub">
+                                            <form action="content.php?content=step3" method="get">
+                                                <div class="row form-sub" style="padding-bottom: 20px;">
                                                     <div class="col col-md-4 form-sub-text">
                                                         <p>First Name*</p>
                                                     </div>
                                                     <div class="col col-md-8 col-offset-2">
-                                                        <input type="text" class="form-control" placeholder="">
+                                                        <input type="text" class="form-control" placeholder=""  name="name" value="<?php echo @$_SESSION['name']; ?>" autocomplete="off">
                                                     </div>
                                                 </div>
-                                                <div class="row form-sub ">
+                                                <div class="row form-sub " style="padding-bottom: 20px;">
                                                     <div class="col col-md-4 form-sub-text">
                                                         <p>Last Name*</p>
                                                     </div>
                                                     <div class="col col-md-8">
-                                                        <input type="text" class="form-control" placeholder="">
+                                                        <input type="text" class="form-control" placeholder="" name="lastname" value="<?php echo @$_SESSION['lastname']; ?>" autocomplete="off">
                                                     </div>
                                                 </div>
-                                                <div class="row form-sub">
+                                                <div class="row form-sub" style="padding-bottom: 20px;">
                                                     <div class="col col-md-4 form-sub-text">
                                                         <p>Birthday*</p>
                                                     </div>
                                                     <div class="col col-md-8">
-                                                        <input type="text" class="form-control" placeholder="">
+                                                        <input type="text" class="form-control" placeholder="" name="birth_day" value="<?php echo @$_SESSION['birthday']; ?>" autocomplete="off">
                                                     </div>
                                                 </div>
-                                                <div class="row form-sub">
+                                                <div class="row form-sub" style="padding-bottom: 20px;">
                                                     <div class="col col-md-4 form-sub-text">
                                                         <p>Email*</p>
                                                     </div>
                                                     <div class="col col-md-8">
-                                                        <input type="text" class="form-control" placeholder="">
+                                                        <input type="text" class="form-control" placeholder="" name="email" value="<?php echo @$_SESSION['email']; ?>" autocomplete="off">
                                                     </div>
                                                 </div>
-                                                <div class="row form-sub">
+                                                <div class="row form-sub" style="padding-bottom: 20px;">
                                                     <div class="col col-md-4 form-sub-text">
                                                         <p>Phone number*</p>
                                                     </div>
                                                     <div class="col col-md-8">
-                                                        <input type="text" class="form-control" placeholder="">
+                                                        <input type="text" class="form-control" placeholder="" name="phone_number" value="<?php echo @$_SESSION['phone']; ?>" autocomplete="off">
                                                     </div>
                                                 </div>
-                                                <div class="row form-sub">
+                                                <div class="row form-sub" style="padding-bottom: 20px;">
                                                     <div class="col col-md-4 form-sub-text">
                                                         <p>Driver License*</p>
                                                     </div>
                                                     <div class="col col-md-8">
-                                                        <input type="text" class="form-control" placeholder="">
+                                                        <input type="text" class="form-control" placeholder="" name="driver_license" id="dlicense" value="<?php echo @$_SESSION['dln']; ?>" autocomplete="off">
                                                     </div>
                                                 </div>
+                                                
+                                                <ul class="list-inline pull-right">
+                                                    <li><button type"submit" class="btn btn-primary ">Save2</button></li>
+                                                </ul>
                                             </form>
                                         </div>
                                         <!-- END PRODUCTS -->
-                                        <ul class="list-inline pull-right">
-                                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                                        </ul>
+
                                     </div>
                                 </div>
-                                <div class="tab-pane" role="tabpanel" id="step3">
+                                 <div class="tab-pane" role="tabpanel" id="step3">
                                     <h1>Payment</h1>
-                                    <form>
+                                    <form action method="get">
+                                        <br>
                                         <div class="row form-sub">
                                             <div class="col col-md-4 form-sub-text">
                                                 <p>Card type*</p>
                                             </div>
                                             <div class="col col-md-8 col-offset-2">
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" name="card_type"  class="form-control" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
+                                        <br>
                                         <div class="row form-sub">
                                             <div class="col col-md-4 form-sub-text">
-                                                <p>Credit Card Number*</p>
+                                                <p>Credit Card ID*</p>
                                             </div>
                                             <div class="col col-md-8 col-offset-2">
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" name="card_id" class="form-control" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
-                                    </form>
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                        <li><button type="button" class="btn btn-default next-step">Skip</button></li>
-                                        <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                                        <br>
+                                        <ul class="list-inline pull-right">
+                                        <!--<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                        <li><button type="button" class="btn btn-default next-step">Skip</button></li>-->
+                                        <li><button type="submit" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
                                     </ul>
+                                    </form>
+                                    
                                 </div>
-                                <div class="tab-pane" role="tabpanel" id="complete">
-                                    <h3>Complete</h3>
-                                    <p>You have successfully completed all steps.</p>
-                                </div>
-                                </div>
+                                <form action="dbFunction.php" >
+                                    <div class="tab-pane" role="tabpanel" id="step4">
+                                        <h4>Confirm</h4>
+                                        <br>
+                                        <?php 
+                                        echo '<p> Car : '.@$cBrand[1].' '.@$cModel[1];
+                                                    if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
+                                                    else echo ' '.@$cType[1].'</p>';
+                                        ?>
+                                        <p>Pick-up Location : <?php echo $_SESSION['pick_up'] ?></p>
+                                        <p>Drop-off Location : <?php echo $_SESSION['drop_off'] ?></p>
+                                        <p>Start Date : <?php echo $_SESSION['start_date'] ?></p>
+                                        <p>End Date : <?php echo $_SESSION['end_date'] ?></p>
+                                        <p>Start Time : <?php echo $_SESSION['start_time'] ?></p>
+                                        <p>End Time : <?php echo $_SESSION['end_time'] ?></p>
+                                        <br>
+                                        <h4>Drivaer detail</h4>
+                                        <br>
+                                        <p>Name : <?php echo $_SESSION['name'] ?></p>
+                                        <p>Last Name : <?php echo $_SESSION['lastname'] ?></p>
+                                        <p>Birth Day : <?php echo $_SESSION['birthday'] ?></p>
+                                        <p>Email : <?php echo $_SESSION['email'] ?></p>
+                                        <p>Phone number : <?php echo $_SESSION['phone'] ?></p>
+                                        <p>Driver License Number : <?php echo $_SESSION['dln'] ?></p>
+                                        <ul class="list-inline pull-right">
+                                            <li><button type"submit" class="btn btn-primary "> Submit </button></li>
+                                        </ul>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
                     </div>
-                </section>
+
+                    </form>
             </div>
+            </section>
+        </div>
         </div>
     </body>
 
@@ -480,15 +545,52 @@
     <!-- Custom Theme Scripts -->
     <script src="../js/content.js"></script>
 
+   
     <?php
-        if(@$_GET['select']){
-            echo '<script>
-                    var $active = $(\'.wizard .nav-tabs li.active\');
-                    $active.next().removeClass(\'disabled\');
-                    nextTab($active);
-                </script>';
-        }
-        
+    if($secPage){
+        echo
+            "<script>
+                // change tab1 to tab2
+                $('#step1').removeClass('active');
+                $('#step2').addClass('active');
+
+                $('#tab1').removeClass('active');
+                $('#tab1').addClass('disabled'); 
+                $('#tab2').removeClass('disabled');
+                $('#tab2').addClass('active');   
+            </script>";
+            $secPage = false;
+    }
+    if($thirdPage){
+        echo
+            "<script>
+                // change tab1 to tab2
+                $('#step1').removeClass('active');
+                $('#step3').addClass('active');
+
+                $('#tab1').removeClass('active');
+                $('#tab1').addClass('disabled'); 
+                $('#tab3').removeClass('disabled');
+                $('#tab3').addClass('active'); 
+                </script>";
+            $thirdPage = false;
+    }
+    if($fouthPage){
+        echo
+            "<script>
+                // change tab1 to tab2
+                $('#step1').removeClass('active');
+                $('#step4').addClass('active');
+
+                $('#tab1').removeClass('active');
+                $('#tab1').addClass('disabled'); 
+                $('#tab4').removeClass('disabled');
+                $('#tab4').addClass('active'); 
+                </script>";
+            $fouthPage = false;
+    }
     ?>
-</body>
-</html>
+
+        </body>
+
+    </html>
