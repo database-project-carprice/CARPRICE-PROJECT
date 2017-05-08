@@ -1,0 +1,29 @@
+.history-container {
+    margin-top: 50px;
+    background: url(../img/london2.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.history-content {
+    margin-top: 20px;
+}
+
+.card-detail {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.product-img {
+    position: relative;
+}
+
+
+/*.product-img:hover .product-img-overlay {
+    opacity: 1;
+}*/
+
+.product-img-src {
+    display: block;
+    width: 100%;
+    height: auto;
+}

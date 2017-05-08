@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Rental Service</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <!--<link rel="stylesheet" type="text/css" href="../css/landing-page.css"></link>-->
+    <link rel="stylesheet" type="text/css" href="../css/history.css"></link>
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
+
+
+
+
+    <!--<link rel="stylesheet" href="../Rentalservice/js/jquery-ui.min.css">-->
+    <!--<script> src="/js/jquery-2.1.1.min.js" </script>-->
+    <!--<script> src="../js/jquery-ui.min.js" </script>-->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <html>
+    <!--Nav-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href=""><i class="fa fa-car w3-margin-right"></i>  Rental Service</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Rentalservice">Home</a></li>
+                    <li><a href="/selectcar/index.html">Select Car</a></li>
+                    <li class="active"><a href="/history/index.html">History</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" id="profile" data-toggle="dropdown">
+                            <?php echo $_SESSION['name']."   " ?>
+                            <?php echo $_SESSION['lastname']."   " ?>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-lr animated fadein" role="menu">
+                            <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
+                            <li role="presentation"><a role="menuitem" href="#">History</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" href="?action=logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="history-container">
+        <div class="history-content">
+            <div class="container">
+                <div class="thumbnail">
+                    <div class="clearfix card-detail">
+                        <div class="col-md-7 ">
+                            <div class="product-img">
+                                <a href="#">
+                                    <img class="product-img-src" src="https://getuikit.com/v2/docs/images/placeholder_480x260.svg" alt="Avatar" class="image">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <h4>Product Tittle</h4>
+                            <div class="ratings">
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                            <hr class="line">
+                            <p class="price">$29,90</p>
+                            <hr class="line">
+                            <div class="detail-driver">
+                                <p class="">Driver Name :
+                                    <p>Test</p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Bootstrap-typeahead -->
+    <script src="../js/bootstrap3-typeahead.js"></script>
+    <!-- Bootstrap-datetimepicker -->
+    <script src="../js/bootstrap-datetimepicker.min.js"></script>
+
+</body>
+
+</html>

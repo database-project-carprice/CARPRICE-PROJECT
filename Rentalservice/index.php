@@ -1,6 +1,6 @@
 <?php
     session_start();
-   if(@$_GET['action'] == 'logout') {
+    if(@$_GET['action'] == 'logout') {
         session_destroy();
         header('Location: login.php');
         die();
@@ -94,10 +94,6 @@
                 </div>
             </div>
         </nav>
-
-        </html>
-
-       
 
 <!-- Header -->
         <a name="about"></a>
