@@ -192,7 +192,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            
                                             <div class="sub-content">
                                                 <h3>Sort by</h3>
                                                 <form>
@@ -288,6 +288,12 @@
                                             </div>
                                         </div>
                                         <div class="col-md-9">
+                                            
+                                            <div class = "row-search align-self-end">
+                                                <h4 style= "float: left ; margin-right: 10px">Search</h4>
+                                                <input type="text" class="form-control" id="usr" style= "float: left ; width:200px ; margin-right: 10px" > 
+                                                <button type="button" class="btn btn-info">Find</button>
+                                            </div>
                                             <!-- BEGIN PRODUCTS -->
                                             <?php 
                                                 for($i = 1 ; $i < $rows ; $i++){
