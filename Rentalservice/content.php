@@ -34,6 +34,8 @@
     }
     if(@$_GET['card_type'] && @$_GET['card_id']){
         $fouthPage = true;
+        $_SESSION['card_type'] = $_GET['card_type'];
+        $_SESSION['card_id'] = $_GET['card_id'];
     }
     
 
@@ -476,7 +478,7 @@
                                                 <p>Card type*</p>
                                             </div>
                                             <div class="col col-md-8 col-offset-2">
-                                                <input type="text" name="card_type"  class="form-control" placeholder="" autocomplete="off">
+                                                <input type="text" name="card_type"  class="form-control" value="<?php echo @$_SESSION['card_type'] ?>" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
                                         <br>
@@ -485,7 +487,7 @@
                                                 <p>Credit Card ID*</p>
                                             </div>
                                             <div class="col col-md-8 col-offset-2">
-                                                <input type="text" name="card_id" class="form-control" placeholder="" autocomplete="off">
+                                                <input type="text" name="card_id" class="form-control" value="<?php echo @$_SESSION['card_id'] ?>" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
                                         <br>
@@ -497,11 +499,11 @@
                                     </form>
                                     
                                 </div>
-                                <div class="tab-pane" role="tabpanel" id="step3">
+                                <div class="tab-pane" role="tabpanel" id="step4">
                                     <form action="dbFunction.php" >
-                                        <div class="tab-pane" role="tabpanel" id="step4">
+                                        <div >
                                             <h4>Confirm</h4>
-                                            <br>
+                                            
                                             <?php 
                                             echo '<p> Car : '.@$cBrand[1].' '.@$cModel[1];
                                                         if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
@@ -513,9 +515,11 @@
                                             <p>End Date : <?php echo $_SESSION['end_date'] ?></p>
                                             <p>Start Time : <?php echo $_SESSION['start_time'] ?></p>
                                             <p>End Time : <?php echo $_SESSION['end_time'] ?></p>
-                                            <br>
+                                            <p>Card Type : <?php echo $_SESSION['card_type'] ?></p>
+                                            <p>Card ID : <?php echo $_SESSION['card_id'] ?></p>
+                                            
                                             <h4>Drivaer detail</h4>
-                                            <br>
+                                            
                                             <p>Name : <?php echo $_SESSION['name'] ?></p>
                                             <p>Last Name : <?php echo $_SESSION['lastname'] ?></p>
                                             <p>Birth Day : <?php echo $_SESSION['birthday'] ?></p>
