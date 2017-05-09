@@ -239,20 +239,12 @@
 
             <!-- page content -->
             <?php 
-            switch (@$_GET['content']) {
-                case 'list-user':
-                    include 'listuser.php';
-                    break;
-                case 'list-user':
-                    include 'listuser.php';
-                    break;
-                case 'list-location':
-                    include 'listlocation.php';
-                    break;
-                
-                default:
-                    include 'dashboard.html';
-                    break;
+            if(@$_GET['content'] == 'list-user' || @$_GET['c'] || @$_GET['q']){
+                include 'listuser.php';
+            } else if(@$_GET['content'] == 'list-car'){
+                include 'listcar.php';
+            }else{
+                include 'dashboard.html';
             }
             
             ?>

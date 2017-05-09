@@ -14,7 +14,13 @@ if(@$_POST) {
 	    @mysqli_query($link, $sql);
     }
 
-$sql = "SELECT * FROM customer";
+if(@$_GET['c']&&@$_GET['q']){
+	$sql = "SELECT id,name,lastname,birthday,email,phone,dln FROM customer WHERE ".$_GET['c']." LIKE '%".$_GET['q']."%'";
+}
+else {
+	$sql = "SELECT id,name,lastname,birthday,email,phone,dln FROM customer";
+}
+
 $result = mysqli_query($link, $sql);
 
 //อ่านข้อมูลใน result set มาแสดงในแบบตาราง
@@ -50,10 +56,16 @@ while($data = mysqli_fetch_array($result)) {
             ';
 			
 	for($i = 0; $i < $num_fields; $i++) {
-		echo "<td>".$data[$i]."</td>";
+		echo "<td>".$data[$i]."
+		
+		";
 	}
 	echo '
-				
+					
+				</td>
+				<td>
+				<a href="form.php?action=update&id='.$data['id'].'">แก้ไข</a>
+				</td>
 			</td>
 			
         </tr>';

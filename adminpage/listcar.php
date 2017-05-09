@@ -24,7 +24,7 @@ mysqli_close($link);
         <div class="row">
             <div class="clearfix"></div>
             <!---->
-            <h1>User</h1>
+            <h1>Car</h1>
             <form  method="get">
                 <div >
                         <select name="c">
