@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 06, 2017 at 05:24 PM
+-- Generation Time: May 10, 2017 at 01:59 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -210,7 +210,20 @@ INSERT INTO `comment` (`gid`, `name`, `email`, `message`, `msg_type`, `date_post
 (102, 'rakkan', 'ntp@gmail.com', 'kod kak a', '', '2017-04-25 11:33:14'),
 (103, 'ntp', 'maxmax@kahoot.com', '9999999999999999', '', '2017-04-25 11:34:05'),
 (104, 'rrrr', 'assda@gmail.com', 'à¸”à¸”à¸”à¸”à¸”à¸”à¸”', '', '2017-04-25 11:38:26'),
-(105, 'rakkan jintasatien', 'fipflopok@hotmail.com', 'khdjkhfdsf', '', '2017-04-27 21:10:27');
+(105, 'rakkan jintasatien', 'fipflopok@hotmail.com', 'khdjkhfdsf', '', '2017-04-27 21:10:27'),
+(106, 'jhjhjh', NULL, NULL, NULL, NULL),
+(107, '9999', NULL, NULL, NULL, NULL),
+(108, '101010101111111', NULL, NULL, NULL, NULL),
+(109, 'kk', NULL, NULL, NULL, NULL),
+(110, 'kk', NULL, NULL, NULL, NULL),
+(111, 'hhhh', NULL, NULL, NULL, NULL),
+(112, 'hhhh', NULL, NULL, NULL, NULL),
+(113, 'lnw', NULL, NULL, NULL, NULL),
+(114, 'raknajaa', NULL, NULL, NULL, NULL),
+(115, 'raknajaa', NULL, NULL, NULL, NULL),
+(116, 'lnw', NULL, NULL, NULL, NULL),
+(117, 'name\r\n', NULL, NULL, NULL, NULL),
+(118, 'name', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -219,22 +232,25 @@ INSERT INTO `comment` (`gid`, `name`, `email`, `message`, `msg_type`, `date_post
 --
 
 CREATE TABLE `customer` (
-  `id` smallint(11) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `dln` int(11) NOT NULL
+  `birthday` date NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `dln` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `username`, `password`, `name`, `lastname`, `dln`) VALUES
-(37, 'ntp', 'bright', 'bright', 'chong', 21321323),
-(46, 'djfhasjklfh', 'hdjsfhjadskhf', 'jfhdsjalfhaksjdfh', 'fjahdlfkj', 111111),
-(48, 'djfhasjklfh', 'hdjsfhjadskhf', 'jfhdsjalfhaksjdfh', 'fjahdlfkj', 111111);
+INSERT INTO `customer` (`id`, `username`, `password`, `name`, `lastname`, `birthday`, `email`, `phone`, `dln`) VALUES
+(50, 'ntp', 'bright', 'Bright', 'Chong', '2017-05-03', 'ntp@ku.th', '0838152541', '1234 5678 9000'),
+(51, '', '', 'Rakkan', 'Jintasatien', '1997-03-16', 'rakkan@gmail.com', '0812321321', '21321 32 43 5 46 54 '),
+(55, '', '', 'job', 'job', '2017-05-01', 'asdsa', 'dfsfds', 'asdsad');
 
 -- --------------------------------------------------------
 
@@ -270,6 +286,37 @@ CREATE TABLE `location` (
   `city_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`id`, `city_id`) VALUES
+(1, 10),
+(12, 10),
+(14, 10),
+(16, 10),
+(18, 10),
+(20, 10),
+(22, 10),
+(24, 10),
+(5, 11),
+(3, 14),
+(6, 20),
+(9, 28),
+(11, 28),
+(8, 31),
+(10, 31),
+(7, 33),
+(4, 38),
+(13, 41),
+(15, 41),
+(17, 41),
+(19, 41),
+(21, 41),
+(23, 41),
+(25, 41),
+(2, 58);
+
 -- --------------------------------------------------------
 
 --
@@ -287,6 +334,18 @@ CREATE TABLE `rental` (
   `remarks` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `rental`
+--
+
+INSERT INTO `rental` (`id`, `customer_id`, `car_id`, `pick_up_location_id`, `drop_off_location_id`, `start_date`, `end_date`, `remarks`) VALUES
+(1, 50, 24325425, 12, 13, '0000-00-00', '0000-00-00', ''),
+(2, 50, 14, 14, 15, '0000-00-00', '0000-00-00', ''),
+(3, 50, 14, 16, 17, '0000-00-00', '0000-00-00', ''),
+(4, 50, 14, 18, 19, '0000-00-00', '0000-00-00', ''),
+(5, 50, 14, 20, 21, '0000-00-00', '0000-00-00', ''),
+(6, 50, 14, 22, 23, '0000-00-00', '0000-00-00', '');
+
 -- --------------------------------------------------------
 
 --
@@ -297,9 +356,16 @@ CREATE TABLE `reservation` (
   `id` int(11) NOT NULL,
   `pick_up_location_id` int(11) NOT NULL,
   `drop_off_location_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL
+  `customer_id` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `pick_up_location_id`, `drop_off_location_id`, `customer_id`) VALUES
+(1, 10, 11, 50),
+(3, 24, 25, 50);
 
 -- --------------------------------------------------------
 
@@ -404,7 +470,8 @@ ALTER TABLE `equipment_category`
 -- Indexes for table `location`
 --
 ALTER TABLE `location`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `city_id` (`city_id`);
 
 --
 -- Indexes for table `rental`
@@ -416,7 +483,10 @@ ALTER TABLE `rental`
 -- Indexes for table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `pick_up_at` (`pick_up_location_id`),
+  ADD KEY `drop_off_at` (`drop_off_location_id`);
 
 --
 -- Indexes for table `reservation_equipment`
@@ -441,6 +511,11 @@ ALTER TABLE `sitesearch`
 ALTER TABLE `car`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
+-- AUTO_INCREMENT for table `car_equipment`
+--
+ALTER TABLE `car_equipment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
@@ -454,12 +529,37 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `gid` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `gid` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` smallint(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+--
+-- AUTO_INCREMENT for table `equipment`
+--
+ALTER TABLE `equipment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `equipment_category`
+--
+ALTER TABLE `equipment_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `location`
+--
+ALTER TABLE `location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `rental`
+--
+ALTER TABLE `rental`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `sitesearch`
 --
@@ -474,6 +574,20 @@ ALTER TABLE `sitesearch`
 --
 ALTER TABLE `car`
   ADD CONSTRAINT `car_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+
+--
+-- Constraints for table `location`
+--
+ALTER TABLE `location`
+  ADD CONSTRAINT `location_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD CONSTRAINT `drop_off_at` FOREIGN KEY (`drop_off_location_id`) REFERENCES `location` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pick_up_at` FOREIGN KEY (`pick_up_location_id`) REFERENCES `location` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
