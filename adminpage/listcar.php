@@ -49,8 +49,9 @@ mysqli_close($link);
             <!---->
             <h1>Car</h1>
             <form  method="get">
-                <div >
-                        <select name="c">
+                <div class = "col-md-6">
+                    <div class = "col-md-4 align-self-start">
+                        <select class="form-control" name="c" style = "width: 150px ; float: left;">
                             <option value="id">ID</option>
                             <option value="name">Name</option>
                             <option value="lastname">Lastname</option>
@@ -59,11 +60,15 @@ mysqli_close($link);
                             <option value="phone">Phone number</option>
                             <option value="dln">Driver license</option>
                         </select>
-                    <input type="text" name="q" autocomplete="off"><br>
-                    <button type="submit" > Search</button>
+                    </div>
+                    <div class = "col-md-4 align-self-start">
+                        <input type="text" class="form-control" name="q" autocomplete="off" style = "float:left;"><br>
+                    </div>
+                    <div class = "col-md-4 <align-self-start></align-self-start>">
+                        <input type="submit" class="btn btn-info" value="Search">
+                    </div>
                 </div>
             </form>
-
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">

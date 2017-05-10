@@ -49,7 +49,7 @@ mysqli_close($link);
             <!---->
             <h1>User</h1>
             <form  method="get">
-                <div class = "container justify-content-start">
+                <div class = "col-md-6">
                     <div class = "col-md-4 align-self-start">
                         <select class="form-control" name="c" style = "width: 150px ; float: left;">
                             <option value="id">ID</option>
@@ -62,7 +62,7 @@ mysqli_close($link);
                         </select>
                     </div>
                     <div class = "col-md-4 align-self-start">
-                        <input type="text" name="q" autocomplete="off" style = "float:left;"><br>
+                        <input type="text" class="form-control" name="q" autocomplete="off" style = "float:left;"><br>
                     </div>
                     <div class = "col-md-4 <align-self-start></align-self-start>">
                         <input type="submit" class="btn btn-info" value="Search">

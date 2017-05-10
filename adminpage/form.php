@@ -1,5 +1,23 @@
 <!doctype html>
 <html>
+<head>
+	   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin page</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../css/green.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../css/adminpage.css" rel="stylesheet">
+</head>
 <body>
 <?php
 $link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
@@ -58,36 +76,81 @@ function back() {
 	global $link;
  	mysqli_close($link);
 	exit("<p><a href=\"index.php?content=list-user\">ย้อนกลับ</a></p></body></html>");
-}
+}	
 mysqli_close($link);
 ?>
-<h3><?php echo $h; ?></h3>
 <form method="post">
+	<div class="x_panel" style = "margin-top: 120px">
+			<div class="x_title">
+				<!--<h3><?php echo $h; ?></h3>-->
+				<h2>Edit Profile <small name="id" value="<?php echo @$data['id']; ?>"></small></h2>
+				<ul class="nav navbar-right panel_toolbox">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Settings 1</a>
+							</li>
+							<li><a href="#">Settings 2</a>
+							</li>
+						</ul>
+					</li>
+					<li><a class="close-link"><i class="fa fa-close"></i></a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content">
+			<br />
+			<form class="form-horizontal form-label-left input_mask">
+				<div class = "container" style = "padding : 0 200px; ">
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
+						<input type="text" class="form-control has-feedback-left" name="name" value="<?php echo @$data['name']; ?>">
+						<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+					</div>
 
-        <input type="text" name="id" value="<?php echo @$data['id']; ?>" hidden><br>
-		
-		<label>Name</label>
-        <input type="text" name="name" value="<?php echo @$data['name']; ?>"><br>
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
+						<input type="text" class="form-control" name="lastname" value="<?php echo @$data['lastname']; ?>">
+						<span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+					</div>
 
-        <label>Last name</label>
-        <input type="text" name="lastname" value="<?php echo @$data['lastname']; ?>"><br>
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
+						<input type="text" class="form-control has-feedback-left" name="email" value="<?php echo @$data['email']; ?>">
+						<span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+					</div>
 
-        <label>Birthday</label>
-       	<input type="date" name="birthday" value="<?php echo @$data['birthday']; ?>"> <br>
-	
- 		<label>Email</label>
-      	<input type="text" name="email" value="<?php echo @$data['email']; ?>"><br>
-        
-		<label>Phone number</label>
-       	<input type="text" name="phone" value="<?php echo @$data['phone']; ?>"> <br>
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
+						<input type="text" class="form-control"  name="phone" value="<?php echo @$data['phone']; ?>">
+						<span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+					</div>
 
-		<label>Driver license</label>
-		<input type="text" name="dln" value="<?php echo @$data['dln']; ?>"><br>
+					<div class="container" style = "margin-bottom: 20px">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Birthday</label>
+						<div class="col-md-9 col-sm-9 col-xs-12">
+								<input type="text" class="form-control" name="birthday" value="<?php echo @$data['birthday']; ?>">
+							</div>
+					</div>
+					
+					<div class="container" style = "margin-bottom: 20px">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Driver license</label>
+						<div class="col-md-9 col-sm-9 col-xs-12">
+							<input type="text" class="form-control" name="dln" value="<?php echo @$data['dln']; ?>">
+						</div>
+					</div>
 
-        
-       <label>&nbsp;</label><button>Send</button>
-       
-       &nbsp;&nbsp;<a href="index.php?content=list-user">Back</a>
+					<div class="container" style = "margin-bottom: 20px">
+						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+							&nbsp;&nbsp;<a href="index.php?content=list-user" type="button" class="btn btn-primary">Back</a>
+							<button class="btn btn-primary" type="reset">Reset</button>
+							<label>&nbsp;</label><button type="button" class="btn btn-primary">Send</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
 </form>
 
 </body>
