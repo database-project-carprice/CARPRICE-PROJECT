@@ -81,10 +81,10 @@ mysqli_close($link);
 ?>
 <form method="post">
 	<div class="x_panel" style = "margin-top: 120px">
-			<div class="x_title">
+			<div class="x_title" style = "padding : 0 215px">
 				<!--<h3><?php echo $h; ?></h3>-->
 				<h2>Edit Profile <small name="id" value="<?php echo @$data['id']; ?>"></small></h2>
-				<ul class="nav navbar-right panel_toolbox">
+				<!--<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
 					<li class="dropdown">
@@ -98,11 +98,11 @@ mysqli_close($link);
 					</li>
 					<li><a class="close-link"><i class="fa fa-close"></i></a>
 					</li>
-				</ul>
+				</ul>-->
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-			<br />
+			
 			<form class="form-horizontal form-label-left input_mask">
 				<div class = "container" style = "padding : 0 200px; ">
 					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
