@@ -160,7 +160,6 @@
                                         </div>
                                     </div>
                                     <div id="Time" class="w3-container w3-white w3-padding-16 myLink tab-size">
-                                        
                                             <div class="w3-row-padding" style="margin:0 -16px;">
                                                 <h3>Select the best times!</h3>
                                                 <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
@@ -173,9 +172,8 @@
                                                     </div>
                                                 </div>
                                                 <button class="w3-button w3-dark-grey" style="margin-top : 2%"  id="tsearch">Search for car </button>
-                                                
                                             </div>
-                                       
+                                            
                                     </div>
                                 </form>
                             </div>

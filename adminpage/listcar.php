@@ -19,6 +19,29 @@ $num_fields = mysqli_num_fields($result);
 
 mysqli_close($link);
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin page</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../css/green.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../css/adminpage.css" rel="stylesheet">
+</head>
+
+
 <div class="right_col" role="main">
     <div class="">
         <div class="row">
@@ -38,7 +61,7 @@ mysqli_close($link);
                         </select>
                     <input type="text" name="q" autocomplete="off"><br>
                     <button type="submit" > Search</button>
-                 </div>
+                </div>
             </form>
 
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -119,8 +142,6 @@ mysqli_close($link);
                             </table>
                             </form>
                         </div>
-
-
                     </div>
                 </div>
             </div>

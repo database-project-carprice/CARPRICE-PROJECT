@@ -19,6 +19,29 @@ $num_fields = mysqli_num_fields($result);
 
 mysqli_close($link);
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin page</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../css/green.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../css/adminpage.css" rel="stylesheet">
+</head>
+
+<body>
 <div class="right_col" role="main">
     <div class="">
         <div class="row">
@@ -26,8 +49,9 @@ mysqli_close($link);
             <!---->
             <h1>User</h1>
             <form  method="get">
-                <div >
-                        <select name="c">
+                <div class = "container justify-content-start">
+                    <div class = "col-md-4 align-self-start">
+                        <select class="form-control" name="c" style = "width: 150px ; float: left;">
                             <option value="id">ID</option>
                             <option value="name">Name</option>
                             <option value="lastname">Lastname</option>
@@ -36,11 +60,15 @@ mysqli_close($link);
                             <option value="phone">Phone number</option>
                             <option value="dln">Driver license</option>
                         </select>
-                    <input type="text" name="q" autocomplete="off"><br>
-                    <button type="submit" > Search</button>
-                 </div>
+                    </div>
+                    <div class = "col-md-4 align-self-start">
+                        <input type="text" name="q" autocomplete="off" style = "float:left;"><br>
+                    </div>
+                    <div class = "col-md-4 <align-self-start></align-self-start>">
+                        <input type="submit" class="btn btn-info" value="Search">
+                    </div>
+                </div>
             </form>
-
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
@@ -127,4 +155,6 @@ mysqli_close($link);
         </div>
     </div>
 </div>
+</body>
+</html>
 <?php @mysqli_close($link); ?>
