@@ -478,6 +478,11 @@
                                                 <p>Card type*</p>
                                             </div>
                                             <div class="col col-md-8 col-offset-2">
+                                                <!--<select class="form-control" name="c" style = "width: 100% ; float: left;" value="<?php echo @$_SESSION['card_type'] ?>">
+                                                    <option value="id" data-img-src="..\img\Visa.png">Visa card</option>
+                                                    <option value="name">Debit</option>
+                                                    <option value="lastname">Master card</option>
+                                                </select>-->
                                                 <input type="text" name="card_type"  class="form-control" value="<?php echo @$_SESSION['card_type'] ?>" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
