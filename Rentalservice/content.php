@@ -373,41 +373,6 @@
 
                                 <div class="tab-pane" role="tabpanel" id="step2">
                                     <div>
-                                        <div class="thumbnail">
-                                            <div class="clearfix card-detail">
-                                                <div class="col-md-7 ">
-                                                    <div class="product-img">
-                                                        <a href="#">
-                                                            <img class="product-img-src" src="pic/<?php echo @$cPic[1][0] ?>.png" alt="Avatar" class="image">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <?php
-                                                    echo '<h4> '.@$cBrand[1].' '.@$cModel[1];
-                                                        if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
-                                                        else echo ' '.@$cType[1].'</h4>';
-                                                        ?>
-                                                        <div class="ratings">
-                                                            <span class="glyphicon glyphicon-star"></span>
-                                                            <span class="glyphicon glyphicon-star"></span>
-                                                            <span class="glyphicon glyphicon-star"></span>
-                                                            <span class="glyphicon glyphicon-star"></span>
-                                                            <span class="glyphicon glyphicon-star-empty"></span>
-                                                        </div>
-                                                        <?php echo
-                                                    '<li> Production in year '.$cYear[1].' </li>
-                                                        <li> Engine(L) : '.$cEngine[1].'  </li>
-                                                        <li> EngineType : '.$cType[1].'  </li>
-                                                        <li> Fuel : '.$cFuel[1].'  </li>
-                                                        <li> Mileage : '.$cMile[1].'  </li>
-                                                        <li> Color : '.$cColor[1].'  </li>';
-                                                        ?>
-                                                        <hr class="line">
-                                                        <p class="price">$29,90</p>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="container">
                                             <h2>Driver Details</h2>
                                             <form action="content.php?content=step3" method="get">
@@ -461,6 +426,7 @@
                                                 </div>
                                                 
                                                 <ul class="list-inline pull-right">
+                                                    <button href = "#step1" class="btn btn-primary" > back </button>
                                                     <li><button type"submit" class="btn btn-primary ">Save2</button></li>
                                                 </ul>
                                             </form>
@@ -499,41 +465,82 @@
                                         <ul class="list-inline pull-right">
                                         <!--<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
                                         <li><button type="button" class="btn btn-default next-step">Skip</button></li>-->
+                                        <button href = "#step2" class="btn btn-primary" > back </button>
                                         <li><button type="submit" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
                                     </ul>
                                     </form>
-                                    
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step4">
                                     <form action="dbFunction.php" >
-                                        <div >
-                                            <h4>Confirm</h4>
-                                            
-                                            <?php 
-                                            echo '<p> Car : '.@$cBrand[1].' '.@$cModel[1];
+                                        <h4>Confirm</h4>
+                                        <div class="thumbnail">
+                                            <div class="clearfix card-detail">
+                                                <div class="col-md-7 ">
+                                                    <div class="product-img">
+                                                        <a href="#">
+                                                            <img class="product-img-src" src="pic/<?php echo @$cPic[1][0] ?>.png" alt="Avatar" class="image">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <?php
+                                                    echo '<h4> '.@$cBrand[1].' '.@$cModel[1];
                                                         if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
-                                                        else echo ' '.@$cType[1].'</p>';
-                                            ?>
-                                            <p>Pick-up Location : <?php echo $_SESSION['pick_up'] ?></p>
-                                            <p>Drop-off Location : <?php echo $_SESSION['drop_off'] ?></p>
-                                            <p>Start Date : <?php echo $_SESSION['start_date'] ?></p>
-                                            <p>End Date : <?php echo $_SESSION['end_date'] ?></p>
-                                            <p>Start Time : <?php echo $_SESSION['start_time'] ?></p>
-                                            <p>End Time : <?php echo $_SESSION['end_time'] ?></p>
-                                            <p>Card Type : <?php echo $_SESSION['card_type'] ?></p>
-                                            <p>Card ID : <?php echo $_SESSION['card_id'] ?></p>
-                                            
-                                            <h4>Drivaer detail</h4>
-                                            
-                                            <p>Name : <?php echo $_SESSION['name'] ?></p>
-                                            <p>Last Name : <?php echo $_SESSION['lastname'] ?></p>
-                                            <p>Birth Day : <?php echo $_SESSION['birthday'] ?></p>
-                                            <p>Email : <?php echo $_SESSION['email'] ?></p>
-                                            <p>Phone number : <?php echo $_SESSION['phone'] ?></p>
-                                            <p>Driver License Number : <?php echo $_SESSION['dln'] ?></p>
-                                            <ul class="list-inline pull-right">
-                                                <li><button type"submit" class="btn btn-primary "> Submit </button></li>
-                                            </ul>
+                                                        else echo ' '.@$cType[1].'</h4>';
+                                                        ?>
+                                                        <div class="ratings">
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star-empty"></span>
+                                                        </div>
+                                                        <?php echo
+                                                        '<li> Production in year '.$cYear[1].' </li>
+                                                        <li> Engine(L) : '.$cEngine[1].'  </li>
+                                                        <li> EngineType : '.$cType[1].'  </li>
+                                                        <li> Fuel : '.$cFuel[1].'  </li>
+                                                        <li> Mileage : '.$cMile[1].'  </li>
+                                                        <li> Color : '.$cColor[1].'  </li>';
+                                                        ?>
+                                                        <hr class="line">
+                                                        <p class="price">$29,90</p>
+                                                        <hr class="line">
+                                                        <div class = "col-md-6" style = "padding: 0px 0px">
+                                                            <p>Pick-up Location : <?php echo $_SESSION['pick_up'] ?></p>
+                                                        </div>
+                                                        <div class = "col-md-6" style = "padding: 0px 0px">
+                                                            <p>Drop-off Location : <?php echo $_SESSION['drop_off'] ?></p>
+                                                        </div>
+                                                        <div class = "col-md-6" style = "padding: 0px 0px">
+                                                        <p>Start Date : <?php echo $_SESSION['start_date'] ?></p>
+                                                        </div>
+                                                        <div class = "col-md-6" style = "padding: 0px 0px">
+                                                            <p>End Date : <?php echo $_SESSION['end_date'] ?></p>
+                                                        </div>
+                                                        <div class = "col-md-6" style = "padding: 0px 0px">
+                                                            <p>Card Type : <?php echo $_SESSION['card_type'] ?></p>
+                                                        </div>
+                                                        <div class = "col-md-6" style = "padding: 0px 0px">
+                                                            <p>Card ID : <?php echo $_SESSION['card_id'] ?></p>
+                                                        </div>
+                                                        <h4>Drivaer detail</h4>
+                                                        <div class = "col-md-6" style = "padding: 0px 0px">
+                                                            <p>Name : <?php echo $_SESSION['name'] ?></p>
+                                                        </div>
+                                                        <div class = "col-md-6" style = "padding: 0px 0px">
+                                                            <p>Last Name : <?php echo $_SESSION['lastname'] ?></p>
+                                                        </div>
+                                                        <p>Birth Day : <?php echo $_SESSION['birthday'] ?></p>
+                                                        <p>Email : <?php echo $_SESSION['email'] ?></p>
+                                                        <p>Phone number : <?php echo $_SESSION['phone'] ?></p>
+                                                        <p>Driver License Number : <?php echo $_SESSION['dln'] ?></p>
+                                                        <ul class="list-inline pull-right">
+                                                            <button href = "#step3" class="btn btn-primary" > back </button>
+                                                            <li><button type"submit" class="btn btn-success"> Checkout </button></li>
+                                                        </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
