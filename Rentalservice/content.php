@@ -12,6 +12,7 @@
     $secPage = false;
     $thirdPage = false;
     $fouthPage = false;
+
    
     if(@$_GET['slocated'] && @$_GET['elocated'] && @$_GET['sdate'] && @$_GET['edate'] && @$_GET['stime'] && @$_GET['etime']){
         $_SESSION['pick_up'] = $_GET['slocated'];
@@ -21,6 +22,12 @@
         $_SESSION['start_time'] = $_GET['stime'];
         $_SESSION['end_time'] = $_GET['etime'];
     }
+
+    if(@$_GET['select']) {
+        $secPage = true;
+        $_SESSION['car_id'] = $_GET['select'];
+    } 
+
     if(@$_GET['name'] && @$_GET['lastname'] && @$_GET['birth_day'] && @$_GET['email'] && @$_GET['phone_number'] && @$_GET['driver_license']){
         $thirdPage = true;
         $_SESSION['name'] = $_GET['name'];
@@ -36,13 +43,11 @@
         $_SESSION['card_id'] = $_GET['card_id'];
     }
     
-    if(@$_GET['select']) {
-        // include 'showDetailCustomer.php';
-        $secPage = true;
-        $_SESSION['car_id'] = $_GET['select'];
-        $selectidcar = $_GET['select'];
+
+    if(@$_GET['car_id']) {
+        $select = $_GET['car_id'];
         $sql = "SELECT * FROM car
-                    WHERE id = '".$selectidcar."'";
+                    WHERE id = '".$select."'";
     } 
     else if(@$_GET['brand']){
         $select = '( brand = \'';
@@ -467,7 +472,7 @@
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step3">
                                     <h1>Payment</h1>
-                                    <form action method="get">
+                                    <form action="" method="get">
                                         <br>
                                         <div class="row form-sub">
                                             <div class="col col-md-4 form-sub-text">
@@ -491,7 +496,8 @@
                                                 <input type="text" name="card_id" class="form-control" value="<?php echo @$_SESSION['card_id'] ?>" placeholder="" autocomplete="off">
                                             </div>
                                         </div>
-                                        <br>
+                                        <input type="text" name="car_id" value="<?php echo $_SESSION['car_id']; ?> " hidden  >
+                                        <br> 
                                         <ul class="list-inline pull-right">
                                         <!--<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
                                         <li><button type="button" class="btn btn-default next-step">Skip</button></li>-->
@@ -502,9 +508,8 @@
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step4">
                                     <form action="dbFunction.php" >
-                                        <div >
-                                            <h4>Confirm</h4>
-                                            <div class="thumbnail">
+                                        <h1>Confirm</h1>
+                                        <div class="thumbnail">
                                             <div class="clearfix card-detail">
                                                 <div class="col-md-7 ">
                                                     <div class="product-img">
@@ -572,32 +577,6 @@
                                                         </ul>
                                                 </div>
                                             </div>
-                                        </div>
-                                            <?php 
-                                            echo '<p> Car : '.@$cBrand[1].' '.@$cModel[1];
-                                                        if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
-                                                        else echo ' '.@$cType[1].'</p>';
-                                            ?>
-                                            <p>Pick-up Location : <?php echo $_SESSION['pick_up'] ?></p>
-                                            <p>Drop-off Location : <?php echo $_SESSION['drop_off'] ?></p>
-                                            <p>Start Date : <?php echo $_SESSION['start_date'] ?></p>
-                                            <p>End Date : <?php echo $_SESSION['end_date'] ?></p>
-                                            <p>Start Time : <?php echo $_SESSION['start_time'] ?></p>
-                                            <p>End Time : <?php echo $_SESSION['end_time'] ?></p>
-                                            <p>Card Type : <?php echo $_SESSION['card_type'] ?></p>
-                                            <p>Card ID : <?php echo $_SESSION['card_id'] ?></p>
-                                            
-                                            <h4>Drivaer detail</h4>
-                                            
-                                            <p>Name : <?php echo $_SESSION['name'] ?></p>
-                                            <p>Last Name : <?php echo $_SESSION['lastname'] ?></p>
-                                            <p>Birth Day : <?php echo $_SESSION['birthday'] ?></p>
-                                            <p>Email : <?php echo $_SESSION['email'] ?></p>
-                                            <p>Phone number : <?php echo $_SESSION['phone'] ?></p>
-                                            <p>Driver License Number : <?php echo $_SESSION['dln'] ?></p>
-                                            <ul class="list-inline pull-right">
-                                                <li><button type"submit" class="btn btn-primary "> Submit </button></li>
-                                            </ul>
                                         </div>
                                     </form>
                                 </div>
