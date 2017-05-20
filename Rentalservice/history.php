@@ -107,10 +107,9 @@
     <!-- Header -->
     <div class="history-container">
         <div class="container">
-            <div class = "thumbnail" style="padding-left: 20px;">
-                <div class="text-topic">History</div>
-                <!--<hr class="line" style="    border-top: 2px solid #000;">-->
-            </div>
+            
+            <h1>History</h1>
+            <hr class="line" style="border-top: 0.5px solid #000;">
             <div class="history-content">
                 <div class="" style = "padding: 0px 0px">
                     <div class="thumbnail" >

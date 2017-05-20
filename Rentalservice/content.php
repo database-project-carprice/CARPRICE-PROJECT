@@ -402,7 +402,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="container">
+                                    <div class="container thumbnail" style = "padding:20px 20px">
                                         <h2>Driver Details</h2>
                                         <form action="content.php?content=step3" method="get">
                                             <div class="row form-sub" style="padding-bottom: 20px;">
@@ -454,51 +454,56 @@
                                                 </div>
                                             </div>
                                             <ul class="list-inline pull-right">
-                                                <li><button type"submit" class="btn btn-primary ">Save2</button></li>
+                                                <li><button type"submit" class="btn btn-primary ">Submit</button></li>
                                             </ul>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step3">
-                                <h1>Payment</h1>
-                                <form action="" method="get">
-                                    <br>
-                                    <div class="row form-sub">
-                                        <div class="col col-md-4 form-sub-text">
-                                            <p>Card type*</p>
+                                <div class = "thumbnail" style = "padding:20px 20px">
+                                    <h1>Payment</h1>
+                                    <form action="" method="get">
+                                        <br>
+                                        <div class="row form-sub">
+                                            <div class="col col-md-4 form-sub-text">
+                                                <p>Card type*</p>
+                                            </div>
+                                            <div class="col col-md-8 col-offset-2">
+                                                <!--<select class="form-control" name="c" style = "width: 100% ; float: left;" value="<?php echo @$_SESSION['card_type'] ?>">
+                                                    <option value="id" data-img-src="..\img\Visa.png">Visa card</option>
+                                                    <option value="name">Debit</option>
+                                                    <option value="lastname">Master card</option>
+                                                </select>-->
+                                                <input type="text" name="card_type"  class="form-control" value="<?php echo @$_SESSION['card_type'] ?>" placeholder="" autocomplete="off">
+                                            </div>
                                         </div>
-                                        <div class="col col-md-8 col-offset-2">
-                                            <!--<select class="form-control" name="c" style = "width: 100% ; float: left;" value="<?php echo @$_SESSION['card_type'] ?>">
-                                                <option value="id" data-img-src="..\img\Visa.png">Visa card</option>
-                                                <option value="name">Debit</option>
-                                                <option value="lastname">Master card</option>
-                                            </select>-->
-                                            <input type="text" name="card_type"  class="form-control" value="<?php echo @$_SESSION['card_type'] ?>" placeholder="" autocomplete="off">
+                                        <br>
+                                        <div class="row form-sub">
+                                            <div class="col col-md-4 form-sub-text">
+                                                <p>Credit Card ID*</p>
+                                            </div>
+                                            <div class="col col-md-8 col-offset-2">
+                                                <input type="text" name="card_id" class="form-control" value="<?php echo @$_SESSION['card_id'] ?>" placeholder="" autocomplete="off">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <br>
-                                    <div class="row form-sub">
-                                        <div class="col col-md-4 form-sub-text">
-                                            <p>Credit Card ID*</p>
-                                        </div>
-                                        <div class="col col-md-8 col-offset-2">
-                                            <input type="text" name="card_id" class="form-control" value="<?php echo @$_SESSION['card_id'] ?>" placeholder="" autocomplete="off">
-                                        </div>
-                                    </div>
-                                    <input type="text" name="car_id" value="<?php echo $_SESSION['car_id']; ?> " hidden  >
-                                    <br> 
-                                    <ul class="list-inline pull-right">
-                                        <!--<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                        <li><button type="button" class="btn btn-default next-step">Skip</button></li>-->
-                                        <li><button type="submit" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
-                                    </ul>
-                                </form>
+                                        <input type="text" name="car_id" value="<?php echo $_SESSION['car_id']; ?> " hidden  >
+                                        <br> 
+                                        <ul class="list-inline pull-right">
+                                            <!--<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>-->
+                                            <li><button type="submit" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                                        </ul>
+                                        <br>
+                                        <br>
+                                    </form>
+                                </div>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step4">
                                 <form action="history.php" >
-                                    <h1>Confirm</h1>
-                                    <div class="thumbnail">
+                                    <div class="thumbnail" style = "padding:20px 20px">
+                                        <h1>Confirm</h1>
+                                        <br>
                                         <div class="clearfix card-detail">
                                             <div class="col-md-7 ">
                                                 <div class="product-img">
