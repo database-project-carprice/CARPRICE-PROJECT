@@ -195,7 +195,7 @@
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <div class="sub-content">
+                                        <div class="thumbnail sub-content">
                                             <h3>Search details</h3>
                                             <div>
                                                 <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
@@ -220,21 +220,22 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="sub-content">
+                                        <div class="thumbnail sub-content">
                                             <h3>Sort by</h3>
-                                            <form>
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="optradio">Price
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="optradio">Brands
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="optradio">Engine
-                                                </label>
-                                            </form>
-                                        </div>
-                                        <div class="sub-content">
+                                            <div>
+                                                <form>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optradio">Price
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optradio">Brands
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optradio">Engine
+                                                    </label>
+                                                </form>
+                                            </div>
+                                            <br>
                                             <h3>Filter</h3>
                                             <div class="panel-group" id="accordion">
                                                 <div class="panel panel-default">
@@ -309,8 +310,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <br>
+                                                <button class="btn btn-success right"> Find</button>
+                                                <br>
                                             </div>
-                                            <button class="btn btn-success right"> Find</button>
                                         </div>
                                     </div>
                                     <div class="col-md-9">

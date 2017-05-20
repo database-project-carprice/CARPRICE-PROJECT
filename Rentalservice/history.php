@@ -107,10 +107,12 @@
     <!-- Header -->
     <div class="history-container">
         <div class="container">
-            <div class="text-topic">History</div>
-            <hr class="line" style="    border-top: 2px solid #000;">
+            <div class = "thumbnail" style="padding-left: 20px;">
+                <div class="text-topic">History</div>
+                <!--<hr class="line" style="    border-top: 2px solid #000;">-->
+            </div>
             <div class="history-content">
-                <div class="container" style = "padding: 0px 0px">
+                <div class="" style = "padding: 0px 0px">
                     <div class="thumbnail" >
                         <div class="clearfix card-detail">
                             <div class="col-md-4">
@@ -143,7 +145,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="clearfix ">
-                                    <h3>Rental detail <span class="label label-success">Success Label</span></h3>            
+                                    <h3>Rental detail <span class="label label-success" style = "float: right;">Success</span></h3>            
                                     <div class="clearfix">
                                         <div class="col-md-6" style="padding: 0px 0px">
                                             <h4>Pick-up Location :
@@ -168,31 +170,31 @@
                                             </h4>
                                         </div>
                                     </div>
-                                    <br>
-                                    <h3>Driver detail</h3>
-                                    <div class = "clearfix">
-                                        <div class="col-md-6" style="padding: 0px 0px">
-                                            <h4>Name :
-                                                <br><?php echo @$_SESSION['name'] ?>
-                                            </h4>
-                                            <h4>Birth Day :
-                                                <br><?php echo @$_SESSION['birthday'] ?>
-                                            </h4>
-                                            <h4>Phone number :
-                                                <br><?php echo @$_SESSION['phone'] ?>
-                                            </h4>
-                                        </div>
-                                        <div class="col-md-6" style="padding: 0px 0px">
-                                            <h4>Last Name :
-                                                <br><?php echo @$_SESSION['lastname'] ?>
-                                            </h4>
-                                            <h4>Email :
-                                                <br><?php echo @$_SESSION['email'] ?>
-                                            </h4>
-                                            <h4>Driver License Number :
-                                                <br><?php echo @$_SESSION['dln'] ?>
-                                            </h4>
-                                        </div>
+                                </div>
+                                <br>
+                                <h3>Driver detail</h3>
+                                <div class = "clearfix">
+                                    <div class="col-md-6" style="padding: 0px 0px">
+                                        <h4>Name :
+                                            <br><?php echo @$_SESSION['name'] ?>
+                                        </h4>
+                                        <h4>Birth Day :
+                                            <br><?php echo @$_SESSION['birthday'] ?>
+                                        </h4>
+                                        <h4>Phone number :
+                                            <br><?php echo @$_SESSION['phone'] ?>
+                                        </h4>
+                                    </div>
+                                    <div class="col-md-6" style="padding: 0px 0px">
+                                        <h4>Last Name :
+                                            <br><?php echo @$_SESSION['lastname'] ?>
+                                        </h4>
+                                        <h4>Email :
+                                            <br><?php echo @$_SESSION['email'] ?>
+                                        </h4>
+                                        <h4>Driver License Number :
+                                            <br><?php echo @$_SESSION['dln'] ?>
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
