@@ -202,6 +202,7 @@
             </div>
         </div>
     </div>
+    
     <!-- jQuery -->
     <script src="../js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
