@@ -35,9 +35,6 @@
 	}	
 	mysqli_close($link);
     
-    
-    
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,36 +45,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Rental Service</title>
-
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="../css/history.css"></link>
-
     <!-- Custom Fonts -->
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
-
-
-
-
     <!--<link rel="stylesheet" href="../Rentalservice/js/jquery-ui.min.css">-->
     <!--<script> src="/js/jquery-2.1.1.min.js" </script>-->
     <!--<script> src="../js/jquery-ui.min.js" </script>-->
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body>
@@ -119,104 +105,95 @@
     </nav>
 
     <!-- Header -->
-
     <div class="history-container">
         <div class="container">
             <div class="text-topic">History</div>
             <hr class="line" style="    border-top: 2px solid #000;">
             <div class="history-content">
-                <div class="container">
-                    <div class="thumbnail">
+                <div class="container" style = "padding: 0px 0px">
+                    <div class="thumbnail" >
                         <div class="clearfix card-detail">
-                            <div class="clearfix card-detail">
-                                <div class="col-md-7 ">
-                                    <div class="product-img">
-                                        <a href="#">
-                                                            <img class="product-img-src" src="pic/<?php echo "accoard_01"; //@$cPic[1][0] ?>.png" alt="Avatar" class="image">
-                                                        </a>
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="product-img">
+                                    <a href="#">
+                                        <img class="product-img-src" src="pic/<?php echo "accoard_01"; //@$cPic[1][0] ?>.png" alt="Avatar" class="image">
+                                    </a>
                                 </div>
-                                <div class="col-md-5">
-                                    <?php
-                                                    echo '<h4> '.@$cBrand[1].' '.@$cModel[1];
-                                                        if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
-                                                        else echo ' '.@$cType[1].'</h4>';
-                                                        ?>
-                                        <div class="ratings">
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star"></span>
-                                            <span class="glyphicon glyphicon-star-empty"></span>
-                                        </div>
-                                        <?php echo
-                                                        '<li> Production in year '.@$cYear[1].' </li>
-                                                        <li> Engine(L) : '.@$cEngine[1].'  </li>
-                                                        <li> EngineType : '.@$cType[1].'  </li>
-                                                        <li> Fuel : '.@$cFuel[1].'  </li>
-                                                        <li> Mileage : '.@$cMile[1].'  </li>
-                                                        <li> Color : '.@@$cColor[1].'  </li>';
-                                                        ?>
-                                        <hr class="line">
-                                        <p class="price">$29,90</p>
-                                        <hr class="line">
+                                <?php
+                                    echo '<h4> '.@$cBrand[1].' '.@$cModel[1];
+                                    if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
+                                    else echo ' '.@$cType[1].'</h4>';
+                                ?>
+                                <div class="ratings">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </div>
+                                <?php echo
+                                    '<li> Production in year '.@$cYear[1].' </li>
+                                    <li> Engine(L) : '.@$cEngine[1].'  </li>
+                                    <li> EngineType : '.@$cType[1].'  </li>
+                                    <li> Fuel : '.@$cFuel[1].'  </li>
+                                    <li> Mileage : '.@$cMile[1].'  </li>
+                                    <li> Color : '.@@$cColor[1].'  </li>';
+                                ?>
+                                <h2 class="price">$29,90</h2>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="clearfix ">
+                                    <h3>Rental detail <span class="label label-success">Success Label</span></h3>            
+                                    <div class="clearfix">
                                         <div class="col-md-6" style="padding: 0px 0px">
-                                            <p>Pick-up Location :
-                                                <?php echo @$_SESSION['pick_up'] ?>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-6" style="padding: 0px 0px">
-                                            <p>Drop-off Location :
-                                                <?php echo @$_SESSION['drop_off'] ?>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-6" style="padding: 0px 0px">
-                                            <p>Start Date :
-                                                <?php echo @$_SESSION['start_date'] ?>
-                                            </p>
+                                            <h4>Pick-up Location :
+                                                <br><?php echo @$_SESSION['pick_up'] ?>
+                                            </h4>
+                                            <h4>Start Date :
+                                                <br><?php echo @$_SESSION['start_date'] ?>
+                                            </h4>
+                                            <h4>Card Type :
+                                                <br><?php echo @$_SESSION['card_type'] ?>
+                                            </h4>
                                         </div>
                                         <div class="col-md-6" style="padding: 0px 0px">
-                                            <p>End Date :
-                                                <?php echo @$_SESSION['end_date'] ?>
-                                            </p>
+                                            <h4>Drop-off Location :
+                                                <br><?php echo @$_SESSION['drop_off'] ?>
+                                            </h4>
+                                            <h4>End Date :
+                                                <br><?php echo @$_SESSION['end_date'] ?>
+                                            </h4>
+                                            <h4>Card ID :
+                                                <br><?php echo @$_SESSION['card_id'] ?>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <h3>Driver detail</h3>
+                                    <div class = "clearfix">
+                                        <div class="col-md-6" style="padding: 0px 0px">
+                                            <h4>Name :
+                                                <br><?php echo @$_SESSION['name'] ?>
+                                            </h4>
+                                            <h4>Birth Day :
+                                                <br><?php echo @$_SESSION['birthday'] ?>
+                                            </h4>
+                                            <h4>Phone number :
+                                                <br><?php echo @$_SESSION['phone'] ?>
+                                            </h4>
                                         </div>
                                         <div class="col-md-6" style="padding: 0px 0px">
-                                            <p>Card Type :
-                                                <?php echo @$_SESSION['card_type'] ?>
-                                            </p>
+                                            <h4>Last Name :
+                                                <br><?php echo @$_SESSION['lastname'] ?>
+                                            </h4>
+                                            <h4>Email :
+                                                <br><?php echo @$_SESSION['email'] ?>
+                                            </h4>
+                                            <h4>Driver License Number :
+                                                <br><?php echo @$_SESSION['dln'] ?>
+                                            </h4>
                                         </div>
-                                        <div class="col-md-6" style="padding: 0px 0px">
-                                            <p>Card ID :
-                                                <?php echo @$_SESSION['card_id'] ?>
-                                            </p>
-                                        </div>
-                                        <h4>Drivaer detail</h4>
-                                        <div class="col-md-6" style="padding: 0px 0px">
-                                            <p>Name :
-                                                <?php echo @$_SESSION['name'] ?>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-6" style="padding: 0px 0px">
-                                            <p>Last Name :
-                                                <?php echo @$_SESSION['lastname'] ?>
-                                            </p>
-                                        </div>
-                                        <p>Birth Day :
-                                            <?php echo @$_SESSION['birthday'] ?>
-                                        </p>
-                                        <p>Email :
-                                            <?php echo @$_SESSION['email'] ?>
-                                        </p>
-                                        <p>Phone number :
-                                            <?php echo @$_SESSION['phone'] ?>
-                                        </p>
-                                        <p>Driver License Number :
-                                            <?php echo @$_SESSION['dln'] ?>
-                                        </p>
-                                        <ul class="list-inline pull-right">
-                                            <button href="#step3" class="btn btn-primary"> back </button>
-                                            <li><button type "submit" class="btn btn-success"> Checkout </button></li>
-                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
