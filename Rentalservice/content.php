@@ -472,7 +472,7 @@
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step4">
                                     <form action="dbFunction.php" >
-                                        <h4>Confirm</h4>
+                                        <h1>Confirm</h1>
                                         <div class="thumbnail">
                                             <div class="clearfix card-detail">
                                                 <div class="col-md-7 ">
