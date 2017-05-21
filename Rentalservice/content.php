@@ -54,6 +54,10 @@
         
         $sql = "SELECT *  FROM car 
                     WHERE ".$select;
+        if(@$_GET['sort']) {
+            $select = implode('',$_GET['sort']);
+            $sql = $sql."ORDER BY ".$select." DESC";
+        } 
     }
     else if(@$_GET['type']){
         $select = '( name = \'';
@@ -63,10 +67,19 @@
         $sql = "SELECT *  FROM car 
                     WHERE category_id = (
                             SELECT id FROM category
-                            WHERE ".$select.")";     
+                            WHERE ".$select.")";    
+        if(@$_GET['sort']) {
+            $select = implode('',$_GET['sort']);
+            $sql = $sql."ORDER BY ".$select." DESC";
+        }  
     }
+   
     else {
         $sql = "SELECT *  FROM car ";
+        if(@$_GET['sort']) {
+            $select = implode('',$_GET['sort']);
+            $sql = $sql."ORDER BY ".$select." DESC";
+        } 
     }
     
     $link = mysqli_connect("localhost", "root", "", "Car_Rental_System");
@@ -225,13 +238,13 @@
                                             <div>
                                                 <form>
                                                     <label class="radio-inline">
-                                                        <input type="radio" name="optradio">Price
+                                                        <input type="radio" name="sort[]" value="price" >Price
                                                     </label>
                                                     <label class="radio-inline">
-                                                        <input type="radio" name="optradio">Brands
+                                                        <input type="radio" name="sort[]" value="brand" >Brands
                                                     </label>
                                                     <label class="radio-inline">
-                                                        <input type="radio" name="optradio">Engine
+                                                        <input type="radio" name="sort[]" value="engine" >Engine
                                                     </label>
                                                 </form>
                                             </div>
