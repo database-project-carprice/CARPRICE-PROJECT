@@ -79,7 +79,7 @@
         $cModel[$rows] = $data['model'];
         $cYear[$rows] = $data['production_year'];
         $cEngine[$rows] = $data['engine'];
-        $cType[$rows] = $data['engine type'];
+        $cType[$rows] = $data['engine_type'];
         $cFuel[$rows] = $data['fuel'];
         $cMile[$rows] = $data['mileage'];
         $cColor[$rows] = $data['color'];
