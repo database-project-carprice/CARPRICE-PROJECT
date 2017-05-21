@@ -144,56 +144,74 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="clearfix ">
-                                    <h3>Rental detail <span class="label label-success" style = "float: right;">Success</span></h3>            
+                                    <h2>Rental detail <span class="label label-success" style = "float: right;">Success</span></h2>            
                                     <div class="clearfix">
+                                        <h4 style = "float:left;margin-right: 10px;">Rental ID :</h4>
+                                        <h4><?php echo @$_SESSION['pick_up'] ?></h4>
                                         <div class="col-md-6" style="padding: 0px 0px">
-                                            <h4>Pick-up Location :
-                                                <br><?php echo @$_SESSION['pick_up'] ?>
-                                            </h4>
-                                            <h4>Start Date :
-                                                <br><?php echo @$_SESSION['start_date'] ?>
-                                            </h4>
-                                            <h4>Card Type :
-                                                <br><?php echo @$_SESSION['card_type'] ?>
-                                            </h4>
+                                            <div class = "col-md-12" style = "padding : 0px 0px">
+                                                <h4 style = "float:left;margin-right: 10px;">Pick-up Location :</h4>
+                                                <h4><?php echo @$_SESSION['pick_up'] ?></h4>
+                                            </div>
+                                            <div class = "col-md-12" style = "padding : 0px 0px">
+                                                <h4 style = "float:left;margin-right: 10px;">Start Date :</h4>
+                                                <h4><?php echo @$_SESSION['start_date'] ?></h4>
+                                            </div>
+                                            <div class = "col-md-12" style = "padding : 0px 0px">
+                                                <h4 style = "float:left;margin-right: 10px;">Card Type :</h4>
+                                                <h4><?php echo @$_SESSION['card_type'] ?></h4>
+                                            </div>
                                         </div>
                                         <div class="col-md-6" style="padding: 0px 0px">
-                                            <h4>Drop-off Location :
-                                                <br><?php echo @$_SESSION['drop_off'] ?>
-                                            </h4>
-                                            <h4>End Date :
-                                                <br><?php echo @$_SESSION['end_date'] ?>
-                                            </h4>
-                                            <h4>Card ID :
-                                                <br><?php echo @$_SESSION['card_id'] ?>
-                                            </h4>
+                                            <div class = "col-md-12" style = "padding : 0px 0px">
+                                                <h4 style = "float:left;margin-right: 10px;">Drop-off Location :</h4>
+                                                <h4><?php echo @$_SESSION['drop_off'] ?></h4>
+                                            </div>
+                                            <div class = "col-md-12" style = "padding : 0px 0px">
+                                                <h4 style = "float:left;margin-right: 10px;">End Date :</h4>
+                                                <h4><?php echo @$_SESSION['drop_off'] ?></h4>
+                                            </div>
+                                            <div class = "col-md-12" style = "padding : 0px 0px">
+                                                <h4 style = "float:left;margin-right: 10px;">Card ID :</h4>
+                                                <h4><?php echo @$_SESSION['card_id'] ?></h4>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <br>
-                                <h3>Driver detail</h3>
+                                <h2>Driver detail</h2>
                                 <div class = "clearfix">
                                     <div class="col-md-6" style="padding: 0px 0px">
-                                        <h4>Name :
-                                            <br><?php echo @$_SESSION['name'] ?>
-                                        </h4>
-                                        <h4>Birth Day :
-                                            <br><?php echo @$_SESSION['birthday'] ?>
-                                        </h4>
-                                        <h4>Phone number :
-                                            <br><?php echo @$_SESSION['phone'] ?>
-                                        </h4>
+                                        <div class = "col-md-12" style = "padding : 0px 0px">
+                                            <h4 style = "float:left;margin-right: 10px;">Name : </h4>
+                                            <h4><?php echo @$_SESSION['name'] ?></h4>
+                                        </div>
+                                        <div class = "col-md-12" style = "padding : 0px 0px">
+                                            <h4 style = "float:left;margin-right: 10px;">Birth Day : </h4>
+                                            <h4><?php echo @$_SESSION['birthday'] ?></h4>
+                                        </div>
+                                        <div class = "col-md-12" style = "padding : 0px 0px">
+                                            <h4 style = "float:left;margin-right: 10px;">Phone number : </h4>
+                                            <h4><?php echo @$_SESSION['phone'] ?></h4>
+                                        </div>
                                     </div>
                                     <div class="col-md-6" style="padding: 0px 0px">
-                                        <h4>Last Name :
-                                            <br><?php echo @$_SESSION['lastname'] ?>
-                                        </h4>
-                                        <h4>Email :
-                                            <br><?php echo @$_SESSION['email'] ?>
-                                        </h4>
-                                        <h4>Driver License Number :
-                                            <br><?php echo @$_SESSION['dln'] ?>
-                                        </h4>
+                                        <div class = "col-md-12" style = "padding : 0px 0px">
+                                            <h4 style = "float:left;margin-right: 10px;">Last Name : </h4>
+                                            <h4><?php echo @$_SESSION['lastname'] ?></h4>
+                                        </div>
+                                        <div class = "col-md-12" style = "padding : 0px 0px">
+                                            <h4 style = "float:left;margin-right: 10px;">Email : </h4>
+                                            <h4><?php echo @$_SESSION['email'] ?></h4>
+                                        </div>
+                                        <div class = "col-md-12" style = "padding : 0px 0px">
+                                            <h4 style = "float:left;margin-right: 10px;">Age : </h4>
+                                            <h4><?php echo @$_SESSION['age'] ?></h4>
+                                        </div>
+                                    </div>
+                                    <div class = "col-md-12" style = "padding : 0px 0px">
+                                        <h4 style = "float:left;margin-right: 10px;">Driver License Number : </h4>
+                                        <h4><?php echo @$_SESSION['dln'] ?></h4>
                                     </div>
                                 </div>
                             </div>

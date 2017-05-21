@@ -503,7 +503,6 @@
                                 <form action="history.php" >
                                     <div class="thumbnail" style = "padding:20px 20px">
                                         <h1>Confirm</h1>
-                                        <br>
                                         <div class="clearfix card-detail">
                                             <div class="col-md-7 ">
                                                 <div class="product-img">
@@ -514,9 +513,9 @@
                                             </div>
                                             <div class="col-md-5">
                                                 <?php
-                                                echo '<h4> '.@$cBrand[1].' '.@$cModel[1];
-                                                    if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
-                                                    else echo ' '.@$cType[1].'</h4>';
+                                                echo '<h3> '.@$cBrand[1].' '.@$cModel[1];
+                                                    if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h3>';
+                                                    else echo ' '.@$cType[1].'</h3>';
                                                     ?>
                                                     <div class="ratings">
                                                         <span class="glyphicon glyphicon-star"></span>
@@ -533,9 +532,10 @@
                                                     <li> Mileage : '.$cMile[1].'  </li>
                                                     <li> Color : '.$cColor[1].'  </li>';
                                                     ?>
-                                                    <hr class="line">
+                                                    <hr class="line" style = "margin-bottom:20px">
                                                     <p class="price">$29,90</p>
                                                     <hr class="line">
+                                                    <h4>Rental detail</h4>
                                                     <div class = "col-md-6" style = "padding: 0px 0px">
                                                         <p>Pick-up Location : <?php echo $_SESSION['pick_up'] ?></p>
                                                     </div>
@@ -561,9 +561,13 @@
                                                     <div class = "col-md-6" style = "padding: 0px 0px">
                                                         <p>Last Name : <?php echo $_SESSION['lastname'] ?></p>
                                                     </div>
-                                                    <p>Birth Day : <?php echo $_SESSION['birthday'] ?></p>
+                                                    <div class = "col-md-6" style = "padding: 0px 0px">
+                                                        <p>Birth Day : <?php echo $_SESSION['birthday'] ?></p>
+                                                    </div>
+                                                    <div class = "col-md-6" style = "padding: 0px 0px">
+                                                        <p>Phone number : <?php echo $_SESSION['phone'] ?></p>
+                                                    </div>
                                                     <p>Email : <?php echo $_SESSION['email'] ?></p>
-                                                    <p>Phone number : <?php echo $_SESSION['phone'] ?></p>
                                                     <p>Driver License Number : <?php echo $_SESSION['dln'] ?></p>
                                                     <ul class="list-inline pull-right">
                                                         <button href = "#step3" class="btn btn-primary" > back </button>
