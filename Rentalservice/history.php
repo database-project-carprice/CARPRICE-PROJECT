@@ -192,26 +192,6 @@
                                 <h2>Driver detail</h2>
                                 <div class = "clearfix">
                                     <div class="col-md-6" style="padding: 0px 0px">
-                                        <h4>Name :
-                                            <br><?php echo $information['name'] ?>
-                                        </h4>
-                                        <h4>Birth Day :
-                                            <br><?php echo $information['birthday'] ?>
-                                        </h4>
-                                        <h4>Phone number :
-                                            <br><?php echo $information['phone'] ?>
-                                        </h4>
-                                    </div>
-                                    <div class="col-md-6" style="padding: 0px 0px">
-                                        <h4>Last Name :
-                                            <br><?php echo $information['lastname'] ?>
-                                        </h4>
-                                        <h4>Email :
-                                            <br><?php echo $information['email'] ?>
-                                        </h4>
-                                        <h4>Driver License Number :
-                                            <br><?php echo $information['dln'] ?>
-                                        </h4>
                                         <div class = "col-md-12" style = "padding : 0px 0px">
                                             <h4 style = "float:left;margin-right: 10px;">Name : </h4>
                                             <h4><?php echo $information['name'] ?></h4>
@@ -221,8 +201,8 @@
                                             <h4><?php echo $information['birthday'] ?></h4>
                                         </div>
                                         <div class = "col-md-12" style = "padding : 0px 0px">
-                                            <h4 style = "float:left;margin-right: 10px;">Phone number : </h4>
-                                            <h4><?php echo $information['phone'] ?></h4>
+                                            <h4 style = "float:left;margin-right: 10px;">Email : </h4>
+                                            <h4><?php echo $information['email'] ?></h4>
                                         </div>
                                     </div>
                                     <div class="col-md-6" style="padding: 0px 0px">
@@ -231,12 +211,12 @@
                                             <h4><?php echo $information['lastname'] ?></h4>
                                         </div>
                                         <div class = "col-md-12" style = "padding : 0px 0px">
-                                            <h4 style = "float:left;margin-right: 10px;">Email : </h4>
-                                            <h4><?php echo $information['email'] ?></h4>
-                                        </div>
-                                        <div class = "col-md-12" style = "padding : 0px 0px">
                                             <h4 style = "float:left;margin-right: 10px;">Age : </h4>
                                             <h4><?php echo @$_SESSION['age'] ?></h4>
+                                        </div>
+                                        <div class = "col-md-12" style = "padding : 0px 0px">
+                                            <h4 style = "float:left;margin-right: 10px;">Phone number : </h4>
+                                            <h4><?php echo $information['phone'] ?></h4>
                                         </div>
                                     </div>
                                     <div class = "col-md-12" style = "padding : 0px 0px">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 10, 2017 at 01:59 PM
+-- Generation Time: May 21, 2017 at 04:23 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -33,7 +33,7 @@ CREATE TABLE `car` (
   `model` varchar(255) NOT NULL,
   `production_year` int(11) NOT NULL,
   `engine` varchar(255) NOT NULL,
-  `engine type` varchar(255) NOT NULL,
+  `engine_type` varchar(255) NOT NULL,
   `fuel` varchar(255) NOT NULL,
   `mileage` int(11) NOT NULL,
   `color` varchar(255) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `car` (
 -- Dumping data for table `car`
 --
 
-INSERT INTO `car` (`id`, `category_id`, `brand`, `model`, `production_year`, `engine`, `engine type`, `fuel`, `mileage`, `color`, `pic`) VALUES
+INSERT INTO `car` (`id`, `category_id`, `brand`, `model`, `production_year`, `engine`, `engine_type`, `fuel`, `mileage`, `color`, `pic`) VALUES
 (4, 1, 'Honda', 'Accoard', 2016, '2.0', 'Hybrid', 'Petrol', 0, 'Black', 'Accoard_01-Accoard_02-Accoard_03'),
 (5, 1, 'Honda', 'Accoard', 2016, '2.0', 'n/a', 'Petrol', 0, 'Black', 'Accoard_01-Accoard_02-Accoard_03'),
 (6, 1, 'Honda', 'Accoard', 2016, '2.4', 'n/a', 'Petrol', 0, 'Black', 'Accoard_01-Accoard_02-Accoard_03'),
@@ -189,45 +189,6 @@ INSERT INTO `city` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
---
-
-CREATE TABLE `comment` (
-  `gid` smallint(5) UNSIGNED NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `email` varchar(150) DEFAULT NULL,
-  `message` text,
-  `msg_type` varchar(1) DEFAULT NULL,
-  `date_posted` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `comment`
---
-
-INSERT INTO `comment` (`gid`, `name`, `email`, `message`, `msg_type`, `date_posted`) VALUES
-(100, 'sdsdss', 'rakkan.j@hotmail.com', 'dkgldngklfd', '', '2017-04-25 11:30:22'),
-(102, 'rakkan', 'ntp@gmail.com', 'kod kak a', '', '2017-04-25 11:33:14'),
-(103, 'ntp', 'maxmax@kahoot.com', '9999999999999999', '', '2017-04-25 11:34:05'),
-(104, 'rrrr', 'assda@gmail.com', 'à¸”à¸”à¸”à¸”à¸”à¸”à¸”', '', '2017-04-25 11:38:26'),
-(105, 'rakkan jintasatien', 'fipflopok@hotmail.com', 'khdjkhfdsf', '', '2017-04-27 21:10:27'),
-(106, 'jhjhjh', NULL, NULL, NULL, NULL),
-(107, '9999', NULL, NULL, NULL, NULL),
-(108, '101010101111111', NULL, NULL, NULL, NULL),
-(109, 'kk', NULL, NULL, NULL, NULL),
-(110, 'kk', NULL, NULL, NULL, NULL),
-(111, 'hhhh', NULL, NULL, NULL, NULL),
-(112, 'hhhh', NULL, NULL, NULL, NULL),
-(113, 'lnw', NULL, NULL, NULL, NULL),
-(114, 'raknajaa', NULL, NULL, NULL, NULL),
-(115, 'raknajaa', NULL, NULL, NULL, NULL),
-(116, 'lnw', NULL, NULL, NULL, NULL),
-(117, 'name\r\n', NULL, NULL, NULL, NULL),
-(118, 'name', NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `customer`
 --
 
@@ -255,6 +216,73 @@ INSERT INTO `customer` (`id`, `username`, `password`, `name`, `lastname`, `birth
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `drop_off_location`
+--
+
+CREATE TABLE `drop_off_location` (
+  `id` int(11) NOT NULL,
+  `city_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `drop_off_location`
+--
+
+INSERT INTO `drop_off_location` (`id`, `city_id`) VALUES
+(34, 24),
+(35, 24),
+(36, 24),
+(37, 24),
+(38, 24),
+(39, 24),
+(40, 24),
+(41, 24),
+(42, 24),
+(43, 24),
+(44, 24),
+(45, 24),
+(46, 24),
+(47, 24),
+(48, 24),
+(49, 24),
+(50, 24),
+(51, 24),
+(52, 24),
+(53, 24),
+(54, 24),
+(55, 24),
+(56, 24),
+(57, 24),
+(58, 24),
+(59, 24),
+(60, 24),
+(61, 24),
+(62, 24),
+(63, 24),
+(64, 24),
+(65, 24),
+(66, 24),
+(67, 24),
+(68, 24),
+(69, 24),
+(70, 24),
+(71, 24),
+(72, 24),
+(73, 24),
+(74, 24),
+(75, 24),
+(76, 24),
+(77, 24),
+(78, 24),
+(79, 24),
+(80, 24),
+(81, 24),
+(82, 24),
+(83, 24);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `equipment`
 --
 
@@ -278,44 +306,69 @@ CREATE TABLE `equipment_category` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `location`
+-- Table structure for table `pick_up_location`
 --
 
-CREATE TABLE `location` (
+CREATE TABLE `pick_up_location` (
   `id` int(11) NOT NULL,
   `city_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `location`
+-- Dumping data for table `pick_up_location`
 --
 
-INSERT INTO `location` (`id`, `city_id`) VALUES
-(1, 10),
-(12, 10),
-(14, 10),
-(16, 10),
-(18, 10),
-(20, 10),
-(22, 10),
-(24, 10),
-(5, 11),
-(3, 14),
-(6, 20),
-(9, 28),
-(11, 28),
-(8, 31),
-(10, 31),
-(7, 33),
-(4, 38),
-(13, 41),
-(15, 41),
-(17, 41),
-(19, 41),
-(21, 41),
-(23, 41),
-(25, 41),
-(2, 58);
+INSERT INTO `pick_up_location` (`id`, `city_id`) VALUES
+(1, 58),
+(2, 58),
+(3, 58),
+(4, 58),
+(5, 58),
+(6, 58),
+(7, 58),
+(8, 58),
+(9, 58),
+(10, 58),
+(11, 58),
+(12, 58),
+(13, 58),
+(14, 58),
+(15, 58),
+(16, 58),
+(17, 58),
+(18, 58),
+(19, 58),
+(20, 58),
+(21, 58),
+(22, 58),
+(23, 58),
+(24, 58),
+(25, 58),
+(26, 58),
+(27, 58),
+(28, 58),
+(29, 58),
+(30, 58),
+(31, 58),
+(32, 58),
+(33, 58),
+(34, 58),
+(35, 58),
+(36, 58),
+(37, 58),
+(38, 58),
+(39, 58),
+(40, 58),
+(41, 58),
+(42, 58),
+(43, 58),
+(44, 58),
+(45, 58),
+(46, 58),
+(47, 58),
+(48, 58),
+(49, 58),
+(50, 58);
 
 -- --------------------------------------------------------
 
@@ -339,12 +392,16 @@ CREATE TABLE `rental` (
 --
 
 INSERT INTO `rental` (`id`, `customer_id`, `car_id`, `pick_up_location_id`, `drop_off_location_id`, `start_date`, `end_date`, `remarks`) VALUES
-(1, 50, 24325425, 12, 13, '0000-00-00', '0000-00-00', ''),
-(2, 50, 14, 14, 15, '0000-00-00', '0000-00-00', ''),
-(3, 50, 14, 16, 17, '0000-00-00', '0000-00-00', ''),
-(4, 50, 14, 18, 19, '0000-00-00', '0000-00-00', ''),
-(5, 50, 14, 20, 21, '0000-00-00', '0000-00-00', ''),
-(6, 50, 14, 22, 23, '0000-00-00', '0000-00-00', '');
+(77, 50, 14, 41, 74, '0000-00-00', '0000-00-00', ''),
+(78, 50, 14, 42, 75, '0000-00-00', '0000-00-00', ''),
+(79, 50, 14, 43, 76, '0000-00-00', '0000-00-00', ''),
+(80, 50, 14, 44, 77, '0000-00-00', '0000-00-00', ''),
+(81, 50, 14, 45, 78, '0000-00-00', '0000-00-00', ''),
+(82, 50, 14, 46, 79, '0000-00-00', '0000-00-00', ''),
+(83, 50, 14, 47, 80, '0000-00-00', '0000-00-00', ''),
+(84, 50, 14, 48, 81, '0000-00-00', '0000-00-00', ''),
+(85, 50, 14, 49, 82, '0000-00-00', '0000-00-00', ''),
+(86, 50, 14, 50, 83, '0000-00-00', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -354,18 +411,24 @@ INSERT INTO `rental` (`id`, `customer_id`, `car_id`, `pick_up_location_id`, `dro
 
 CREATE TABLE `reservation` (
   `id` int(11) NOT NULL,
+  `rental_id` int(11) NOT NULL,
   `pick_up_location_id` int(11) NOT NULL,
   `drop_off_location_id` int(11) NOT NULL,
-  `customer_id` int(11) UNSIGNED NOT NULL
+  `customer_id` int(11) UNSIGNED NOT NULL,
+  `card_type` varchar(255) NOT NULL,
+  `card_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reservation`
 --
 
-INSERT INTO `reservation` (`id`, `pick_up_location_id`, `drop_off_location_id`, `customer_id`) VALUES
-(1, 10, 11, 50),
-(3, 24, 25, 50);
+INSERT INTO `reservation` (`id`, `rental_id`, `pick_up_location_id`, `drop_off_location_id`, `customer_id`, `card_type`, `card_id`) VALUES
+(42, 82, 46, 79, 50, 'tretr', 0),
+(43, 83, 47, 80, 50, 'tretr', 0),
+(44, 84, 48, 81, 50, 'tretr', 0),
+(45, 85, 49, 82, 50, 'tretr', 0),
+(46, 86, 50, 83, 50, 'visa', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -377,40 +440,6 @@ CREATE TABLE `reservation_equipment` (
   `reservation_id` int(11) NOT NULL,
   `equipment_category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sitesearch`
---
-
-CREATE TABLE `sitesearch` (
-  `id` smallint(5) UNSIGNED NOT NULL,
-  `title` varchar(200) DEFAULT NULL,
-  `url` varchar(250) DEFAULT NULL,
-  `content` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `sitesearch`
---
-
-INSERT INTO `sitesearch` (`id`, `title`, `url`, `content`) VALUES
-(1, 'chaptone', 'www.betagro.com/', 'betagro. EN | TH. PET. As a family member, your pet ... COMPANY. At Betagro Group, quality is first priority. VISIT SITE. FOOD. We create food with passion for '),
-(2, 'ntp', 'dfjkansdlkd', 'fdgjsnfjlgnflkdgnslkf'),
-(4, 'ntp', 'asdl;sa;dl,sf', 'fdglam;lfdgm;lfda'),
-(5, 'ntp', 'dsfknds;gmd;slg', 'ddl;agm;lsdmgal'),
-(15, 'ntp', 'dsl;gkd;flag', 'dFI;HDSfjklnd'),
-(16, 'ntp', 'dsmfbnadkljgnadf', 'sdg.ajb;adnsfajklfnal'),
-(19, 'ntp', ';\'desk;ldsmg;lfmg', 'afgmfd;akgmfda;klgmfd'),
-(20, 'ntp', 'fkdang.jkfnalgk', 'fading.nmfda,gm;lafdg'),
-(23, 'ntp', 'l;sja;dskahgo;idasfghflda', 'djkfnakjdsnfja;'),
-(24, 'ntp', 'fgh;adjopd\'sjkfOA', 'FKGAJDFKL;AGHJLKF;SAJGLK;DS'),
-(25, 'ntp', 'ksnfg;akf;langkldsn', 'jksdbngkjanglk;dsnl;k'),
-(26, 'ntp', 'ksdjngajkfnldk', 'dsjgabnkjgnlfak'),
-(27, 'ntp', 'dkfslajkl;dfjlak;', 'sdlkgnfda;knfdlak;gna'),
-(28, 'ntp', 'dsangaskld;gnlka', 'sdklgjhaslkgj'),
-(29, 'kldsjfkld', 'LKDFNDSLF.com', 'dsk;fN;DLSNFLDSAK');
 
 --
 -- Indexes for dumped tables
@@ -442,17 +471,17 @@ ALTER TABLE `city`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `comment`
---
-ALTER TABLE `comment`
-  ADD PRIMARY KEY (`gid`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `drop_off_location`
+--
+ALTER TABLE `drop_off_location`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `city_id` (`city_id`);
 
 --
 -- Indexes for table `equipment`
@@ -467,9 +496,9 @@ ALTER TABLE `equipment_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `location`
+-- Indexes for table `pick_up_location`
 --
-ALTER TABLE `location`
+ALTER TABLE `pick_up_location`
   ADD PRIMARY KEY (`id`),
   ADD KEY `city_id` (`city_id`);
 
@@ -477,7 +506,9 @@ ALTER TABLE `location`
 -- Indexes for table `rental`
 --
 ALTER TABLE `rental`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pick_up_location_id` (`pick_up_location_id`),
+  ADD KEY `drop_off_location_id` (`drop_off_location_id`);
 
 --
 -- Indexes for table `reservation`
@@ -485,21 +516,15 @@ ALTER TABLE `rental`
 ALTER TABLE `reservation`
   ADD PRIMARY KEY (`id`),
   ADD KEY `customer_id` (`customer_id`),
-  ADD KEY `pick_up_at` (`pick_up_location_id`),
-  ADD KEY `drop_off_at` (`drop_off_location_id`);
+  ADD KEY `pick_up_location_id` (`pick_up_location_id`),
+  ADD KEY `drop_off_location_id` (`drop_off_location_id`),
+  ADD KEY `rental_id` (`rental_id`);
 
 --
 -- Indexes for table `reservation_equipment`
 --
 ALTER TABLE `reservation_equipment`
   ADD PRIMARY KEY (`reservation_id`,`equipment_category_id`);
-
---
--- Indexes for table `sitesearch`
---
-ALTER TABLE `sitesearch`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `url` (`url`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -526,15 +551,15 @@ ALTER TABLE `category`
 ALTER TABLE `city`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 --
--- AUTO_INCREMENT for table `comment`
---
-ALTER TABLE `comment`
-  MODIFY `gid` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
---
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+--
+-- AUTO_INCREMENT for table `drop_off_location`
+--
+ALTER TABLE `drop_off_location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 --
 -- AUTO_INCREMENT for table `equipment`
 --
@@ -546,25 +571,20 @@ ALTER TABLE `equipment`
 ALTER TABLE `equipment_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `location`
+-- AUTO_INCREMENT for table `pick_up_location`
 --
-ALTER TABLE `location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+ALTER TABLE `pick_up_location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `rental`
 --
 ALTER TABLE `rental`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 --
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `sitesearch`
---
-ALTER TABLE `sitesearch`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- Constraints for dumped tables
 --
@@ -576,18 +596,31 @@ ALTER TABLE `car`
   ADD CONSTRAINT `car_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
 
 --
--- Constraints for table `location`
+-- Constraints for table `drop_off_location`
 --
-ALTER TABLE `location`
-  ADD CONSTRAINT `location_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `drop_off_location`
+  ADD CONSTRAINT `drop_off_location_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pick_up_location`
+--
+ALTER TABLE `pick_up_location`
+  ADD CONSTRAINT `pick_up_location_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `rental`
+--
+ALTER TABLE `rental`
+  ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`pick_up_location_id`) REFERENCES `pick_up_location` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rental_ibfk_2` FOREIGN KEY (`drop_off_location_id`) REFERENCES `drop_off_location` (`id`);
 
 --
 -- Constraints for table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `drop_off_at` FOREIGN KEY (`drop_off_location_id`) REFERENCES `location` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pick_up_at` FOREIGN KEY (`pick_up_location_id`) REFERENCES `location` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`);
+  ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`pick_up_location_id`) REFERENCES `pick_up_location` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`drop_off_location_id`) REFERENCES `drop_off_location` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
