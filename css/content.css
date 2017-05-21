@@ -264,3 +264,8 @@ span.round-tab:hover {
     padding-left: 535px;
     margin-bottom: 20px;
 }
+
+.dropdown-menu {
+    min-width: 332px !important;
+    border-radius: 0px !important;
+}

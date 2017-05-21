@@ -195,7 +195,7 @@
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <div class="thumbnail sub-content">
+                                        <div class="sub-content">
                                             <h3>Search details</h3>
                                             <div>
                                                 <i class="fa fa-map-marker" aria-hidden="true" style="float:left;"></i>
@@ -220,7 +220,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="thumbnail sub-content">
+                                        <div class="sub-content">
                                             <h3>Sort by</h3>
                                             <div>
                                                 <form>
