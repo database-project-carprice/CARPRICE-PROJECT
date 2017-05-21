@@ -17,22 +17,33 @@
     
     include 'insertIntoRentalDB.php';
     include 'insertIntoReservationDB.php';
-    include 'updateCustomerDB.php';
+    // include 'updateCustomerDB.php';
 
     $link = mysqli_connect("localhost", "root", "", "Car_Rental_System");
-	$sql = "SELECT *  FROM rental 
-				WHERE id = '%$p%'";
+	$sql = "SELECT rental.id,customer.name , customer.lastname , customer.birthday ,customer.email , customer.phone , customer.dln , 
+                    pick_up_location.city_id AS pick_up_location , drop_off_location.city_id AS drop_off_location , 
+                    rental.start_date, rental.end_date , car.brand , car.model , car.production_year , car.engine , 
+                    car.engine_type , car.fuel ,
+                    car.mileage , car.color , car.pic , reservation.card_type , reservation.card_id
+            FROM rental
+            LEFT JOIN customer 
+                ON rental.customer_id = customer.id
+            LEFT JOIN pick_up_location
+                ON rental.pick_up_location_id = pick_up_location.id
+            LEFT JOIN drop_off_location
+                ON rental.drop_off_location_id = drop_off_location.id
+            LEFT JOIN car
+                ON rental.car_id = car.id
+            LEFT JOIN reservation 
+            	ON rental.id = reservation.rental_id
+            WHERE rental.id = ".$last_id;
 	
-	$result = mysqli_query($link, $sql);
-	if(mysqli_num_rows($result) > 0) {
-		//อ่านข้อมูลผลลัพธ์มาสร้างเป็นอาร์เรย์ของ PHP
-		$a = array();
-		while($data = mysqli_fetch_array($result)) {
-			array_push($a, $data[0]);
-		}
-		//แปลงอาร์เรย์ของ PHP เป็น JSON แล้วส่งกลับ
-		echo json_encode($a); 
-	}	
+	$result = @mysqli_query($link, $sql);
+    $row = @mysqli_num_rows(result);
+	while($data = mysqli_fetch_array($result)) {
+        $information = $data;
+	}
+    $pic =  explode('-',$information['pic']);
 	mysqli_close($link);
     
 ?>
@@ -107,8 +118,7 @@
     <!-- Header -->
     <div class="history-container">
         <div class="container">
-            
-            <h1>History</h1>
+            <h1>History <?php  ?></h1>
             <hr class="line" style="border-top: 0.5px solid #000;">
             <div class="history-content">
                 <div class="" style = "padding: 0px 0px">
@@ -117,13 +127,13 @@
                             <div class="col-md-4">
                                 <div class="product-img">
                                     <a href="#">
-                                        <img class="product-img-src" src="pic/<?php echo "accoard_01"; //@$cPic[1][0] ?>.png" alt="Avatar" class="image">
+                                        <img class="product-img-src" src="pic/<?php echo explode('-',$information['pic'])[0]  ?>.png" alt="Avatar" class="image">
                                     </a>
                                 </div>
                                 <?php
-                                    echo '<h4> '.@$cBrand[1].' '.@$cModel[1];
-                                    if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
-                                    else echo ' '.@$cType[1].'</h4>';
+                                    echo '<h4> '.$information['brand'].' '.$information['model'];
+                                    if($information['engine_type'] == 'n/a') echo ' '.$information['engine'].'</h4>';
+                                    else echo ' '.$information['engine_type'].'</h4>';
                                 ?>
                                 <div class="ratings">
                                     <span class="glyphicon glyphicon-star"></span>
@@ -133,12 +143,12 @@
                                     <span class="glyphicon glyphicon-star-empty"></span>
                                 </div>
                                 <?php echo
-                                    '<li> Production in year '.@$cYear[1].' </li>
-                                    <li> Engine(L) : '.@$cEngine[1].'  </li>
-                                    <li> EngineType : '.@$cType[1].'  </li>
-                                    <li> Fuel : '.@$cFuel[1].'  </li>
-                                    <li> Mileage : '.@$cMile[1].'  </li>
-                                    <li> Color : '.@@$cColor[1].'  </li>';
+                                    '<li> Production in year '.$information['production_year'].' </li>
+                                    <li> Engine(L) : '.$information['engine'].'  </li>
+                                    <li> EngineType : '.$information['engine_type'].'  </li>
+                                    <li> Fuel : '.$information['fuel'].'  </li>
+                                    <li> Mileage : '.$information['mileage'].'  </li>
+                                    <li> Color : '.$information['color'].'  </li>';
                                 ?>
                                 <h2 class="price">$29,90</h2>
                             </div>
@@ -148,24 +158,24 @@
                                     <div class="clearfix">
                                         <div class="col-md-6" style="padding: 0px 0px">
                                             <h4>Pick-up Location :
-                                                <br><?php echo @$_SESSION['pick_up'] ?>
+                                                <br><?php echo $information['pick_up_location'] ?>
                                             </h4>
                                             <h4>Start Date :
-                                                <br><?php echo @$_SESSION['start_date'] ?>
+                                                <br><?php echo $information['start_date'] ?>
                                             </h4>
                                             <h4>Card Type :
-                                                <br><?php echo @$_SESSION['card_type'] ?>
+                                                <br><?php echo $information['card_type'] ?>
                                             </h4>
                                         </div>
                                         <div class="col-md-6" style="padding: 0px 0px">
                                             <h4>Drop-off Location :
-                                                <br><?php echo @$_SESSION['drop_off'] ?>
+                                                <br><?php echo $information['drop_off_location'] ?>
                                             </h4>
                                             <h4>End Date :
-                                                <br><?php echo @$_SESSION['end_date'] ?>
+                                                <br><?php echo $information['end_date'] ?>
                                             </h4>
                                             <h4>Card ID :
-                                                <br><?php echo @$_SESSION['card_id'] ?>
+                                                <br><?php echo $information['card_id'] ?>
                                             </h4>
                                         </div>
                                     </div>
@@ -175,24 +185,24 @@
                                 <div class = "clearfix">
                                     <div class="col-md-6" style="padding: 0px 0px">
                                         <h4>Name :
-                                            <br><?php echo @$_SESSION['name'] ?>
+                                            <br><?php echo $information['name'] ?>
                                         </h4>
                                         <h4>Birth Day :
-                                            <br><?php echo @$_SESSION['birthday'] ?>
+                                            <br><?php echo $information['birthday'] ?>
                                         </h4>
                                         <h4>Phone number :
-                                            <br><?php echo @$_SESSION['phone'] ?>
+                                            <br><?php echo $information['phone'] ?>
                                         </h4>
                                     </div>
                                     <div class="col-md-6" style="padding: 0px 0px">
                                         <h4>Last Name :
-                                            <br><?php echo @$_SESSION['lastname'] ?>
+                                            <br><?php echo $information['lastname'] ?>
                                         </h4>
                                         <h4>Email :
-                                            <br><?php echo @$_SESSION['email'] ?>
+                                            <br><?php echo $information['email'] ?>
                                         </h4>
                                         <h4>Driver License Number :
-                                            <br><?php echo @$_SESSION['dln'] ?>
+                                            <br><?php echo $information['dln'] ?>
                                         </h4>
                                     </div>
                                 </div>
