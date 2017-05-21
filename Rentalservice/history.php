@@ -107,7 +107,6 @@
     <!-- Header -->
     <div class="history-container">
         <div class="container">
-            
             <h1>History</h1>
             <hr class="line" style="border-top: 0.5px solid #000;">
             <div class="history-content">

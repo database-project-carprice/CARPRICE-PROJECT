@@ -31,9 +31,6 @@
         <!-- Bootstrap Core CSS -->
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         
-        
-        
-
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="../css/landing-page.css"></link>
 
@@ -41,9 +38,6 @@
         <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
-
-
-
 
         <!--<link rel="stylesheet" href="../Rentalservice/js/jquery-ui.min.css">-->
         <!--<script> src="/js/jquery-2.1.1.min.js" </script>-->
