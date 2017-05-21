@@ -1,5 +1,11 @@
 <?php
     session_start();
+    if(@$_GET['action'] == 'logout') {
+        session_destroy();
+        header('Location: login.php');
+        die();
+    
+    }
     // echo $_SESSION['pick_up']."\n";
     // echo $_SESSION['drop_off']."\n";
     // echo $_SESSION['start_date']."\n";

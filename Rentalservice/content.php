@@ -367,41 +367,8 @@
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step2">
                                 <div>
-                                    <div class="thumbnail">
-                                        <div class="clearfix card-detail">
-                                            <div class="col-md-7 ">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img class="product-img-src" src="pic/<?php echo @$cPic[1][0] ?>.png" alt="Avatar" class="image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <?php
-                                                echo '<h4> '.@$cBrand[1].' '.@$cModel[1];
-                                                    if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
-                                                    else echo ' '.@$cType[1].'</h4>';
-                                                    ?>
-                                                    <div class="ratings">
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star-empty"></span>
-                                                    </div>
-                                                <?php 
-                                                echo'<li> Production in year '.$cYear[1].' </li>
-                                                    <li> Engine(L) : '.$cEngine[1].'  </li>
-                                                    <li> EngineType : '.$cType[1].'  </li>
-                                                    <li> Fuel : '.$cFuel[1].'  </li>
-                                                    <li> Mileage : '.$cMile[1].'  </li>
-                                                    <li> Color : '.$cColor[1].'  </li>';
-                                                    ?>
-                                                    <hr class="line">
-                                                    <p class="price">$29,90</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
+                            
                                     <div class="container thumbnail" style = "padding:20px 20px">
                                         <h2>Driver Details</h2>
                                         <form action="content.php?content=step3" method="get">
