@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,7 +83,7 @@ mysqli_close($link);
 	<div class="x_panel" style = "margin-top: 120px">
 			<div class="x_title" style = "padding : 0 215px">
 				<!--<h3><?php echo $h; ?></h3>-->
-				<h2>Edit Profile </h2>
+				<h2>Edit Car </h2>
                 <input name="id" value="<?php echo @$data['id']; ?>" hidden >
 				<div class="clearfix"></div>
 			</div>
@@ -93,61 +93,61 @@ mysqli_close($link);
 				<div class = "container" style = "padding : 0 200px; ">
 					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
 						<input type="text" class="form-control has-feedback-left" name="category_id" value="<?php echo @$data['category_id']; ?>">
-						<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-					</div>
-
-					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
-						<input type="text" class="form-control" name="brand" value="<?php echo @$data['brand']; ?>">
-						<span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-					</div>
-
-					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
-						<input type="text" class="form-control has-feedback-left" name="model" value="<?php echo @$data['model']; ?>">
-						<span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+						<span class="fa fa-id-badge form-control-feedback left" aria-hidden="true"></span>
 					</div>
 
 					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
 						<input type="text" class="form-control"  name="production_year" value="<?php echo @$data['production_year']; ?>">
-						<span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+						<span class="fa fa-flag-checkered form-control-feedback right" aria-hidden="true"></span>
+					</div>
+
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
+						<input type="text" class="form-control has-feedback-left" name="brand" value="<?php echo @$data['brand']; ?>">
+						<span class="fa fa-car form-control-feedback left" aria-hidden="true"></span>
+					</div>
+
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
+						<input type="text" class="form-control " name="model" value="<?php echo @$data['model']; ?>">
+						<span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>
 					</div>
 
 					<div class="container" style = "margin-bottom: 20px">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Engine</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12"><span class = "fa fa-tachometer"></span>   Engine</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-								<input type="text" class="form-control" name="engine" value="<?php echo @$data['engine']; ?>">
+								<input type="text" class=" form-control" name="engine" value="<?php echo @$data['engine']; ?>">
 							</div>
 					</div>
 					
 					<div class="container" style = "margin-bottom: 20px">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Engine_type</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12"><span class = "fa fa-cogs"></span>   Engine Type</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<input type="text" class="form-control" name="engine_type" value="<?php echo @$data['engine_type']; ?>">
 						</div>
 					</div>
 
 					<div class="container" style = "margin-bottom: 20px">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Fuel</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12"><span class = "fa fa-info"></span>   Fuel</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<input type="text" class="form-control" name="fuel" value="<?php echo @$data['fuel']; ?>">
 						</div>
 					</div>
 
 					<div class="container" style = "margin-bottom: 20px">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Mileage</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12"><span class = "fa fa-bars"></span>   Mileage</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<input type="text" class="form-control" name="mileage" value="<?php echo @$data['mileage']; ?>">
 						</div>
 					</div>
 
 					<div class="container" style = "margin-bottom: 20px">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Color</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12"><span class = "fa fa-adjust"></span>   Color</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<input type="text" class="form-control" name="color" value="<?php echo @$data['color']; ?>">
 						</div>
 					</div>
 
 					<div class="container" style = "margin-bottom: 20px">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Pic</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12"><span class = "fa fa-file-photo-o"></span>   Picture</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<input type="text" class="form-control" name="pic" value="<?php echo @$data['pic']; ?>">
 						</div>
