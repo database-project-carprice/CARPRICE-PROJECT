@@ -138,7 +138,7 @@ mysqli_close($link);
                                                                 
                                                             </td>
                                                             <td>
-                                                            <a href="form.php?action=update&id='.$data['id'].'">แก้ไข</a>
+                                                            <a href="form.php?action=update&id='.$data['id'].'">edit</a>
                                                             </td>
                                                         </td>
                                                         

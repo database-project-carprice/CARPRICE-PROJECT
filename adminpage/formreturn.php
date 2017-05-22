@@ -69,14 +69,14 @@ if(isset($_GET['action'])) {
 	else if($action == "update") {		
 		$id = $_GET['id'];
 		$h = "แก้ไขข้อมูล";
-		$result = mysqli_query($link, "SELECT * FROM customer WHERE id = $id");
+		$result = mysqli_query($link, "SELECT * FROM reservation WHERE id = $id");
 		$data = mysqli_fetch_array($result);
 	}
 }
 function back() {
 	global $link;
  	mysqli_close($link);
-	exit("<p><a href=\"index.php?content=list-user\">ย้อนกลับ</a></p></body></html>");
+	exit("<p><a href=\"index.php\">ย้อนกลับ</a></p></body></html>");
 }	
 mysqli_close($link);
 ?>
@@ -84,7 +84,7 @@ mysqli_close($link);
 	<div class="x_panel" style = "margin-top: 120px">
 			<div class="x_title" style = "padding : 0 215px">
 				<!--<h3><?php echo $h; ?></h3>-->
-				<h2>Edit Profile </h2>
+				<h2>Return </h2>
 				<input name="id" value="<?php echo @$data['id']; ?>" hidden>
 				<!--<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -107,44 +107,19 @@ mysqli_close($link);
 			
 			<form class="form-horizontal form-label-left input_mask">
 				<div class = "container" style = "padding : 0 200px; ">
-					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
-						<input type="text" class="form-control has-feedback-left" name="name" value="<?php echo @$data['name']; ?>">
-						<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-					</div>
-
-					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
-						<input type="text" class="form-control" name="lastname" value="<?php echo @$data['lastname']; ?>">
-						<span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-					</div>
-
-					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
-						<input type="text" class="form-control has-feedback-left" name="email" value="<?php echo @$data['email']; ?>">
-						<span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
-					</div>
-
-					<div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" style = "margin-bottom: 20px">
-						<input type="text" class="form-control"  name="phone" value="<?php echo @$data['phone']; ?>">
-						<span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
-					</div>
-
-					<div class="container" style = "margin-bottom: 20px">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Birthday</label>
-						<div class="col-md-9 col-sm-9 col-xs-12">
-								<input type="text" class="form-control" name="birthday" value="<?php echo @$data['birthday']; ?>">
-							</div>
-					</div>
+					
 					
 					<div class="container" style = "margin-bottom: 20px">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Driver license</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Insert Mileage</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" class="form-control" name="dln" value="<?php echo @$data['dln']; ?>">
+							<input type="text" class="form-control" name="dln" value="<?php echo @$data['mileage']; ?>">
 						</div>
 					</div>
 
 					<div class="container" style = "margin-bottom: 20px">
 						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-							&nbsp;&nbsp;<a href="index.php?content=list-user" type="button" class="btn btn-primary">Back</a>
-							<button class="btn btn-primary" type="reset">Reset</button>
+							&nbsp;&nbsp;<a href="index.php" type="button" class="btn btn-primary">Back</a>
+							
 							<label>&nbsp;</label><button type="submit" class="btn btn-primary">Send</button>
 						</div>
 					</div>
