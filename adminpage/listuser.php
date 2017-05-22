@@ -60,11 +60,13 @@ mysqli_close($link);
                             <option value="phone">Phone number</option>
                             <option value="dln">Driver license</option>
                         </select>
+                        <input type="text" name="content" value="list-user" hidden >
                     </div>
                     <div class = "col-md-4 align-self-start">
                         <input type="text" class="form-control" name="q" autocomplete="off" style = "float:left;"><br>
                     </div>
                     <div class = "col-md-4 <align-self-start></align-self-start>">
+                        
                         <input type="submit" class="btn btn-info" value="Search">
                     </div>
                 </div>
