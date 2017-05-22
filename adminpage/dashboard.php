@@ -1,6 +1,6 @@
 <?php 
     $link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
- 			or die(mysqli_connect_error()."</body></html>");
+ 	or die(mysqli_connect_error()."</body></html>");
     $sql = "SELECT * FROM customer";
     $result = mysqli_query($link, $sql);
     $num_customer = mysqli_num_rows($result);
@@ -60,10 +60,6 @@ if(isset($_GET['action'])) {
                 <p>Manage stock</p>
             </div>
         </div>
-<<<<<<< HEAD
-        
-=======
->>>>>>> origin/master
     </div>
     <div class="x_panel">
     <div class="table-responsive">
@@ -104,14 +100,7 @@ if(isset($_GET['action'])) {
                                                                 
                                                             </td>
                                                             <td>
-<<<<<<< HEAD
-                                                            <input type="text" name="mileage">
-                                                            </td>
-                                                            <td>
                                                             <a href="index.php?action=update&id='.$data['id'].'">active</a> |
-=======
-                                                            <a href="form.php?action=update&id='.$data['id'].'">active</a> |
->>>>>>> origin/master
                                                             <a href="formreturn.php?action=update&id='.$data['id'].'">return</a>
                                                             </td>
                                                         </td>
