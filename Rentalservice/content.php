@@ -446,7 +446,9 @@
                                     <form action="" method="get">
                                         <br>
                                         <div class="row form-sub">
-                                            <div class="col col-md-4 form-sub-text">
+                                            <div class="col col-md-4 form-sub-text" >
+                                                <img src="/img/visa.png"  height="35" width="55" style = "float:left;margin-right:10px">
+                                                <img src="/img/mastercard.png"  height="35" width="55" style = "float:left">
                                                 <p>Card type*</p>
                                             </div>
                                             <div class="col col-md-8 col-offset-2">
