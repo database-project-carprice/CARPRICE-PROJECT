@@ -93,7 +93,7 @@
                                     <input autocomplete="off" type="text" name="birthday" placeholder="Brithday (Format:YYYY-MM-DD)" class="form-username form-control " id="form-username ">
                                 </div>
                                 <div class="form-group ">
-                                    <input autocomplete="off" type="text" name="drl" placeholder="Driving licence number" class="form-username form-control " id="form-username ">
+                                    <input autocomplete="off" type="text" name="dln" placeholder="Driving licence number" class="form-username form-control " id="form-username ">
                                 </div>
                                 <br>
                                 <button type="submit " class="btn ">Create Account</button>

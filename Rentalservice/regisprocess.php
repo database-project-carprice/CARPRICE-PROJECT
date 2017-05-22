@@ -10,11 +10,12 @@
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $dln = $_POST['dln'];
-        $sql = "REPLACE INTO customer(name,lastname,birthday,email,phone,dln) VALUES($name,$lastname,$birthday,$email,$phone,$dln)";
+        $sql = "REPLACE INTO customer(name,lastname,birthday,email,phone,dln) VALUES('$name','$lastname','$birthday','$email','$phone','$dln')";
         $replace = mysqli_query($link, $sql);
         
         if(!$replace) {
 		    echo mysqli_error($link);
+            echo $sql;
 	    }
 	    else {
 		    header("Location: regis.php?regis=success");
