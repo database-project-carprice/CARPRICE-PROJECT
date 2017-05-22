@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 22, 2017 at 09:11 AM
+-- Generation Time: May 22, 2017 at 11:51 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Car_Rental_System`
+-- Database: `car_rental_system`
 --
 
 -- --------------------------------------------------------
@@ -37,6 +37,7 @@ CREATE TABLE `car` (
   `fuel` varchar(255) NOT NULL,
   `mileage` int(11) NOT NULL,
   `color` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
   `pic` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -44,18 +45,69 @@ CREATE TABLE `car` (
 -- Dumping data for table `car`
 --
 
-INSERT INTO `car` (`id`, `category_id`, `brand`, `model`, `production_year`, `engine`, `engine_type`, `fuel`, `mileage`, `color`, `pic`) VALUES
-(4, 1, 'Honda', 'Accoard', 2016, '2.0', 'Hybrid', 'Petrol', 0, 'Black', 'Accoard_01-Accoard_02-Accoard_03'),
-(5, 1, 'Honda', 'Accoard', 2016, '2.0', 'n/a', 'Petrol', 0, 'Black', 'Accoard_01-Accoard_02-Accoard_03'),
-(6, 1, 'Honda', 'Accoard', 2016, '2.4', 'n/a', 'Petrol', 0, 'Black', 'Accoard_01-Accoard_02-Accoard_03'),
-(7, 1, 'Honda', 'City', 2017, '1.5', 'n/a', 'Petrol', 0, 'Blue', 'city_01-city_02-city_03'),
-(8, 1, 'Honda', 'Civic', 2017, '1.8', 'n/a', 'Petrol', 0, 'Blue', 'civic_sedan_01-civic_sedan_02-civic_sedan_03'),
-(9, 1, 'Honda', 'Civic', 2017, '1.5', 'Turbo', 'Petrol', 0, 'Blue', 'civic_sedan_01-civic_sedan_02-civic_sedan_03'),
-(10, 2, 'Honda', 'Civic', 2017, '1.5', 'Turbo', 'Petrol', 0, 'Brown', 'civic_Hatchback_01-civic_Hatchback_02-civic_Hatchback_03'),
-(11, 3, 'Honda', 'C-RV', 2017, '1.6', 'Turbo', 'Diesel', 0, 'White', 'crv_01-crv_02-crv_03'),
-(12, 3, 'Honda', 'C-RV', 2017, '2.4', 'n/a', 'Petrol', 0, 'White', 'crv_01-crv_02-crv_03'),
-(13, 4, 'Honda', 'H-RV', 2016, '1.8', 'n/a', 'Petrol', 0, 'Black', 'hrv_01-hrv_02-hrv_03'),
-(14, 2, 'Honda', 'Jazz', 2016, '1.5', 'n/a', 'Petrol', 0, 'Yello', 'jazz_01-jazz_02-jazz_03');
+INSERT INTO `car` (`id`, `category_id`, `brand`, `model`, `production_year`, `engine`, `engine_type`, `fuel`, `mileage`, `color`, `price`, `pic`) VALUES
+(10, 9, 'Koenigsegg', 'Agera R', 2014, ' 5.0', 'Turbo', 'Petrol', 0, 'White', 50, 'agera_r_01'),
+(11, 9, 'Lamborghini', 'Huracan', 2014, ' 5.0', 'Turbo', 'Petrol', 0, 'White', 50, 'huracan_01'),
+(12, 9, 'Lamborghini', 'Aventador', 2014, ' 6.5', 'Turbo', 'Petrol', 0, 'White', 50, 'aventador_01'),
+(13, 7, 'Nissan', 'GTR R35', 2017, ' 3.8', 'Turbo', 'Petrol', 0, 'Orange', 40, 'gtr_r35_01'),
+(14, 7, 'Nissan', '370z', 2015, ' 3.7', 'n/a', 'Petrol', 0, 'White', 30, '370z_01'),
+(15, 7, 'Honda', 'NSX', 2016, ' 3.5', 'Turbo', 'Petrol', 0, 'Red', 40, 'nsx_01'),
+(16, 2, 'Honda', 'Civic Type R', 2015, ' 2.0', 'Turbo', 'Petrol', 0, 'Orange', 30, 'civic_typer_01'),
+(17, 1, 'Honda', 'Civic RS', 2017, ' 1.5', 'Turbo', 'Petrol', 0, 'White', 5, 'civic_turbo_01'),
+(18, 2, 'Nissan', 'Pulsar', 2015, ' 1.6', 'Turbo', 'Petrol', 0, 'Red', 5, 'pulsar_turbo_01'),
+(19, 7, 'Toyota', 'GT86', 2015, ' 2.0', 'n/a', 'Petrol', 0, 'Orange', 30, 'gt86_01'),
+(20, 7, 'BMW', 'M4', 2017, ' 3.0', 'Turbo', 'Petrol', 0, 'White', 30, 'series4_01'),
+(21, 9, 'BMW', 'i8', 2016, ' 1.5', 'Hybrid', 'Petrol', 0, 'Red', 40, 'i8_01'),
+(22, 1, 'BMW', 'Series 5', 2017, ' 2.0', 'Turbo', 'Petrol', 0, 'Blue', 10, 'series5_01'),
+(23, 1, 'BMW', 'Series 3', 2016, ' 2.0', 'Turbo', 'Petrol', 0, 'Blue', 10, 'series3_01'),
+(24, 1, 'Benz', 'E350e', 2017, ' 2.0', 'Hybrid', 'Petrol', 0, 'Gray', 10, 'E350e_01'),
+(25, 1, 'Benz', 'C200', 2017, ' 2.0', 'Turbo', 'Petrol', 0, 'Black', 10, 'c200_01'),
+(26, 1, 'Benz', 'CLA45', 2017, ' 2.0', 'Turbo', 'Petrol', 0, 'White', 30, 'cla45_01'),
+(27, 2, 'Benz', 'A45', 2017, ' 2.0', 'Turbo', 'Petrol', 0, 'White', 30, 'a45_01'),
+(28, 2, 'Ford', 'Focus RS', 2016, ' 2.0', 'Turbo', 'Petrol', 0, 'Blue', 30, 'focus_rs_01'),
+(29, 7, 'Ford', 'Mustang Shelby ', 2017, ' 5.2', 'Turbo', 'Petrol', 0, 'Blue', 40, 'mustang_01'),
+(30, 1, 'Honda', 'Accoard', 2016, ' 2.0', 'Hybrid', 'Petrol', 0, 'Black', 5, 'accoard_hybrid_01'),
+(31, 1, 'Honda', 'Accoard', 2016, ' 2.0', 'n/a', 'Petrol', 0, 'Black', 5, 'accoard_01'),
+(32, 1, 'Honda', 'Accoard', 2016, ' 2.4', 'n/a', 'Petrol', 0, 'Black', 5, 'accoard_01'),
+(33, 1, 'Honda', 'City', 2017, ' 1.5', 'n/a', 'Petrol', 0, 'Blue', 2, 'city_01'),
+(34, 1, 'Honda', 'Civic', 2017, ' 1.8', 'n/a', 'Petrol', 0, 'Blue', 2, 'civic_sedan_01'),
+(35, 2, 'Honda', 'Civic', 2017, ' 1.5', 'Turbo', 'Petrol', 0, 'Brown', 2, 'civic_hatchback_01'),
+(36, 3, 'Honda', 'C-RV', 2017, ' 1.6', 'Turbo', 'Diesel', 0, 'White', 2, 'crv_01'),
+(37, 3, 'Honda', 'C-RV', 2017, ' 2.4', 'n/a', 'Petrol', 0, 'White', 2, 'crv_01'),
+(38, 4, 'Honda', 'H-RV', 2016, ' 1.8', 'n/a', 'Petrol', 0, 'Black', 2, 'hrv_01'),
+(39, 2, 'Honda', 'Jazz', 2016, ' 1.5', 'n/a', 'Petrol', 0, 'Yello', 2, 'jazz_01'),
+(40, 3, 'Mazda', 'CX5', 2016, ' 2.5', 'n/a', 'Petrol', 0, 'Red', 2, 'cx5_01'),
+(41, 3, 'Mazda', 'CX3', 2016, ' 1.5', 'n/a', 'Petrol', 0, 'Black', 2, 'cx3_01'),
+(42, 2, 'Mazda', '3', 2016, ' 2.0', 'n/a', 'Petrol', 0, 'Blue', 2, 'mazda3_hatchback_01'),
+(43, 2, 'Mazda', '2', 2016, ' 1.5', 'n/a', 'Diesel', 0, 'Blue', 2, 'mazda2_hatchback_01'),
+(44, 1, 'Mazda', '3', 2016, ' 2.0', 'n/a', 'Petrol', 0, 'Red', 2, 'mazda3_sedan_01'),
+(45, 1, 'Mazda', '2', 2016, ' 1.5', 'n/a', 'Diesel', 0, 'Red', 2, 'mazda2_sedan_01'),
+(46, 1, 'Toyota', 'Altis Esport', 2017, ' 1.8', 'n/a', 'Petrol', 0, 'Black', 2, 'altis_esport_01'),
+(47, 1, 'Toyota', 'Altis', 2017, ' 1.6', 'n/a', 'Petrol', 0, 'Silver', 2, 'altis_01'),
+(48, 1, 'Toyota', 'Camry Esport', 2017, ' 2.5', 'n/a', 'Petrol', 0, 'Blue', 5, 'camry_esport_01'),
+(49, 1, 'Toyota', 'Camry', 2017, ' 2.5', 'n/a', 'Petrol', 0, 'Black', 5, 'camry_01'),
+(50, 5, 'Toyota', 'Commuter', 2015, ' 3.0', 'n/a', 'Diesel', 0, 'Silver', 2, 'commuter_01'),
+(51, 5, 'Toyota', 'Alphard', 2016, ' 3.5', 'n/a', 'Petrol', 0, 'White', 5, 'alphard_01'),
+(52, 5, 'Toyota', 'Alphard', 2016, ' 2.5', 'hybrid', 'Petrol', 0, 'White', 5, 'alphard_hybrid_01'),
+(53, 5, 'Toyota', 'Vellfire', 2016, ' 2.5', 'n/a', 'Petrol', 0, 'White', 5, 'vellfire_01'),
+(54, 6, 'Toyota', 'Fortuner', 2016, ' 2.8', 'n/a', 'Diesel', 0, 'Brown', 2, 'fortuner_01'),
+(55, 6, 'Toyota', 'Fortuner TRD', 2016, ' 2.8', 'n/a', 'Diesel', 0, 'White', 2, 'fortuner_trd_01'),
+(56, 8, 'Toyota', 'Revo', 2016, ' 2.7', 'n/a', 'Diesel', 0, 'Blue', 2, 'revo_01'),
+(57, 1, 'Toyota', 'Vios', 2017, ' 1.5', 'n/a', 'Petrol', 0, 'Red', 2, 'vios_01'),
+(58, 2, 'Toyota', 'Yaris', 2016, ' 1.2', 'n/a', 'Petrol', 0, 'Red', 1, 'yaris_01'),
+(59, 1, 'Nissan', 'Almera', 2015, ' 1.2', 'n/a', 'Petrol', 0, 'Silver', 1, 'almera_01'),
+(60, 2, 'Nissan', 'Juke', 2016, ' 1.5', 'n/a', 'Petrol', 0, 'White', 2, 'juke_01'),
+(61, 3, 'Nissan', 'Livina', 2015, ' 1.6', 'n/a', 'Petrol', 0, 'White', 2, 'livina_01'),
+(62, 2, 'Nissan', 'March', 2015, ' 1.2', 'n/a', 'Petrol', 0, 'Red', 1, 'march_01'),
+(63, 8, 'Nissan', 'Navara', 2016, ' 2.5', 'n/a', 'Petrol', 0, 'Black', 2, 'navara_01'),
+(64, 2, 'Nissan', 'Note', 2017, ' 1.2', 'n/a', 'Petrol', 0, 'Red', 2, 'note_01'),
+(65, 2, 'Nissan', 'Pulsar', 2015, ' 1.8', 'n/a', 'Petrol', 0, 'Red', 2, 'pulsar_01'),
+(66, 1, 'Nissan', 'Sylphy', 2015, ' 1.8', 'n/a', 'Petrol', 0, 'Black', 2, 'sylphy_01'),
+(67, 1, 'Nissan', 'Sylphy', 2015, ' 1.6', 'Turbo', 'Petrol', 0, 'Red', 5, 'sylphy_turbo_01'),
+(68, 1, 'Nissan', 'Teana', 2016, ' 2.5', 'n/a', 'Petrol', 0, 'Black', 5, 'teana_01'),
+(69, 5, 'Nissan', 'Urvan', 2016, ' 2.5', 'n/a', 'Diesel', 0, 'Brown', 2, 'urvan_01'),
+(70, 3, 'Nissan', 'X-Trail', 2016, ' 2.0', 'hybrid', 'Petrol', 0, 'White', 5, 'xtrail_hybrid_01'),
+(71, 3, 'Nissan', 'X-Trail', 2016, ' 2.5', 'n/a', 'Petrol', 0, 'Red', 5, 'xtrail_01');
 
 -- --------------------------------------------------------
 
@@ -90,7 +142,12 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (1, 'Sedan'),
 (2, 'Hatchback'),
 (3, 'SUV'),
-(4, 'Crossover');
+(4, 'Crossover'),
+(5, 'Van'),
+(6, 'PPV'),
+(7, 'Sport'),
+(8, 'Pick-up'),
+(9, 'Supercar');
 
 -- --------------------------------------------------------
 
@@ -306,7 +363,8 @@ INSERT INTO `drop_off_location` (`id`, `city_id`) VALUES
 (105, 31),
 (106, 31),
 (107, 31),
-(108, 31);
+(108, 31),
+(114, 52);
 
 -- --------------------------------------------------------
 
@@ -347,6 +405,7 @@ CREATE TABLE `pick_up_location` (
 --
 
 INSERT INTO `pick_up_location` (`id`, `city_id`) VALUES
+(81, 10),
 (76, 26),
 (77, 26),
 (78, 26),
@@ -452,7 +511,8 @@ CREATE TABLE `rental` (
 INSERT INTO `rental` (`id`, `customer_id`, `car_id`, `pick_up_location_id`, `drop_off_location_id`, `start_date`, `end_date`, `remarks`) VALUES
 (120, 56, 12, 78, 111, '2017-05-22', '2017-05-27', ''),
 (121, 56, 12, 79, 112, '2017-05-22', '2017-05-27', ''),
-(122, 56, 12, 80, 113, '2017-05-22', '2017-05-27', '');
+(122, 56, 12, 80, 113, '2017-05-22', '2017-05-27', ''),
+(124, 56, 13, 81, 114, '0000-00-00', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -581,7 +641,7 @@ ALTER TABLE `reservation_equipment`
 -- AUTO_INCREMENT for table `car`
 --
 ALTER TABLE `car`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT for table `car_equipment`
 --
@@ -591,7 +651,7 @@ ALTER TABLE `car_equipment`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `city`
 --
@@ -606,7 +666,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `drop_off_location`
 --
 ALTER TABLE `drop_off_location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 --
 -- AUTO_INCREMENT for table `equipment`
 --
@@ -621,12 +681,12 @@ ALTER TABLE `equipment_category`
 -- AUTO_INCREMENT for table `pick_up_location`
 --
 ALTER TABLE `pick_up_location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 --
 -- AUTO_INCREMENT for table `rental`
 --
 ALTER TABLE `rental`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 --
 -- AUTO_INCREMENT for table `reservation`
 --

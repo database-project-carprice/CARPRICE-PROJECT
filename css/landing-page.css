@@ -201,3 +201,7 @@ ul.dropdown-lr {
     min-height: 10em;
     width: 90%;
 }
+
+.typeahead {
+    width: 330px;
+}
