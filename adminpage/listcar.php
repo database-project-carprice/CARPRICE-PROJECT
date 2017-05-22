@@ -3,15 +3,23 @@ $link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
  			or die(mysqli_connect_error()."</body></html>");
 if(@$_POST) {
 	$id = implode(", ", $_POST['id']);
-	$sql  = "DELETE FROM customer WHERE id IN($id)";
+	$sql  = "DELETE FROM car WHERE id IN($id)";
 	    @mysqli_query($link, $sql);
     }
 
 if(@$_GET['c']&&@$_GET['q']){
-	$sql = "SELECT id,name,lastname,birthday,email,phone,dln FROM customer WHERE ".$_GET['c']." LIKE '%".$_GET['q']."%'";
+	$sql = "SELECT car.id ,category.name , car.brand , car.model , car.production_year , 
+                    car.engine , car.engine_type ,car.fuel , car.mileage , car.color , car.pic 
+            FROM `car`
+                LEFT JOIN category ON car.category_id = category.id WHERE ";
+   if(@$_GET['c'] == "category") $sql = $sql.$_GET['c'].".name LIKE '%".$_GET['q']."%'";
+   else $sql = $sql."car.".$_GET['c']." LIKE '%".$_GET['q']."%'";
 }
 else {
-	$sql = "SELECT id,name,lastname,birthday,email,phone,dln FROM customer";
+	$sql = "SELECT car.id ,category.name , car.brand , car.model , car.production_year , 
+                    car.engine , car.engine_type ,car.fuel , car.mileage , car.color , car.pic 
+            FROM `car`
+                LEFT JOIN category ON car.category_id = category.id";
 }
 
 $result = mysqli_query($link, $sql);
@@ -53,13 +61,18 @@ mysqli_close($link);
                     <div class = "col-md-4 align-self-start">
                         <select class="form-control" name="c" style = "width: 150px ; float: left;">
                             <option value="id">ID</option>
-                            <option value="name">Name</option>
-                            <option value="lastname">Lastname</option>
-                            <option value="birthday">Birthday</option>
-                            <option value="email">Email</option>
-                            <option value="phone">Phone number</option>
-                            <option value="dln">Driver license</option>
+                            <option value="category">category</option>
+                            <option value="brand">brand</option>
+                            <option value="model">model</option>
+                            <option value="production_year">production_year</option>
+                            <option value="engine">engine</option>
+                            <option value="engine_type">engine_type</option>
+                            <option value="fuel">fuel</option>
+                            <option value="mileage">mileage</option>
+                            <option value="color">color</option>
+                            <option value="pic">pic</option>
                         </select>
+                        <input type="text" name="content" value="list-car" hidden >
                     </div>
                     <div class = "col-md-4 align-self-start">
                         <input type="text" class="form-control" name="q" autocomplete="off" style = "float:left;"><br>
@@ -73,7 +86,7 @@ mysqli_close($link);
                 <div class="x_panel">
                     <div class="x_title">
                         <h2><?php if(@$_GET['c'] && @$_GET['q']){ echo $_GET['c'].": ".$_GET['q']; }
-                                    else echo "All customer"; ?> </h2>
+                                    else echo "All car"; ?> </h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -106,14 +119,19 @@ mysqli_close($link);
                                             <input type="checkbox" id="check-all" class="flat">
                                         </th>
                                         <th class="column-title">ID </th>
-                                        <th class="column-title">Name </th>
-                                        <th class="column-title">Lastname </th>
-                                        <th class="column-title">Birthday </th>
-                                        <th class="column-title">Email </th>
-                                        <th class="column-title">Phone number </th>
-                                        <th class="column-title">Driver License Number</th>
+                                        <th class="column-title">category </th>
+                                        <th class="column-title">brand </th>
+                                        <th class="column-title">model </th>
+                                        <th class="column-title">production_year </th>
+                                        <th class="column-title">engine </th>
+                                        <th class="column-title">engine_type</th>
+                                        <th class="column-title">fuel</th>
+                                        <th class="column-title">mileage</th>
+                                        <th class="column-title">color</th>
+                                        <th class="column-title">pic</th>
                                         <th class="column-title">Action</th>
                                         <th class="bulk-actions" colspan="7">
+                                        <option value="id">ID</option>
                                             <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
                                         </th>
                                     </tr>

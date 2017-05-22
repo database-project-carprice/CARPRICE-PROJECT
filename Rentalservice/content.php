@@ -54,6 +54,10 @@
         
         $sql = "SELECT *  FROM car 
                     WHERE ".$select;
+        if(@$_GET['sort']) {
+            $select = implode('',$_GET['sort']);
+            $sql = $sql."ORDER BY ".$select." DESC";
+        } 
     }
     else if(@$_GET['type']){
         $select = '( name = \'';
@@ -63,10 +67,19 @@
         $sql = "SELECT *  FROM car 
                     WHERE category_id = (
                             SELECT id FROM category
-                            WHERE ".$select.")";     
+                            WHERE ".$select.")";    
+        if(@$_GET['sort']) {
+            $select = implode('',$_GET['sort']);
+            $sql = $sql."ORDER BY ".$select." DESC";
+        }  
     }
+   
     else {
         $sql = "SELECT *  FROM car ";
+        if(@$_GET['sort']) {
+            $select = implode('',$_GET['sort']);
+            $sql = $sql."ORDER BY ".$select." DESC";
+        } 
     }
     
     $link = mysqli_connect("localhost", "root", "", "Car_Rental_System");
@@ -225,13 +238,13 @@
                                             <div>
                                                 <form>
                                                     <label class="radio-inline">
-                                                        <input type="radio" name="optradio">Price
+                                                        <input type="radio" name="sort[]" value="price" >Price
                                                     </label>
                                                     <label class="radio-inline">
-                                                        <input type="radio" name="optradio">Brands
+                                                        <input type="radio" name="sort[]" value="brand" >Brands
                                                     </label>
                                                     <label class="radio-inline">
-                                                        <input type="radio" name="optradio">Engine
+                                                        <input type="radio" name="sort[]" value="engine" >Engine
                                                     </label>
                                                 </form>
                                             </div>
@@ -367,41 +380,8 @@
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step2">
                                 <div>
-                                    <div class="thumbnail">
-                                        <div class="clearfix card-detail">
-                                            <div class="col-md-7 ">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img class="product-img-src" src="pic/<?php echo @$cPic[1][0] ?>.png" alt="Avatar" class="image">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <?php
-                                                echo '<h4> '.@$cBrand[1].' '.@$cModel[1];
-                                                    if(@$cType[1] == 'n/a') echo ' '.@$cEngine[1].'</h4>';
-                                                    else echo ' '.@$cType[1].'</h4>';
-                                                    ?>
-                                                    <div class="ratings">
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star"></span>
-                                                        <span class="glyphicon glyphicon-star-empty"></span>
-                                                    </div>
-                                                <?php 
-                                                echo'<li> Production in year '.$cYear[1].' </li>
-                                                    <li> Engine(L) : '.$cEngine[1].'  </li>
-                                                    <li> EngineType : '.$cType[1].'  </li>
-                                                    <li> Fuel : '.$cFuel[1].'  </li>
-                                                    <li> Mileage : '.$cMile[1].'  </li>
-                                                    <li> Color : '.$cColor[1].'  </li>';
-                                                    ?>
-                                                    <hr class="line">
-                                                    <p class="price">$29,90</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
+                            
                                     <div class="container thumbnail" style = "padding:20px 20px">
                                         <h2>Driver Details</h2>
                                         <form action="content.php?content=step3" method="get">

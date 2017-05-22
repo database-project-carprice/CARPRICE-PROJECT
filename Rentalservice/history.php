@@ -1,5 +1,11 @@
 <?php
     session_start();
+    if(@$_GET['action'] == 'logout') {
+        session_destroy();
+        header('Location: login.php');
+        die();
+    
+    }
     // echo $_SESSION['pick_up']."\n";
     // echo $_SESSION['drop_off']."\n";
     // echo $_SESSION['start_date']."\n";
@@ -37,14 +43,27 @@
             LEFT JOIN reservation 
             	ON rental.id = reservation.rental_id
             WHERE rental.id = ".$last_id;
-	
 	$result = @mysqli_query($link, $sql);
     $row = @mysqli_num_rows(result);
 	while($data = mysqli_fetch_array($result)) {
         $information = $data;
 	}
     $pic =  explode('-',$information['pic']);
-	mysqli_close($link);
+    
+    $sql = "SELECT DISTINCT * FROM city WHERE id = ".$information['pick_up_location'];
+    $result = @mysqli_query($link, $sql);
+    while($data = mysqli_fetch_array($result)) {
+        $information['pick_up_location'] = $data['name'];
+	}
+
+    $sql = "SELECT DISTINCT * FROM city WHERE id = ".$information['drop_off_location'];
+    $result = @mysqli_query($link, $sql);
+    while($data = mysqli_fetch_array($result)) {
+        $information['drop_off_location'] = $data['name'];
+	}
+    
+    
+	@mysqli_close($link);
     
 ?>
 <!DOCTYPE html>
@@ -157,7 +176,7 @@
                                     <h2>Rental detail <span class="label label-success" style = "float: right;">Success</span></h2>            
                                     <div class="clearfix">
                                         <h4 style = "float:left;margin-right: 10px;">Rental ID :</h4>
-                                        <h4><?php echo @$_SESSION['pick_up'] ?></h4>
+                                        <h4><?php echo "0000000".$information['id'] ?></h4>
                                         <div class="col-md-6" style="padding: 0px 0px">
                                             <div class = "col-md-12" style = "padding : 0px 0px">
                                                 <h4 style = "float:left;margin-right: 10px;">Pick-up Location :</h4>
@@ -212,7 +231,7 @@
                                         </div>
                                         <div class = "col-md-12" style = "padding : 0px 0px">
                                             <h4 style = "float:left;margin-right: 10px;">Age : </h4>
-                                            <h4><?php echo @$_SESSION['age'] ?></h4>
+                                            <h4><?php echo 2017 - explode('-',$information['birthday'])[0] ?></h4>
                                         </div>
                                         <div class = "col-md-12" style = "padding : 0px 0px">
                                             <h4 style = "float:left;margin-right: 10px;">Phone number : </h4>

@@ -239,12 +239,12 @@
 
             <!-- page content -->
             <?php 
-            if(@$_GET['content'] == 'list-user' || @$_GET['c'] || @$_GET['q']){
+            if(@$_GET['content'] == 'list-user'){
                 include 'listuser.php';
-            } else if(@$_GET['content'] == 'list-car'){
+            } else if(@$_GET['content'] == 'list-car' ){
                 include 'listcar.php';
             }else{
-                include 'dashboard.html';
+                include 'dashboard.php';
             }
             
             ?>
