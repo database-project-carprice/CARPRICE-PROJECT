@@ -13,6 +13,9 @@
     $result = mysqli_query($link, $sql);
     $num_car = mysqli_num_rows($result);
 
+    date_default_timezone_set('Asia/Bangkok');
+	
+
 ?>
 <div class="right_col" role="main">
     <div class="row top_tiles">
@@ -46,6 +49,14 @@
                 <div class="count"><?php echo $num_car; ?></div>
                 <h3>Car in stock</h3>
                 <p>Manage stock</p>
+            </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="tile-stats">
+                <div class="icon"><i class="fa fa-user-circle-o"></i></div>
+               
+                <div class="count"><?php echo explode('/',date('Y/m/d '))[2]; ?></div>
+                
             </div>
         </div>
     </div>
