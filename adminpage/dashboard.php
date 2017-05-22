@@ -12,14 +12,19 @@
     $sql = "SELECT * FROM car";
     $result = mysqli_query($link, $sql);
     $num_car = mysqli_num_rows($result);
+    
+    date_default_timezone_set('Asia/Bangkok');
+    $date = date('Y-m-d');
 
-    $sql = "SELECT * FROM reservation";
+    $sql = "SELECT * FROM reservation WHERE start_date LIKE '$date'";
     $result = mysqli_query($link, $sql);
     $num_fields = mysqli_num_fields($result);
 
-    date_default_timezone_set('Asia/Bangkok');
-	
-    
+if(isset($_GET['action'])) {
+    $id = $_GET['id'];
+	$sql = "UPDATE reservation SET status = 'active' WHERE id = $id";
+	mysqli_query($link, $sql);
+}
 ?>
 <div class="right_col" role="main">
     <div class="row top_tiles">
@@ -55,14 +60,7 @@
                 <p>Manage stock</p>
             </div>
         </div>
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="tile-stats">
-                <div class="icon"><i class="fa fa-user-circle-o"></i></div>
-               
-                <div class="count"><?php echo explode('/',date('Y/m/d '))[2]; ?></div>
-                
-            </div>
-        </div>
+        
     </div>
     <div class="table-responsive">
                             <form method="post">
@@ -106,7 +104,7 @@
                                                             <input type="text" name="mileage">
                                                             </td>
                                                             <td>
-                                                            <a href="form.php?action=update&id='.$data['id'].'">active</a> |
+                                                            <a href="index.php?action=update&id='.$data['id'].'">active</a> |
                                                             <a href="formreturn.php?action=update&id='.$data['id'].'">return</a>
                                                             </td>
                                                         </td>

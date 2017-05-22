@@ -26,17 +26,14 @@ $link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
 //ถ้าเป็นการ Postback เพื่อส่งข้อมูลจากฟอร์มกลับเข้ามา
 if(isset($_POST['id'])) {
 	
-	//นำข้อมูลจากตัวแปร $_POST ที่เหลือมาเรียงต่อเป็นสตริงเดียวกัน โดยคั่นด้วย ', '
-	$values = implode("', '", $_POST);  //ลักษณะผลลัพธ์ เช่น a', 'b', 'c', 'd
-	
-	//ปิดหัวท้ายด้วย ' เพื่อให้ครบคู่ ลักษณะผลลัพธ์จะเป็น 'a', 'b', 'c', 'd'
-	$values = "'" . $values . "'";
-	
+	$id = $_POST['id'];
+	@$mileage = $_POST['mileage'];
 	//นำข้อมูลนั้นมาสร้างเป็น SQL ในแบบคำสั่ง REPALCE
-	$sql = "REPLACE INTO customer(id,name,lastname,birthday,email,phone,dln) VALUES($values)";
+	$sql = "UPDATE car SET mileage = $mileage WHERE id = $id";
 	$replace = mysqli_query($link, $sql);
 	if(!$replace) {
 		echo mysqli_error($link).$sql;
+		die();
 	}
 	else {
 		echo "<h3>ข้อมูลถูกบันทึกแล้ว</h3>";
@@ -44,34 +41,12 @@ if(isset($_POST['id'])) {
 	}
 }
 
-// ------------------------------------------------------------------
-//ส่วนต่อไปนี้สำหรับการเชื่อมโยงมาจากเพจแสดงข้อมูล(index.php)
-if(isset($_GET['action'])) {
-	$action = $_GET['action'];
-	
-	//ถ้าเป็นเพิ่มข้อมูล ก็ไม่ต้องทำอะไร เพื่อให้ฟอร์มนั้นว่างเปล่าสำหรับรับข้อมูลใหม่
-	if($action == "insert") {
-		$h = "เพิ่มข้อมูล";
-	}
-	//ถ้าเป็นการลบ ก็นำค่า id ไปกำหนดเป็นเงื่อนไขการลบ
-	else if($action == "delete") {
-		$id = $_GET['id'];
-		$delete = mysqli_query($link, "DELETE FROM customer WHERE id = $id");
-		if(!$delete) {
-			echo mysqli_error($link);
-		}
-		else {
-			echo "<h3>ข้อมูลถูกลบแล้ว</h3>";
-		}
- 		back();
-	}
-	//ถ้าเป็นการแก้ไขข้อมูล ต้องอ่านข้อมูลเดิมมาเติมลงในฟอร์ม
-	else if($action == "update") {		
-		$id = $_GET['id'];
-		$h = "แก้ไขข้อมูล";
-		$result = mysqli_query($link, "SELECT * FROM reservation WHERE id = $id");
-		$data = mysqli_fetch_array($result);
-	}
+if(isset($_GET['id'])) {		
+	$id = $_GET['id'];
+	$h = "แก้ไขข้อมูล";
+	$result = mysqli_query($link, "SELECT id,mileage FROM car
+										WHERE  car.id = (SELECT rental.car_id FROM rental WHERE rental.id = (SELECT rental_id FROM reservation WHERE reservation.id = $id))");
+	$data = mysqli_fetch_array($result);
 }
 function back() {
 	global $link;
@@ -86,21 +61,6 @@ mysqli_close($link);
 				<!--<h3><?php echo $h; ?></h3>-->
 				<h2>Return </h2>
 				<input name="id" value="<?php echo @$data['id']; ?>" hidden>
-				<!--<ul class="nav navbar-right panel_toolbox">
-					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Settings 1</a>
-							</li>
-							<li><a href="#">Settings 2</a>
-							</li>
-						</ul>
-					</li>
-					<li><a class="close-link"><i class="fa fa-close"></i></a>
-					</li>
-				</ul>-->
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
@@ -112,7 +72,7 @@ mysqli_close($link);
 					<div class="container" style = "margin-bottom: 20px">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Insert Mileage</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" class="form-control" name="dln" value="<?php echo @$data['mileage']; ?>">
+							<input type="text" class="form-control" name="mileage" value="<?php echo @$data['mileage']; ?>">
 						</div>
 					</div>
 

@@ -140,7 +140,7 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/Rentalservice">Home</a></li>
-                    <li><a href="/selectcar/index.html">Show Car</a></li>
+                    <li><a href="/selectcar/index.html">Select Car</a></li>
                     <li class="active"><a href="/history/index.html">History</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -446,9 +446,7 @@
                                     <form action="" method="get">
                                         <br>
                                         <div class="row form-sub">
-                                            <div class="col col-md-4 form-sub-text" >
-                                                <img src="/img/visa.png"  height="35" width="55" style = "float:left;margin-right:10px">
-                                                <img src="/img/mastercard.png"  height="35" width="55" style = "float:left">
+                                            <div class="col col-md-4 form-sub-text">
                                                 <p>Card type*</p>
                                             </div>
                                             <div class="col col-md-8 col-offset-2">

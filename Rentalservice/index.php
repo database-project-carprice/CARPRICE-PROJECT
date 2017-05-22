@@ -38,7 +38,6 @@
         <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet">
-        <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
         <!--<link rel="stylesheet" href="../Rentalservice/js/jquery-ui.min.css">-->
         <!--<script> src="/js/jquery-2.1.1.min.js" </script>-->
@@ -156,19 +155,20 @@
                                         </div>
                                     </div>
                                     <div id="Time" class="w3-container w3-white w3-padding-16 myLink tab-size">
-                                        <div class="w3-row-padding" style="margin:0 -16px;">
-                                            <h3>Select the best times!</h3>
-                                            <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
-                                            <div style="margin-top :3%">
-                                                <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" name="stime" id="stime" value="<?php echo @$_SESSION['start_time'] ?>" placeholder="Start time" autocomplete="off">
+                                            <div class="w3-row-padding" style="margin:0 -16px;">
+                                                <h3>Select the best times!</h3>
+                                                <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
+                                                <div style="margin-top :3%">
+                                                    <div class="col-md-6 offset-md-2">
+                                                        <input class="w3-input w3-border" type="text" name="stime" id="stime" value="<?php echo @$_SESSION['start_time'] ?>" placeholder="Start time" autocomplete="off">
+                                                    </div>
+                                                    <div class="col-md-6 offset-md-2">
+                                                        <input class="w3-input w3-border" type="text" name="etime" id="etime" value="<?php echo @$_SESSION['end_time'] ?>" placeholder="End time" autocomplete="off">
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" name="etime" id="etime" value="<?php echo @$_SESSION['end_time'] ?>" placeholder="End time" autocomplete="off">
-                                                </div>
+                                                <button class="w3-button w3-dark-grey" style="margin-top : 2%"  id="tsearch">Search for car </button>
                                             </div>
-                                            <button class="w3-button w3-dark-grey" style="margin-top : 2%"  id="tsearch">Search for car </button>
-                                        </div>
+                                            
                                     </div>
                                 </form>
                             </div>
@@ -306,6 +306,9 @@
             </div>
         </footer>
 
+        
+
+
         <!-- jQuery -->
         <script src="../js/jquery.js"></script>
         <!-- Bootstrap Core JavaScript -->
@@ -314,6 +317,9 @@
         <script src="../js/bootstrap3-typeahead.js"></script>
         <!-- Bootstrap-datetimepicker -->
         <script src="../js/bootstrap-datetimepicker.min.js" ></script>
+
+        
+
 
         <script>
             // Tabs
@@ -347,6 +353,15 @@
                 source: x
             });
         </script>
+
+        <script type="text/javascript">
+            $(function() {
+                $('#datetimepicker4').datetimepicker({
+                    
+                });
+            });
+        </script>
+
     </body>
 
     </html>
