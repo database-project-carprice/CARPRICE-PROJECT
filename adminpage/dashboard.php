@@ -30,7 +30,7 @@ if(isset($_GET['action'])) {
     <div class="row top_tiles">
         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="tile-stats">
-                <div class="icon"><i class="fa fa-user-circle-o"></i></div>
+                <div class="icon"><i class="fa fa-user"></i></div>
                 <div class="count"><?php echo $num_customer; ?></div>
                 <h3>New Sign ups</h3>
                 <p>Number of user today.</p>
@@ -60,8 +60,12 @@ if(isset($_GET['action'])) {
                 <p>Manage stock</p>
             </div>
         </div>
+<<<<<<< HEAD
         
+=======
+>>>>>>> origin/master
     </div>
+    <div class="x_panel">
     <div class="table-responsive">
                             <form method="post">
                             <h1>Today reservation</h1>
@@ -77,7 +81,6 @@ if(isset($_GET['action'])) {
                                         <th class="column-title">Card_type </th>
                                         <th class="column-title">Card_id</th>
                                         <th class="column-title">Status</th>
-                                        <th class="column-title">Mileage</th>
                                         <th class="column-title">Update</th>
                                         <th class="bulk-actions" colspan="7">
 
@@ -101,10 +104,14 @@ if(isset($_GET['action'])) {
                                                                 
                                                             </td>
                                                             <td>
+<<<<<<< HEAD
                                                             <input type="text" name="mileage">
                                                             </td>
                                                             <td>
                                                             <a href="index.php?action=update&id='.$data['id'].'">active</a> |
+=======
+                                                            <a href="form.php?action=update&id='.$data['id'].'">active</a> |
+>>>>>>> origin/master
                                                             <a href="formreturn.php?action=update&id='.$data['id'].'">return</a>
                                                             </td>
                                                         </td>
@@ -115,5 +122,6 @@ if(isset($_GET['action'])) {
                                 </tbody>
                             </table>
                             </form>
+                        </div>
                         </div>
 </div>

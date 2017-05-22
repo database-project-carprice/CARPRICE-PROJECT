@@ -140,8 +140,14 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/Rentalservice">Home</a></li>
+<<<<<<< HEAD
                     <li><a href="/selectcar/index.html">Select Car</a></li>
                     <li class="active"><a href="/history/index.html">History</a></li>
+=======
+                    <li><a href="/selectcar/index.html">Show Car</a></li>
+                    <li class="active"><a href="">Select Car</a></li>
+                    <li><a href="/history/index.html">History</a></li>
+>>>>>>> origin/master
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">

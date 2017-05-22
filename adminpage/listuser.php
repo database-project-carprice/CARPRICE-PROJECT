@@ -48,8 +48,12 @@ mysqli_close($link);
             <div class="clearfix"></div>
             <!---->
             <h1>User</h1>
+            
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
             <form  method="get">
                 <div class = "col-md-6">
+                    <h3> Search </h3>
                     <div class = "col-md-4 align-self-start">
                         <select class="form-control" name="c" style = "width: 150px ; float: left;">
                             <option value="id">ID</option>
@@ -66,31 +70,15 @@ mysqli_close($link);
                         <input type="text" class="form-control" name="q" autocomplete="off" style = "float:left;"><br>
                     </div>
                     <div class = "col-md-4 <align-self-start></align-self-start>">
-                        
                         <input type="submit" class="btn btn-info" value="Search">
                     </div>
                 </div>
             </form>
-            <div class="col-md-12 col-sm-12 col-xs-12">
+            </div>
                 <div class="x_panel">
                     <div class="x_title">
                         <h2><?php if(@$_GET['c'] && @$_GET['q']){ echo $_GET['c'].": ".$_GET['q']; }
                                     else echo "All customer"; ?> </h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
                         <div class="clearfix"></div>
                     </div>
 
@@ -100,8 +88,8 @@ mysqli_close($link);
 
                         <div class="table-responsive">
                             <form method="post">
-                                <button id="tmp">Delete this selected</button>
-                            <table class="table table-striped jambo_table bulk_action">
+                                <button id="tmp" class="btn btn-danger">Delete this selected</button>
+                                    <table class="table table-striped jambo_table bulk_action">
                                 <thead>
                                     <tr class="headings">
                                         <th>

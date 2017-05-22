@@ -76,6 +76,9 @@
                                 <div class="form-group " >
                                     <input autocomplete="off" type="text" name="name" placeholder="First name" class="form-username form-control " id="form-username ">
                                 </div>
+                                <div class="form-group ">
+                                    <input autocomplete="off" type="text" name="lastname" placeholder="Last name" class="form-username form-control " id="form-username ">
+                                </div>
                                 <div class = "col-md-6" style = "padding-left: 0px">
                                     <div class="form-group ">
                                         <input autocomplete="off" type="text" name="email" placeholder="Email" class="form-username form-control " id="form-username ">
@@ -85,9 +88,6 @@
                                     <div class="form-group ">
                                     <input autocomplete="off" type="text" name="phone" placeholder="Phone number" class="form-username form-control " id="form-username ">
                                     </div>
-                                </div>
-                                <div class="form-group ">
-                                    <input autocomplete="off" type="text" name="lastname" placeholder="Last name" class="form-username form-control " id="form-username ">
                                 </div>
                                 <div class="form-group ">
                                     <input autocomplete="off" type="text" name="birthday" placeholder="Brithday" class="form-username form-control " id="form-username ">
