@@ -190,6 +190,11 @@
                                                 <h4 style = "float:left;margin-right: 10px;">Card Type :</h4>
                                                 <h4><?php echo $information['card_type'] ?></h4>
                                             </div>
+                                            <div class = "col-md-12" style = "padding : 0px 0px">
+                                                <h4 style = "float:left;margin-right: 10px;">Equipment :</h4>
+                                                <h4><?php echo $information['card_type'] ?></h4>
+                                            </div>
+                                            
                                         </div>
                                         <div class="col-md-6" style="padding: 0px 0px">
                                             <div class = "col-md-12" style = "padding : 0px 0px">

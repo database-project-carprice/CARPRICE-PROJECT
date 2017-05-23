@@ -553,6 +553,9 @@
                                                     <div class = "col-md-6" style = "padding: 0px 0px">
                                                         <p>Card ID : <?php echo $_SESSION['card_id'] ?></p>
                                                     </div>
+                                                    <div class = "col-md-12" style = "padding: 0px 0px">
+                                                        <p>Equipment : <?php echo $_SESSION['card_id'] ?></p>
+                                                    </div>
                                                     <h4>Drivaer detail</h4>
                                                     <div class = "col-md-6" style = "padding: 0px 0px">
                                                         <p>Name : <?php echo $_SESSION['name'] ?></p>
