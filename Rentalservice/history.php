@@ -27,6 +27,7 @@
     include 'updateCustomerDB.php';
 
 
+
     $link = mysqli_connect("localhost", "root", "", "Car_Rental_System");
 	$sql = "SELECT rental.id,customer.name , customer.lastname , customer.birthday ,customer.email , customer.phone , customer.dln , 
                     pick_up_location.city_id AS pick_up_location , drop_off_location.city_id AS drop_off_location , 
@@ -54,10 +55,12 @@
 
     $sql = "SELECT name FROM equipment WHERE id = (SELECT equipment_id FROM car_equipment WHERE id = $last_eq)";
     $result = @mysqli_query($link, $sql);
-    while($data = mysqli_fetch_array($result)) {
-        $last_eq = $data['name'];
-	}
-    
+    if($result){
+        while($data = mysqli_fetch_array($result)) {
+            $last_eq = $data['name'];
+        }
+    }else $last_eq = 'none';
+
     $sql = "SELECT DISTINCT * FROM city WHERE id = ".$information['pick_up_location'];
     $result = @mysqli_query($link, $sql);
     while($data = mysqli_fetch_array($result)) {
