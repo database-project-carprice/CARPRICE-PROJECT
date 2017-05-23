@@ -20,6 +20,7 @@
 </head>
 <body>
 <?php
+session_start();
 $link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
  			or die(mysqli_connect_error());
 
@@ -36,13 +37,15 @@ if(isset($_POST['id'])) {
 		die();
 	}
 	else {
-		echo "<h3>ข้อมูลถูกบันทึกแล้ว</h3>";
+		echo "<h3>Success</h3>";
 		back();
 	}
 }
 
 if(isset($_GET['id'])) {		
 	$id = $_GET['id'];
+	$_SESSION['ren_id'] = $id;
+	
 	$h = "แก้ไขข้อมูล";
 	$result = mysqli_query($link, "SELECT id,mileage FROM car
 										WHERE  car.id = (SELECT rental.car_id FROM rental WHERE rental.id = (SELECT rental_id FROM reservation WHERE reservation.id = $id))");
@@ -51,7 +54,7 @@ if(isset($_GET['id'])) {
 function back() {
 	global $link;
  	mysqli_close($link);
-	exit("<p><a href=\"index.php\">ย้อนกลับ</a></p></body></html>");
+	exit("<p><a href=\"index.php?action=offline&id=".$_SESSION['ren_id']."\">back</a></p></body></html>");
 }	
 mysqli_close($link);
 ?>

@@ -1,4 +1,5 @@
 <?php 
+@session_start();
     $link = @mysqli_connect("localhost", "root", "", "Car_Rental_System")
  	or die(mysqli_connect_error()."</body></html>");
     $sql = "SELECT * FROM customer";
@@ -16,14 +17,21 @@
     date_default_timezone_set('Asia/Bangkok');
     $date = date('Y-m-d');
 
-    $sql = "SELECT * FROM reservation WHERE start_date LIKE '$date'";
+    $sql = "SELECT * FROM reservation WHERE start_date LIKE '$date' AND status != 'offline'";
     $result = mysqli_query($link, $sql);
     $num_fields = mysqli_num_fields($result);
 
-if(isset($_GET['action'])) {
+if(@$_GET['action'] == 'update') {
     $id = $_GET['id'];
 	$sql = "UPDATE reservation SET status = 'active' WHERE id = $id";
 	mysqli_query($link, $sql);
+}
+
+if(@$_GET['action'] == 'offline') {
+    $id = $_GET['id'];
+	$sql = "UPDATE reservation SET status = 'offline' WHERE id = $id";
+	mysqli_query($link, $sql);
+    
 }
 ?>
 <div class="right_col" role="main">
@@ -73,7 +81,7 @@ if(isset($_GET['action'])) {
                                         <th class="column-title">Rental_id </th>
                                         <th class="column-title">Customer_id </th>
                                         <th class="column-title">Start_date </th>
-                                        <th class="column-title">Cnd_date </th>
+                                        <th class="column-title">End_date </th>
                                         <th class="column-title">Card_type </th>
                                         <th class="column-title">Card_id</th>
                                         <th class="column-title">Status</th>
