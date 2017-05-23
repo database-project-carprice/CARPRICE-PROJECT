@@ -140,14 +140,9 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/Rentalservice">Home</a></li>
-<<<<<<< HEAD
-                    <li><a href="/selectcar/index.html">Select Car</a></li>
-                    <li class="active"><a href="/history/index.html">History</a></li>
-=======
                     <li><a href="/selectcar/index.html">Show Car</a></li>
                     <li class="active"><a href="">Select Car</a></li>
                     <li><a href="/history/index.html">History</a></li>
->>>>>>> origin/master
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -439,6 +434,22 @@
                                                     <input type="text" class="form-control" placeholder="" name="driver_license" id="dlicense" value="<?php echo @$_SESSION['dln']; ?>" autocomplete="off">
                                                 </div>
                                             </div>
+                                            <div class="row form-sub" style="padding-bottom: 20px;">
+                                                <div class="col col-md-4 form-sub-text">
+                                                    <p>Equipment*</p>
+                                                </div>
+                                                <div class="col col-md-8">
+                                                    <select class="form-control" name="c" style = "width: 100% ; float: left;">
+                                                        <option >(none)</option>
+                                                        <option value="equipment[]">Baby seat</option>
+                                                        <option value="equipment[]">GPS</option>
+                                                        <option value="equipment[]">Roof box</option>
+                                                        <option value="equipment[]">Roof rack</option>
+                                                        <option value="equipment[]">Travel trailer</option>
+                                                        <option value="equipment[]">Travel dog cage</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <ul class="list-inline pull-right">
                                                 <li><button type"submit" class="btn btn-primary ">Submit</button></li>
                                             </ul>
@@ -453,6 +464,8 @@
                                         <br>
                                         <div class="row form-sub">
                                             <div class="col col-md-4 form-sub-text">
+                                                <img src="/img/visa.png"  height="35" width="55" style = "float:left;margin-right:10px">
+                                                <img src="/img/mastercard.png"  height="35" width="55" style = "float:left">
                                                 <p>Card type*</p>
                                             </div>
                                             <div class="col col-md-8 col-offset-2">
