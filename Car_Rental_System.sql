@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 22, 2017 at 11:51 AM
+-- Generation Time: May 23, 2017 at 06:14 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -46,7 +46,7 @@ CREATE TABLE `car` (
 --
 
 INSERT INTO `car` (`id`, `category_id`, `brand`, `model`, `production_year`, `engine`, `engine_type`, `fuel`, `mileage`, `color`, `price`, `pic`) VALUES
-(10, 9, 'Koenigsegg', 'Agera R', 2014, ' 5.0', 'Turbo', 'Petrol', 0, 'White', 50, 'agera_r_01'),
+(10, 9, '2014', 'Koenigsegg', 0, ' 5.0', 'Turbo', 'Petrol', 0, 'White', 0, 'agera_r_01'),
 (11, 9, 'Lamborghini', 'Huracan', 2014, ' 5.0', 'Turbo', 'Petrol', 0, 'White', 50, 'huracan_01'),
 (12, 9, 'Lamborghini', 'Aventador', 2014, ' 6.5', 'Turbo', 'Petrol', 0, 'White', 50, 'aventador_01'),
 (13, 7, 'Nissan', 'GTR R35', 2017, ' 3.8', 'Turbo', 'Petrol', 0, 'Orange', 40, 'gtr_r35_01'),
@@ -266,7 +266,14 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `username`, `password`, `name`, `lastname`, `birthday`, `email`, `phone`, `dln`) VALUES
-(56, 'ntp', 'bright', 'ntp', 'ntp@ku.th', '0000-00-00', 'chong', '1997-03-16', '232132543455');
+(56, 'ntp', 'bright', 'ntp', 'ntp@ku.th', '1996-05-04', 'chong', '1997-03-16', '232132543455'),
+(57, 'chaptone', 'chaptone', 'Rakkan', 'Jintasatien', '1996-11-23', '0987654321', '10/04/1996', '110023881230'),
+(58, 'max', 'max', 'Patipol', 'Wangjaithum', '1996-05-12', '02345677', '8/1/1996', '7654345678765'),
+(59, 'kan', 'kan', 'Kan', 'Kamalanon', '1997-06-12', '0855422565', '29/11/1996', '8467375447289'),
+(60, 'rom', 'rom', 'Rom', 'Theto', '1996-09-26', '086535643', '1996-1-4', '538254485545'),
+(61, 'Gam', 'gam', 'Roiboon', 'boonroi', '0000-00-00', '09876543', '1996-10-25', '9876545665448'),
+(62, '', '', 'Natcharuetha', 'Srihirunwong', '1997-02-15', 'mild@hotmail.com', '097754366776', '7656789876543'),
+(63, '', '', 'Narungsak', 'Jobsri', '1997-05-29', 'job@hotmail.com', '086543234', '1234543233456');
 
 -- --------------------------------------------------------
 
@@ -284,6 +291,8 @@ CREATE TABLE `drop_off_location` (
 --
 
 INSERT INTO `drop_off_location` (`id`, `city_id`) VALUES
+(118, 11),
+(119, 11),
 (34, 24),
 (35, 24),
 (36, 24),
@@ -364,7 +373,10 @@ INSERT INTO `drop_off_location` (`id`, `city_id`) VALUES
 (106, 31),
 (107, 31),
 (108, 31),
-(114, 52);
+(114, 52),
+(115, 52),
+(116, 52),
+(117, 52);
 
 -- --------------------------------------------------------
 
@@ -378,6 +390,18 @@ CREATE TABLE `equipment` (
   `equipment_category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `equipment`
+--
+
+INSERT INTO `equipment` (`id`, `name`, `equipment_category_id`) VALUES
+(1, 'Baby seat', 1),
+(2, 'GPS', 1),
+(3, 'Roof box', 2),
+(4, 'Roof rack', 2),
+(5, 'Travel trailer', 2),
+(6, 'Travel dog cage', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -388,6 +412,14 @@ CREATE TABLE `equipment_category` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `equipment_category`
+--
+
+INSERT INTO `equipment_category` (`id`, `name`) VALUES
+(3, 'Inside'),
+(4, 'Outside');
 
 -- --------------------------------------------------------
 
@@ -406,6 +438,11 @@ CREATE TABLE `pick_up_location` (
 
 INSERT INTO `pick_up_location` (`id`, `city_id`) VALUES
 (81, 10),
+(82, 10),
+(83, 13),
+(84, 13),
+(85, 22),
+(86, 22),
 (76, 26),
 (77, 26),
 (78, 26),
@@ -512,7 +549,12 @@ INSERT INTO `rental` (`id`, `customer_id`, `car_id`, `pick_up_location_id`, `dro
 (120, 56, 12, 78, 111, '2017-05-22', '2017-05-27', ''),
 (121, 56, 12, 79, 112, '2017-05-22', '2017-05-27', ''),
 (122, 56, 12, 80, 113, '2017-05-22', '2017-05-27', ''),
-(124, 56, 13, 81, 114, '0000-00-00', '0000-00-00', '');
+(124, 56, 13, 81, 114, '0000-00-00', '0000-00-00', ''),
+(125, 56, 10, 82, 115, '0000-00-00', '0000-00-00', ''),
+(126, 56, 10, 83, 116, '2010-10-10', '2010-10-10', ''),
+(127, 56, 20, 84, 117, '2010-10-10', '2010-10-10', ''),
+(128, 56, 17, 85, 118, '0000-00-00', '0000-00-00', ''),
+(129, 56, 10, 86, 119, '0000-00-00', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -536,7 +578,11 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`id`, `rental_id`, `customer_id`, `start_date`, `end_date`, `card_type`, `card_id`, `status`) VALUES
-(79, 122, 56, 2017, 2017, 'visa', 2147483647, 'waiting');
+(79, 122, 56, 2017, 2017, 'visa', 2147483647, 'waiting'),
+(80, 126, 56, 10, 10, '1021938', 2147483647, 'waiting'),
+(81, 127, 56, 10, 10, '1021938', 2147483647, 'waiting'),
+(82, 128, 56, 10, 11, '345676545654', 2147483647, 'waiting'),
+(83, 129, 56, 10, 11, '345676545654', 2147483647, 'waiting');
 
 -- --------------------------------------------------------
 
@@ -661,37 +707,37 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `drop_off_location`
 --
 ALTER TABLE `drop_off_location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 --
 -- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `equipment_category`
 --
 ALTER TABLE `equipment_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pick_up_location`
 --
 ALTER TABLE `pick_up_location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 --
 -- AUTO_INCREMENT for table `rental`
 --
 ALTER TABLE `rental`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 --
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 --
 -- Constraints for dumped tables
 --
