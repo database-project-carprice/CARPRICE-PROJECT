@@ -144,10 +144,10 @@
                                             <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
                                             <div style="margin-top :3%">
                                                 <div class="col-md-6 offset-md-2 ">
-                                                    <input class="w3-input w3-border" type="text" id="sdate" name="sdate" value="<?php echo @$_SESSION['start_date'] ?>" placeholder="Start date" data-format="yyyy-MM-dd" autocomplete="off">
+                                                    <input class="w3-input w3-border" type="text" id="sdate" name="sdate" value="<?php echo @$_SESSION['start_date'] ?>" placeholder="Start date (YYYY-MM-DD)" data-format="yyyy-MM-dd" autocomplete="off">
                                                 </div>
                                                 <div class="col-md-6 offset-md-2">
-                                                    <input class="w3-input w3-border" type="text" id="edate" name="edate" value="<?php echo @$_SESSION['end_date'] ?>" placeholder="End date" data-format="yyyy-MM-dd" autocomplete="off">
+                                                    <input class="w3-input w3-border" type="text" id="edate" name="edate" value="<?php echo @$_SESSION['end_date'] ?>" placeholder="End date (YYYY-MM-DD)" data-format="yyyy-MM-dd" autocomplete="off">
                                                 </div>
                                                 
                                             </div>
@@ -160,10 +160,10 @@
                                                 <!--<p><span class="w3-tag w3-deep-orange">DISCOUNT!</span> Special offer if you book today: 25% off anywhere in the world with CarServiceRentalRUs</p>-->
                                                 <div style="margin-top :3%">
                                                     <div class="col-md-6 offset-md-2">
-                                                        <input class="w3-input w3-border" type="text" name="stime" id="stime" value="<?php echo @$_SESSION['start_time'] ?>" placeholder="Start time" autocomplete="off">
+                                                        <input class="w3-input w3-border" type="text" name="stime" id="stime" value="<?php echo @$_SESSION['start_time'] ?>" placeholder="Start time (24:00) " autocomplete="off">
                                                     </div>
                                                     <div class="col-md-6 offset-md-2">
-                                                        <input class="w3-input w3-border" type="text" name="etime" id="etime" value="<?php echo @$_SESSION['end_time'] ?>" placeholder="End time" autocomplete="off">
+                                                        <input class="w3-input w3-border" type="text" name="etime" id="etime" value="<?php echo @$_SESSION['end_time'] ?>" placeholder="End time (24:00)" autocomplete="off">
                                                     </div>
                                                 </div>
                                                 <button class="w3-button w3-dark-grey" style="margin-top : 2%"  id="tsearch">Search for car </button>
