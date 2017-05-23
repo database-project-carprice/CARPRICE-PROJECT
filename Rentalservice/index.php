@@ -69,7 +69,7 @@
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="">Home</a></li>
-                        <li><a href="/selectcar/index.html">Select Car</a></li>
+                        <li><a href="brand.php">Select Car</a></li>
                         <li><a href="history.php">History</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -81,7 +81,7 @@
                                 </a>
                             <ul class="dropdown-menu dropdown-lr animated fadein" role="menu">
                                 <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
-                                <li role="presentation"><a role="menuitem" href="#">History</a></li>
+                                <li role="presentation"><a role="menuitem" href="history.php">History</a></li>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation"><a role="menuitem" href="?action=logout">Logout</a></li>
                             </ul>

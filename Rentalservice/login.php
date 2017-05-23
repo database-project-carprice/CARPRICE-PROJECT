@@ -3,7 +3,7 @@ if(@$_GET["login"] == "fail") {
 	$fail = '<font color="red">Invalid username or password.</font>';
 	
 }
-if(@$_GET["loginas"] == "admin") {
+if(@$_GET['log'] == "admin") {
 	header("Location: ../adminpage/index.php");
 }
 

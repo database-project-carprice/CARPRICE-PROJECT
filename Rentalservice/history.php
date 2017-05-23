@@ -23,13 +23,16 @@
     
     include 'insertIntoRentalDB.php';
     include 'insertIntoReservationDB.php';
-    // include 'updateCustomerDB.php';
+    include 'insertCarEquipment.php';
+    include 'updateCustomerDB.php';
+
+
 
     $link = mysqli_connect("localhost", "root", "", "Car_Rental_System");
 	$sql = "SELECT rental.id,customer.name , customer.lastname , customer.birthday ,customer.email , customer.phone , customer.dln , 
                     pick_up_location.city_id AS pick_up_location , drop_off_location.city_id AS drop_off_location , 
                     rental.start_date, rental.end_date , car.brand , car.model , car.production_year , car.engine , 
-                    car.engine_type , car.fuel ,
+                    car.engine_type , car.fuel , car.price ,
                     car.mileage , car.color , car.pic , reservation.card_type , reservation.card_id
             FROM rental
             LEFT JOIN customer 
@@ -49,7 +52,15 @@
         $information = $data;
 	}
     $pic =  explode('-',$information['pic']);
-    
+
+    $sql = "SELECT name FROM equipment WHERE id = (SELECT equipment_id FROM car_equipment WHERE id = $last_eq)";
+    $result = @mysqli_query($link, $sql);
+    if($result){
+        while($data = mysqli_fetch_array($result)) {
+            $last_eq = $data['name'];
+        }
+    }else $last_eq = 'none';
+
     $sql = "SELECT DISTINCT * FROM city WHERE id = ".$information['pick_up_location'];
     $result = @mysqli_query($link, $sql);
     while($data = mysqli_fetch_array($result)) {
@@ -169,7 +180,7 @@
                                     <li> Mileage : '.$information['mileage'].'  </li>
                                     <li> Color : '.$information['color'].'  </li>';
                                 ?>
-                                <h2 class="price">$29,90</h2>
+                                <h2 class="price">$<?php echo $information['price'] ?></h2>
                             </div>
                             <div class="col-md-8">
                                 <div class="clearfix ">
@@ -192,9 +203,8 @@
                                             </div>
                                             <div class = "col-md-12" style = "padding : 0px 0px">
                                                 <h4 style = "float:left;margin-right: 10px;">Equipment :</h4>
-                                                <h4><?php echo $information['card_type'] ?></h4>
+                                                <h4><?php echo $last_eq ?></h4>
                                             </div>
-                                            
                                         </div>
                                         <div class="col-md-6" style="padding: 0px 0px">
                                             <div class = "col-md-12" style = "padding : 0px 0px">
