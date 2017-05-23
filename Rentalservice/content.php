@@ -26,7 +26,7 @@
         $_SESSION['car_id'] = $_GET['select'];
     } 
 
-    if(@$_GET['name'] && @$_GET['lastname'] && @$_GET['birth_day'] && @$_GET['email'] && @$_GET['phone_number'] && @$_GET['driver_license']){
+    if(@$_GET['name'] && @$_GET['lastname'] && @$_GET['birth_day'] && @$_GET['email'] && @$_GET['phone_number'] && @$_GET['driver_license'] && @$_GET['equipment']){
         $thirdPage = true;
         $_SESSION['name'] = $_GET['name'];
         $_SESSION['lastname'] = $_GET['lastname'];
@@ -34,6 +34,7 @@
         $_SESSION['email'] = $_GET['email'];
         $_SESSION['phone'] = $_GET['phone_number'];
         $_SESSION['dln'] = $_GET['driver_license'];
+        $_SESSION['equipment'] = implode('',$_GET['equipment']);
     }
     if(@$_GET['card_type'] && @$_GET['card_id']){
         $fouthPage = true;
@@ -96,6 +97,7 @@
         $cFuel[$rows] = $data['fuel'];
         $cMile[$rows] = $data['mileage'];
         $cColor[$rows] = $data['color'];
+        $cPrice[$rows] = $data['price'];
         $cPic[$rows] = explode('-',$data['pic']);
         $rows++;
 	}
@@ -366,7 +368,7 @@
                                                                         <li> Mileage : '.$cMile[$i].'  </li>
                                                                         <li> Color : '.$cColor[$i].'  </li>
                                                                         <hr class="line">
-                                                                        <p class="price">$29,90</p>
+                                                                        <p class="price">$'.$cPrice[$i].'</p>
                                                                         <ul class="list-inline pull-right">
                                                                             <li><a class="btn btn-primary " href="content.php?content=step2&select='.$cId[$i].'" >CHOOSE THIS CAR</a></li>
                                                                         </ul>
@@ -439,14 +441,14 @@
                                                     <p>Equipment*</p>
                                                 </div>
                                                 <div class="col col-md-8">
-                                                    <select class="form-control" name="c" style = "width: 100% ; float: left;">
+                                                    <select class="form-control" name="equipment[]" style = "width: 100% ; float: left;">
                                                         <option >(none)</option>
-                                                        <option value="equipment[]">Baby seat</option>
-                                                        <option value="equipment[]">GPS</option>
-                                                        <option value="equipment[]">Roof box</option>
-                                                        <option value="equipment[]">Roof rack</option>
-                                                        <option value="equipment[]">Travel trailer</option>
-                                                        <option value="equipment[]">Travel dog cage</option>
+                                                        <option name="equipment[]" value="Baby seat" >Baby seat</option>
+                                                        <option name="equipment[]" value="GPS" >GPS</option>
+                                                        <option name="equipment[]" value="Roof box" >Roof box</option>
+                                                        <option name="equipment[]" value="Roof rack" >Roof rack</option>
+                                                        <option name="equipment[]" value="Travel trailer " >Travel trailer</option>
+                                                        <option name="equipment[]" value="Travel dog cage" >Travel dog cage</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -532,7 +534,7 @@
                                                     <li> Color : '.$cColor[1].'  </li>';
                                                     ?>
                                                     <hr class="line" style = "margin-bottom:20px">
-                                                    <p class="price">$29,90</p>
+                                                    <p class="price">$<?php echo $cPrice[1] ?></p>
                                                     <hr class="line">
                                                     <h4>Rental detail</h4>
                                                     <div class = "col-md-6" style = "padding: 0px 0px">
@@ -554,7 +556,7 @@
                                                         <p>Card ID : <?php echo $_SESSION['card_id'] ?></p>
                                                     </div>
                                                     <div class = "col-md-12" style = "padding: 0px 0px">
-                                                        <p>Equipment : <?php echo $_SESSION['card_id'] ?></p>
+                                                        <p>Equipment : <?php echo $_SESSION['equipment'] ?></p>
                                                     </div>
                                                     <h4>Drivaer detail</h4>
                                                     <div class = "col-md-6" style = "padding: 0px 0px">
