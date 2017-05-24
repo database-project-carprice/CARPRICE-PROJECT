@@ -324,23 +324,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <h4 class="panel-title">
-                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Transmission</a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapseThree" class="panel-collapse collapse">
-                                                        <div class="panel-body">
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="Tran[]" value="Auto">Auto</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="Tran[]" value="Manual">Manual</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <br>
                                                 <button class="btn btn-success right"> Find</button>
                                                 <br>
