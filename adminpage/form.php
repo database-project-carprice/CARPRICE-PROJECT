@@ -39,7 +39,7 @@ if(isset($_POST['id'])) {
 		echo mysqli_error($link).$sql;
 	}
 	else {
-		echo "<h3>ข้อมูลถูกบันทึกแล้ว</h3>";
+		echo "<h3>Success</h3>";
 		back();
 	}
 }
@@ -61,7 +61,7 @@ if(isset($_GET['action'])) {
 			echo mysqli_error($link);
 		}
 		else {
-			echo "<h3>ข้อมูลถูกลบแล้ว</h3>";
+			echo "<h3>back</h3>";
 		}
  		back();
 	}
