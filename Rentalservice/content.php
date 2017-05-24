@@ -154,7 +154,6 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-lr animated fadein" role="menu">
-                            <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
                             <li role="presentation"><a role="menuitem" href="#">History</a></li>
                             <li role="presentation" class="divider"></li>
                             <li role="presentation"><a role="menuitem" href="?action=logout">Logout</a></li>
