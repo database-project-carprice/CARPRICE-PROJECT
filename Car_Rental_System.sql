@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 24, 2017 at 06:01 AM
+-- Generation Time: May 24, 2017 at 07:19 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -284,7 +284,8 @@ INSERT INTO `customer` (`id`, `username`, `password`, `name`, `lastname`, `birth
 (67, 'rakkan', 'rakkan', 'Rakkan', 'Jintasatien', '1997-03-16', 'rakkan.j@ku.th', '0867534567', '4563765412'),
 (68, 'jab', 'jab', 'Settapong', 'Pluemlue', '1996-08-15', 'settapong.p@ku.th', '0908764562', '3344567987'),
 (69, 'max', 'max', 'Patipol', 'Whangjaithum', '1996-09-13', 'patipol.w@ku.th', '0872243576', '6655712345'),
-(70, 'stang', 'stang', 'Khanuchchon', 'Amawong', '1997-06-23', 'khanuchchon.a@ku.th', '0893345587', '9976523414');
+(70, 'stang', 'stang', 'Khanuchchon', 'Amawong', '1997-06-23', 'khanuchchon.a@ku.th', '0893345587', '9976523414'),
+(71, 'nui', 'nui', 'Nui', 'EiEi', '1996-04-17', 'nui.e@ku.th', '08765456623', '1231232345523');
 
 -- --------------------------------------------------------
 
@@ -755,20 +756,20 @@ INSERT INTO `reservation` (`id`, `rental_id`, `customer_id`, `start_date`, `end_
 (103, 149, 67, '0000-00-00', '0000-00-00', 'Mastercard', 2147483647, 'waiting'),
 (104, 150, 67, '0000-00-00', '0000-00-00', 'Mastercard', 2147483647, 'waiting'),
 (105, 151, 67, '0000-00-00', '0000-00-00', 'Mastercard', 2147483647, 'waiting'),
-(106, 152, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
+(106, 152, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'offline'),
 (107, 153, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
 (108, 154, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
-(109, 155, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
-(110, 156, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
-(111, 157, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
-(112, 158, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
-(113, 159, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
-(114, 160, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
-(115, 161, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
-(116, 162, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
+(109, 155, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
+(110, 156, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'offline'),
+(111, 157, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
+(112, 158, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
+(113, 159, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
+(114, 160, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
+(115, 161, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'offline'),
+(116, 162, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
 (117, 163, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
-(118, 164, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
-(119, 165, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
+(118, 164, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
+(119, 165, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'active'),
 (120, 166, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
 (121, 167, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
 (122, 168, 67, '2017-05-24', '2017-05-25', 'Mastercard', 2147483647, 'waiting'),
@@ -926,7 +927,7 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT for table `drop_off_location`
 --
