@@ -33,7 +33,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/selectcar.css"></link>
+    <link rel="stylesheet" type="text/css" href="../css/selectbrand.css"></link>
 
     <!-- Custom Fonts -->
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -103,21 +103,14 @@
             <div class="col-sm-4">
                 <div class="thumbnail">
                     <a href="../Rentalservice/history.php">
-                        <div class="panel-body image"><img src="img/logo-honda.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                        <div class="panel-body image"><img src="img/logo-koenigsegg.png" class="img-responsive" style="width:100%" alt="Image"></div>
                     </a>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
                     <a href="../Rentalservice/history.php">
-                        <div class="panel-body image"><img src="img/logo-nissan.png" class="img-responsive" style="width:100%" alt="Image"></div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="thumbnail">
-                    <a href="../Rentalservice/history.php">
-                        <div class="panel-body image"><img src="img/logo-mazda.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                        <div class="panel-body image"><img src="img/logo-lamborghini.png" class="img-responsive" style="width:100%" alt="Image"></div>
                     </a>
                 </div>
             </div>
@@ -132,6 +125,41 @@
                 <div class="thumbnail">
                     <a href="../Rentalservice/history.php">
                         <div class="panel-body image"><img src="img/logo-bmw.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <a href="../Rentalservice/history.php">
+                        <div class="panel-body image"><img src="img/logo-honda.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <a href="../Rentalservice/history.php">
+                        <div class="panel-body image"><img src="img/logo-toyota.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <a href="../Rentalservice/history.php">
+                        <div class="panel-body image"><img src="img/logo-nissan.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <a href="../Rentalservice/history.php">
+                        <div class="panel-body image"><img src="img/logo-ford.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <a href="../Rentalservice/history.php">
+                        <div class="panel-body image"><img src="img/logo-mazda.png" class="img-responsive" style="width:100%" alt="Image"></div>
                     </a>
                 </div>
             </div>

@@ -142,7 +142,7 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/Rentalservice">Home</a></li>
-                    <li><a href="/selectcar/index.html">Show Car</a></li>
+                    <!--<li><a href="/Rentalservice/brand.php">Show Car</a></li>-->
                     <li class="active"><a href="">Select Car</a></li>
                     <li><a href="/history/index.html">History</a></li>
                 </ul>
@@ -263,6 +263,18 @@
                                                     <div id="collapseOne" class="panel-collapse collapse in">
                                                         <div class="panel-body">
                                                             <div class="checkbox-position">
+                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Koenigsegg">Koenigsegg</label>
+                                                            </div>
+                                                            <div class="checkbox-position">
+                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Lamborghini">Lamborghini</label>
+                                                            </div>
+                                                            <div class="checkbox-position">
+                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Bmw">BMW</label>
+                                                            </div>
+                                                            <div class="checkbox-position">
+                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Benz">Benz</label>
+                                                            </div>
+                                                            <div class="checkbox-position">
                                                                 <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Honda">Honda</label>
                                                             </div>
                                                             <div class="checkbox-position">
@@ -273,12 +285,6 @@
                                                             </div>
                                                             <div class="checkbox-position">
                                                                 <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Ford">Ford</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Bmw">BMW</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="brand[]" value="Benz">Benz</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -292,19 +298,28 @@
                                                     <div id="collapseTwo" class="panel-collapse collapse">
                                                         <div class="panel-body">
                                                             <div class="checkbox-position">
+                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Supercar">Supercar</label>
+                                                            </div>
+                                                            <div class="checkbox-position">
+                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Sport">Sport</label>
+                                                            </div>
+                                                            <div class="checkbox-position">
                                                                 <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Sedan">Sedan</label>
                                                             </div>
                                                             <div class="checkbox-position">
                                                                 <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Hatchback">Hatchback</label>
                                                             </div>
                                                             <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Crossover">Crossover</label>
-                                                            </div>
-                                                            <div class="checkbox-position">
-                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="MVP">MVP</label>
+                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="PPV">PPV</label>
                                                             </div>
                                                             <div class="checkbox-position">
                                                                 <label class="checkbox-inline"><input type="checkbox" name="type[]" value="SUV">SUV</label>
+                                                            </div>
+                                                            <div class="checkbox-position">
+                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Pick-up">Pick-up</label>
+                                                            </div>
+                                                            <div class="checkbox-position">
+                                                                <label class="checkbox-inline"><input type="checkbox" name="type[]" value="Pick-up">Van</label>
                                                             </div>
                                                         </div>
                                                     </div>

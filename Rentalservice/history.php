@@ -123,7 +123,7 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/Rentalservice">Home</a></li>
-                    <li><a href="/selectcar/index.html">Select Car</a></li>
+                    <!--<li><a href="/Rentalservice/brand.php">Select Car</a></li>-->
                     <li class="active"><a href="/history/index.html">History</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
