@@ -82,7 +82,7 @@ if(@$_GET['log'] == "admin") {
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-sm-6 col-sm-offset-3 social-login ">
+                    <!--<div class="col-sm-6 col-sm-offset-3 social-login ">
                         <div class="social-login-buttons ">
                             <a class="btn btn-link-2 " href="# ">
                                 <i class="fa fa-facebook "></i> Facebook
@@ -94,7 +94,7 @@ if(@$_GET['log'] == "admin") {
                                 <i class="fa fa-google-plus "></i> Google Plus
                             </a>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
